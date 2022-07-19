@@ -7,7 +7,6 @@ def solution(id_list, report, k):
     import re
     
     answer = []
-    N = len(id_list)
     report = list(set(report))
     id_dic = {}
     for id in id_list:
