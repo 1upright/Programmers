@@ -29,3 +29,26 @@ def solution(id_list, report, k):
     return answer
 ```
 
+
+
+## 로또의 최고 순위와 최저 순위
+
+```python
+def solution(lottos, win_nums):
+    answer = []
+    min_cnt = 0
+    mystery = 0
+    
+    for num in lottos:
+        if num in win_nums:
+            min_cnt += 1
+        if not num:
+            mystery += 1
+    
+    rank = [6, 6, 5, 4, 3, 2, 1]
+    answer.append(rank[min_cnt+mystery])
+    answer.append(rank[min_cnt])
+    
+    return answer
+```
+
