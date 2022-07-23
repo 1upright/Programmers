@@ -129,3 +129,41 @@ def solution(s):
     return answer
 ```
 
+
+
+## 키패드 누르기
+
+```python
+def solution(numbers, hand):
+    answer = ''
+    keypad = [(3, 1), (0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]
+    now = [(3, 0), (3, 2)]
+    
+    for n in numbers:
+        x, y = keypad[n]
+        if n in [1, 4, 7]:
+            answer += 'L'
+            now[0] =(x, y)
+        elif n in [3, 6, 9]:
+            answer += 'R'
+            now[1] = (x, y)
+        else:
+            left = abs(now[0][0]-x)+abs(now[0][1]-y)
+            right = abs(now[1][0]-x)+abs(now[1][1]-y)
+            if left < right:
+                answer += 'L'
+                now[0] = (x, y)
+            elif left > right:
+                answer += 'R'
+                now[1] = (x, y)
+            else:
+                if hand == 'left':
+                    answer += 'L'
+                    now[0] = (x, y)
+                else:
+                    answer += 'R'
+                    now[1] = (x, y)
+    
+    return answer
+```
+
