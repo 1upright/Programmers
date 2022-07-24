@@ -167,3 +167,27 @@ def solution(numbers, hand):
     return answer
 ```
 
+
+
+## 크레인 인형뽑기 게임
+
+```python
+def solution(board, moves):
+    answer = 0
+    N = len(board)
+    
+    s = []
+    for x in moves:
+        for i in range(N):
+            if board[i][x-1]:
+                tmp = board[i][x-1]
+                if s and s[-1] == tmp:
+                    s.pop()
+                    answer += 2
+                else:
+                    s.append(tmp)
+                board[i][x-1] = 0
+                break
+    return answer
+```
+
