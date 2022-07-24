@@ -191,3 +191,12 @@ def solution(board, moves):
     return answer
 ```
 
+
+
+## 없는 숫자 더하기
+
+```python
+def solution(numbers):
+    return 45 - sum(numbers)
+```
+
