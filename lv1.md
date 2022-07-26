@@ -200,3 +200,19 @@ def solution(numbers):
     return 45 - sum(numbers)
 ```
 
+
+
+## 음양 더하기
+
+```python
+def solution(absolutes, signs):
+    N = len(absolutes)
+    answer = 0
+    for i in range(N):
+        if signs[i]:
+            answer += absolutes[i]
+        else:
+            answer -= absolutes[i]
+    return answer
+```
+
