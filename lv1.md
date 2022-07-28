@@ -225,3 +225,21 @@ def solution(a, b):
     return sum(a[i]*b[i] for i in range(len(a)))
 ```
 
+
+
+## 소수 만들기
+
+```python
+from itertools import combinations
+
+def solution(nums):
+    answer = 0
+    for combi in combinations(nums, 3):
+        x = sum(combi)
+        for i in range(2, int(x**0.5)+1):
+            if not x%i: break
+        else:
+            answer += 1
+    return answer
+```
+
