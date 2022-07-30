@@ -256,3 +256,13 @@ def solution(participant, completion):
             return participant[i]
     return participant[-1]
 ```
+
+
+
+## 폰켓몬
+
+```python
+def solution(nums):
+    return min(len(nums)//2, len(set(nums)))
+```
+
