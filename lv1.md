@@ -266,3 +266,11 @@ def solution(nums):
     return min(len(nums)//2, len(set(nums)))
 ```
 
+
+
+## K번째 수
+
+```python
+def solution(array, commands):
+    return [sorted(array[com[0]-1:com[1]])[com[2]-1] for com in commands]
+```
