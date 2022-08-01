@@ -274,3 +274,30 @@ def solution(nums):
 def solution(array, commands):
     return [sorted(array[com[0]-1:com[1]])[com[2]-1] for com in commands]
 ```
+
+
+
+## 모의고사
+
+```python
+def solution(answers):
+    x1 = [1, 2, 3, 4, 5]
+    x2 = [2, 1, 2, 3, 2, 4, 2, 5]
+    x3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
+    check = [0, 0, 0]
+    answer = []
+    
+    for i in range(len(answers)):
+        if x1[i%5] == answers[i]:
+            check[0] += 1
+        if x2[i%8] == answers[i]:
+            check[1] += 1
+        if x3[i%10] == answers[i]:
+            check[2] += 1
+    
+    for i in range(3):
+        if check[i] == max(check):
+            answer.append(i+1)
+    return answer
+```
+
