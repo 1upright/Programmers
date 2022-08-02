@@ -301,3 +301,24 @@ def solution(answers):
     return answer
 ```
 
+
+
+## 체육복
+
+```python
+def solution(n, lost, reserve):
+    real_lost = set(lost)-set(reserve)
+    real_reserve = set(reserve)-set(lost)
+    
+    for l in real_lost:
+        for r in real_reserve:
+            if l == r+1:
+                real_reserve.remove(r)
+                break
+            if l == r-1:
+                real_reserve.remove(r)
+                break
+        else:
+            n -= 1
+    return n
+```
