@@ -322,3 +322,29 @@ def solution(n, lost, reserve):
             n -= 1
     return n
 ```
+
+
+
+## 실패율
+
+```python
+def solution(N, stages):
+    answer = []
+    check = [[0, 0] for _ in range(N)]
+    for i in range(len(stages)):
+        s = stages[i]
+        x = y = 0
+        for j in range(s-1):
+            check[j][0] += 1
+        if s > N:
+            s -= 1
+        for j in range(s):
+            check[j][1] += 1
+    for i in range(len(check)):
+        x = check[i][0]
+        y = check[i][1]
+        answer.append([(y-x)/y, i+1])
+    answer.sort(key=lambda x : -x[0])
+    answer = [answer[i][1] for i in range(N)]
+    return answer
+```
