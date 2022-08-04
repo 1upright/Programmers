@@ -329,22 +329,35 @@ def solution(n, lost, reserve):
 
 ```python
 def solution(N, stages):
-    answer = []
-    check = [[0, 0] for _ in range(N)]
-    for i in range(len(stages)):
-        s = stages[i]
-        x = y = 0
-        for j in range(s-1):
-            check[j][0] += 1
-        if s > N:
-            s -= 1
-        for j in range(s):
-            check[j][1] += 1
-    for i in range(len(check)):
-        x = check[i][0]
-        y = check[i][1]
-        answer.append([(y-x)/y, i+1])
-    answer.sort(key=lambda x : -x[0])
-    answer = [answer[i][1] for i in range(N)]
-    return answer
+    res = {}
+    k = len(stages)
+    for i in range(1, N+1):
+        if k:
+            cnt = stages.count(i)
+            res[i] = cnt/k
+            k -= cnt
+        else:
+            res[i] = 0
+    return sorted(res, key=lambda x: -res[x])
 ```
+
+
+
+## 약수의 개수와 덧셈
+
+```python
+def solution(left, right):
+    answer = 0
+    for i in range(left, right+1):
+        cnt = 0
+        for j in range(1, i+1):
+            if not i%j:
+                cnt += 1
+        answer += -i if cnt%2 else i
+    return answer
+
+# 숏코딩
+def solution(left, right):
+    return sum([-x if int(x**0.5)==x**0.5 else x for x in range(left, right+1)])
+```
+
