@@ -361,3 +361,15 @@ def solution(left, right):
     return sum([-x if int(x**0.5)==x**0.5 else x for x in range(left, right+1)])
 ```
 
+
+
+## 3진법 뒤집기
+
+```python
+def solution(n):
+    answer = ''
+    while n > 0:
+        n, r = divmod(n, 3)
+        answer += str(r)
+    return int(answer, 3)
+```
