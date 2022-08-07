@@ -384,3 +384,17 @@ def solution(d, budget):
     while budget < sum(d): d.pop()
     return len(d)
 ```
+
+
+
+## 두 개 뽑아서 더하기
+
+```python
+from itertools import combinations
+
+def solution(numbers):
+    answer = set()
+    for combi in combinations(numbers, 2):
+        answer.add(sum(combi))    
+    return sorted(list(answer))
+```
