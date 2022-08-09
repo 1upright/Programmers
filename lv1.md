@@ -398,3 +398,13 @@ def solution(numbers):
         answer.add(sum(combi))    
     return sorted(list(answer))
 ```
+
+
+
+## 2016년
+
+```python
+from datetime import datetime, date
+def solution(a, b): return ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'][date(2016, a, b).weekday()]
+```
+
