@@ -408,3 +408,17 @@ from datetime import datetime, date
 def solution(a, b): return ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'][date(2016, a, b).weekday()]
 ```
 
+
+
+## 최소 직사각형
+
+```python
+def solution(sizes):
+    w = h = 0
+    for size in sizes:
+        if w < max(size):
+            w = max(size)
+        if h < min(size):
+            h = min(size)
+    return w*h
+```
