@@ -422,3 +422,15 @@ def solution(sizes):
             h = min(size)
     return w*h
 ```
+
+
+
+## 나머지가 1이 되는 수 찾기
+
+```python
+def solution(n):
+    for i in range(2, n+1):
+        if not (n-1)%i:
+            return i
+```
+
