@@ -434,3 +434,12 @@ def solution(n):
             return i
 ```
 
+
+
+## 부족한 금액 계산하기
+
+```python
+def solution(price, money, count):
+    return max(price*sum(range(count+1))-money, 0)
+```
+
