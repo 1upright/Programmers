@@ -443,3 +443,13 @@ def solution(price, money, count):
     return max(price*sum(range(count+1))-money, 0)
 ```
 
+
+
+## 가운데 글자 가져오기
+
+```python
+def solution(s):
+    N = len(s)
+    return s[N//2:N//2+1] if N%2 else s[N//2-1:N//2+1]
+```
+
