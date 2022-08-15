@@ -453,3 +453,25 @@ def solution(s):
     return s[N//2:N//2+1] if N%2 else s[N//2-1:N//2+1]
 ```
 
+
+
+## 비밀지도
+
+```python
+def solution(n, arr1, arr2):
+    arr3 = [list(bin(x)[2:].zfill(n)) for x in arr1]
+    arr4 = [list(bin(x)[2:].zfill(n)) for x in arr2]
+    tmp = [[' ']*n for _ in range(n)]
+    
+    for i in range(n):
+        for j in range(n):
+            if arr3[i][j] == '1' or arr4[i][j] == '1':
+                tmp[i][j] = '#'
+    
+    answer = []        
+    for l in tmp:
+        answer.append(''.join(map(str, l)))
+
+    return answer
+```
+
