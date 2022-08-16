@@ -475,3 +475,33 @@ def solution(n, arr1, arr2):
     return answer
 ```
 
+
+
+## 다트 게임
+
+```python
+def solution(dartResult):
+    dartResult = dartResult.replace('10', 'X')
+    dic = {'S' : 1, 'D' : 2, 'T' : 3}
+    s = []
+    
+    for x in dartResult:
+        if '0'<=x<='9':
+            s.append(int(x))
+        elif x == 'X':
+            s.append(10)
+        elif x in ['S', 'D', 'T']:
+            y = s.pop()
+            s.append(y**dic[x])
+        elif x == '*':
+            y = s.pop()
+            if s:
+                z = s.pop()
+                s.append(z*2)
+            s.append(y*2)
+        elif x == '#':
+            y = s.pop()
+            s.append(y*(-1))
+
+    return sum(s)
+```
