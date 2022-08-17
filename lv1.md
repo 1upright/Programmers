@@ -505,3 +505,14 @@ def solution(dartResult):
 
     return sum(s)
 ```
+
+
+
+## 나누어 떨어지는 숫자 배열
+
+```python
+def solution(arr, divisor):
+    answer = sorted([x for x in arr if not x%divisor])
+    return answer if answer else [-1]
+```
+
