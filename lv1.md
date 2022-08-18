@@ -516,3 +516,12 @@ def solution(arr, divisor):
     return answer if answer else [-1]
 ```
 
+
+
+## 두 정수 사이의 합
+
+```python
+def solution(a, b):
+    return sum(range(min(a, b), max(a, b)+1))
+```
+
