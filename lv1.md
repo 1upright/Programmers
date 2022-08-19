@@ -525,3 +525,12 @@ def solution(a, b):
     return sum(range(min(a, b), max(a, b)+1))
 ```
 
+
+
+## 문자열 내 마음대로 정렬하기
+
+```python
+def solution(strings, n):
+    return sorted(sorted(strings), key=lambda x: x[n])
+```
+
