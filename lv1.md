@@ -534,3 +534,12 @@ def solution(strings, n):
     return sorted(sorted(strings), key=lambda x: x[n])
 ```
 
+
+
+## 문자열 내 p와 y의 개수
+
+```python
+def solution(s):
+    return not bool(s.count('p')+s.count('P')-s.count('y')-s.count('Y'))
+```
+
