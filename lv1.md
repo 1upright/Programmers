@@ -552,3 +552,12 @@ def solution(s):
     return "".join(sorted(s, reverse=True))
 ```
 
+
+
+## 문자열 다루기 기본
+
+```python
+def solution(s):
+    return (len(s) == 4 or len(s) == 6) and s.isdigit()
+```
+
