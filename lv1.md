@@ -561,3 +561,12 @@ def solution(s):
     return (len(s) == 4 or len(s) == 6) and s.isdigit()
 ```
 
+
+
+## 서울에서 김서방 찾기
+
+```python
+def solution(seoul):
+    return f'김서방은 {seoul.index("Kim")}에 있다'
+```
+
