@@ -570,3 +570,27 @@ def solution(seoul):
     return f'김서방은 {seoul.index("Kim")}에 있다'
 ```
 
+
+
+## 소수 찾기
+
+```python
+# 내 풀이(효율성 3/4)
+def solution(n):
+    cnt = 0
+    for x in range(2, n+1):
+        for i in range(2, int(x**0.5)+1):
+            if not x%i: break
+        else:
+            cnt += 1
+    return cnt
+
+# 다른 사람의 풀이 - 에라스토테네스의 체
+def solution(n):
+    nums = set(range(2, n+1))
+    for x in range(2, n+1):
+        if x in nums:
+            nums -= set(range(x*2, n+1, x))
+    return len(nums)
+```
+
