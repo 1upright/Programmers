@@ -594,3 +594,12 @@ def solution(n):
     return len(nums)
 ```
 
+
+
+## 수박수박수박수박수박수?
+
+```python
+def solution(n):
+    return '수박'*(n//2) + '수'*(n%2)
+```
+
