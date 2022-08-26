@@ -611,3 +611,19 @@ def solution(n):
 def solution(s): return int(s)
 ```
 
+
+
+## 시저 암호
+
+```python
+def solution(s, n):
+    answer = ''
+    for x in s:
+        if x == ' ':
+            answer += ' '
+            continue
+        v = ord(x)
+        w = v+n-26 if (65<=v<91 and v+n>=91) or (97<=v<123 and v+n>=123) else v+n
+        answer += chr(w)
+    return answer
+```
