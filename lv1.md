@@ -627,3 +627,17 @@ def solution(s, n):
         answer += chr(w)
     return answer
 ```
+
+
+
+## 약수의 합
+
+```python
+def solution(n):
+    answer = 0
+    for x in range(1, n+1):
+        if not n%x:
+            answer += x
+    return answer
+```
+
