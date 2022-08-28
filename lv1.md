@@ -641,3 +641,18 @@ def solution(n):
     return answer
 ```
 
+
+
+## 이상한 문자 만들기
+
+```python
+def solution(s):
+    answer = ''
+    words = s.split(' ')
+    for word in words:
+        for i in range(len(word)):
+            answer += word[i].lower() if i%2 else word[i].upper()
+        answer += ' '
+    return answer[:-1]
+```
+
