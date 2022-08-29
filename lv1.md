@@ -656,3 +656,12 @@ def solution(s):
     return answer[:-1]
 ```
 
+
+
+## 자릿수 더하기
+
+```python
+def solution(n):
+    return sum(int(x) for x in list(str(n)))
+```
+
