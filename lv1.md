@@ -665,3 +665,11 @@ def solution(n):
     return sum(int(x) for x in list(str(n)))
 ```
 
+
+
+## 자연수 뒤집어 배열로 만들기
+
+```python
+def solution(n):
+    return [int(x) for x in reversed(list(str(n)))]
+```
