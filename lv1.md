@@ -673,3 +673,12 @@ def solution(n):
 def solution(n):
     return [int(x) for x in reversed(list(str(n)))]
 ```
+
+
+
+## 정수 내림차순으로 배치하기
+
+```python
+def solution(n):
+    return int("".join(sorted(list(str(n)), reverse=True)))
+```
