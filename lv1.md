@@ -682,3 +682,12 @@ def solution(n):
 def solution(n):
     return int("".join(sorted(list(str(n)), reverse=True)))
 ```
+
+
+
+## 정수 제곱근 판별
+
+```python
+def solution(n):
+    return int((n**0.5+1)**2) if int(n**0.5) == n**0.5 else -1
+```
