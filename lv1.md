@@ -691,3 +691,13 @@ def solution(n):
 def solution(n):
     return int((n**0.5+1)**2) if int(n**0.5) == n**0.5 else -1
 ```
+
+
+
+## 제일 작은 수 제거하기
+
+```python
+def solution(arr):
+    arr.remove(min(arr))
+    return arr if arr else [-1]
+```
