@@ -701,3 +701,13 @@ def solution(arr):
     arr.remove(min(arr))
     return arr if arr else [-1]
 ```
+
+
+
+## 짝수와 홀수
+
+```python
+def solution(num):
+    return "Odd" if num%2 else "Even"
+```
+
