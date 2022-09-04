@@ -711,3 +711,14 @@ def solution(num):
     return "Odd" if num%2 else "Even"
 ```
 
+
+
+## 최대공약수와 최소공배수
+
+```python
+def solution(n, m):
+    x, y = n, m
+    while y > 0: x, y = y, x%y
+    return [x, n*m//x]
+```
+
