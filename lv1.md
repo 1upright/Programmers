@@ -750,3 +750,11 @@ def solution(arr):
     return sum(arr)/len(arr)
 ```
 
+
+
+## 하샤드 수
+
+```python
+def solution(x):
+    return not x % sum(int(y) for y in str(x))
+```
