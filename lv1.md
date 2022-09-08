@@ -758,3 +758,13 @@ def solution(arr):
 def solution(x):
     return not x % sum(int(y) for y in str(x))
 ```
+
+
+
+## x만큼 간격이 있는 n개의 숫자
+
+```python
+def solution(x, n):
+    return [x+x*i for i in range(n)]
+```
+
