@@ -768,3 +768,13 @@ def solution(x, n):
     return [x+x*i for i in range(n)]
 ```
 
+
+
+## 직사각형 별찍기
+
+```python
+a, b = map(int, input().strip().split(' '))
+for i in range(b):
+    print('*'*a)
+```
+
