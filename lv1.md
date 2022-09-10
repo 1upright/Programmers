@@ -778,3 +778,15 @@ for i in range(b):
     print('*'*a)
 ```
 
+
+
+## 핸드폰 번호 가리기
+
+```python
+def solution(phone_number):
+    nums = list(phone_number)
+    for i in range(len(nums)-5, -1, -1):
+        nums[i] = '*'
+    return "".join(nums)
+```
+
