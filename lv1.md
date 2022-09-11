@@ -790,3 +790,18 @@ def solution(phone_number):
     return "".join(nums)
 ```
 
+
+
+## 행렬의 덧셈
+
+```python
+def solution(arr1, arr2):
+    N = len(arr1)
+    M = len(arr1[0])
+    arr3 = [[0]*M for _ in range(N)]
+    for i in range(N):
+        for j in range(M):
+            arr3[i][j] += arr1[i][j] + arr2[i][j]
+    return arr3
+```
+
