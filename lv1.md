@@ -805,3 +805,29 @@ def solution(arr1, arr2):
     return arr3
 ```
 
+
+
+## 성격 유형 검사하기
+
+```python
+def solution(survey, choices):
+    score = {
+        'R' : 0, 'T' : 0, 'C' : 0, 'F' : 0,
+        'J' : 0, 'M' : 0, 'A' : 0, 'N' : 0,
+    }
+
+    for i in range(len(survey)):
+        c = choices[i]-4
+        if c<0:
+            score[survey[i][0]] -= c
+        elif c>0:
+            score[survey[i][1]] += c
+
+    answer = ''
+    answer += 'T' if score['T']>score['R'] else 'R'
+    answer += 'F' if score['F']>score['C'] else 'C'
+    answer += 'M' if score['M']>score['J'] else 'J'
+    answer += 'N' if score['N']>score['A'] else 'A'
+    return answer
+```
+
