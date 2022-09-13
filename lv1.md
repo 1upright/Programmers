@@ -831,3 +831,20 @@ def solution(survey, choices):
     return answer
 ```
 
+
+
+## 같은 숫자는 싫어
+
+```python
+def solution(arr):
+    answer = []
+    for x in arr:
+        if not answer or x != answer[-1]:
+            answer.append(x)
+    return answer
+
+## 다른 풀이
+def solution(arr):
+    return [arr[i] for i in range(len(arr)) if [arr[i]] != arr[i+1:i+2]]
+```
+
