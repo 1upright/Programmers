@@ -32,3 +32,12 @@ def solution(s):
     return answer
 ```
 
+
+
+## 최솟값 만들기
+
+```python
+def solution(A,B):
+    return sum(sorted(A, reverse=True)[i]*sorted(B)[i] for i in range(len(A)))
+```
+
