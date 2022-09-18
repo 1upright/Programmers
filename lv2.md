@@ -41,3 +41,22 @@ def solution(A,B):
     return sum(sorted(A, reverse=True)[i]*sorted(B)[i] for i in range(len(A)))
 ```
 
+
+
+## 올바른 괄호
+
+```python
+def solution(s):
+    stack = []
+    for x in s:
+        if x == '(':
+            stack.append(x)
+        if x == ')':
+            if not stack:
+                return False
+            stack.pop()
+    if stack:
+        return False
+    return True
+```
+
