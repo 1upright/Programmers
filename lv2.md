@@ -60,3 +60,15 @@ def solution(s):
     return True
 ```
 
+
+
+## 피보나치 수
+
+```python
+def solution(n):
+    fib = [0, 1]
+    for i in range(2, n+1):
+        fib.append((fib[-1]+fib[-2])%1234567)
+    return fib[-1]
+```
+
