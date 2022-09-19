@@ -72,3 +72,11 @@ def solution(n):
     return fib[-1]
 ```
 
+
+
+## 숫자의 표현
+
+```python
+def solution(n):
+    return len([i for i in range(1, n+1, 2) if not n%i])
+```
