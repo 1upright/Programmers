@@ -80,3 +80,17 @@ def solution(n):
 def solution(n):
     return len([i for i in range(1, n+1, 2) if not n%i])
 ```
+
+
+
+## 다음 큰 숫자
+
+```python
+def solution(n):
+    cnt = bin(n).count('1')
+    while 1:
+        n += 1
+        if bin(n).count('1') == cnt:
+            break    
+    return n
+```
