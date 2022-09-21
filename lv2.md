@@ -94,3 +94,16 @@ def solution(n):
             break    
     return n
 ```
+
+
+
+## 카펫
+
+```python
+def solution(brown, yellow):
+    N = brown + yellow
+    for i in range(3, N//3+1):
+        if not N%i and (i-2)*(N//i-2) == yellow:
+            return [N//i, i]
+```
+
