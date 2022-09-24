@@ -119,3 +119,19 @@ def solution(n, words):
     return [0, 0]
 ```
 
+
+
+## 짝지어 제거하기
+
+```python
+def solution(s):
+    stack = []
+    for x in s:
+        if stack and stack[-1] == x:
+            stack.pop()
+        else:
+            stack.append(x)
+
+    return 0 if stack else 1
+```
+
