@@ -135,3 +135,19 @@ def solution(s):
     return 0 if stack else 1
 ```
 
+
+
+## 구명 보트
+
+```python
+def solution(people, limit):
+    people.sort()
+    i, j, cnt = 0, len(people)-1, 0
+    while i <= j:
+        cnt += 1
+        if people[i] + people[j] <= limit:
+            i += 1
+        j -= 1
+    return cnt
+```
+
