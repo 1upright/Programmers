@@ -151,3 +151,16 @@ def solution(people, limit):
     return cnt
 ```
 
+
+
+## N개의 최소공배수
+
+```python
+def solution(arr):
+    from math import gcd
+    answer = arr[0]
+    for x in arr:
+        answer *= x//gcd(answer, x)
+    return answer
+```
+
