@@ -164,3 +164,16 @@ def solution(arr):
     return answer
 ```
 
+
+
+## 예상 대진표
+
+```python
+def solution(n,a,b):
+    cnt = 0
+    while a != b:
+        a, b = (a+1)//2, (b+1)//2
+        cnt += 1
+    return cnt
+```
+
