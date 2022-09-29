@@ -193,3 +193,12 @@ def solution(n):
     return dp[n]%1234567
 ```
 
+
+
+## 점프와 순간 이동
+
+```python
+def solution(n):
+    return bin(n).count('1')
+```
+
