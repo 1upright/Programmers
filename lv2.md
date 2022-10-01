@@ -216,3 +216,16 @@ def solution(arr1, arr2):
     return answer
 ```
 
+
+
+## H-Index
+
+```python
+def solution(citations):
+    citations.sort()
+    l = len(citations)
+    for i in range(l):
+        if citations[i] >= l-i:
+            return l-i
+    return 0
+```
