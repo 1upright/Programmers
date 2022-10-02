@@ -229,3 +229,30 @@ def solution(citations):
             return l-i
     return 0
 ```
+
+
+
+## 캐시
+
+```python
+def solution(cacheSize, cities):
+    from collections import deque
+    q = deque()
+    cnt = 0
+    
+    for city in cities:
+        city = city.lower()
+        if cacheSize:
+            if city in q:
+                q.remove(city)
+                q.append(city)
+                cnt += 1
+            else:
+                if len(q) == cacheSize:
+                    q.popleft()
+                q.append(city)
+                cnt += 5
+        else:
+            cnt += 5
+    return cnt
+```
