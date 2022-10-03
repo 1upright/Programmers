@@ -256,3 +256,28 @@ def solution(cacheSize, cities):
             cnt += 5
     return cnt
 ```
+
+
+
+## 괄호 회전하기
+
+```python
+def solution(s):
+    answer = 0
+    ls = list(s)
+    for i in range(len(s)):
+        stack = []
+        for x in ls:
+            if stack:
+                if (stack[-1] == '[' and x == ']') or (stack[-1] == '(' and x == ')') or (stack[-1] == '{' and x == '}'):
+                    stack.pop()
+                else:
+                    stack.append(x)
+            else:
+                stack.append(x)
+        if not stack:
+            answer += 1
+        ls.append(ls.pop(0))
+    return answer
+```
+
