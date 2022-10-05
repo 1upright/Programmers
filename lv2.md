@@ -290,3 +290,19 @@ def solution(n, left, right):
     return [max(i//n, i%n)+1 for i in range(left, right+1)]
 ```
 
+
+
+## 튜플
+
+```python
+def solution(s):
+    s = s[2:-2].split('},{')
+    for i in range(len(s)):
+        s[i] = s[i].split(',')
+    s.sort(key=lambda x:len(x))
+    ans = [int(s[0][0])]
+    for i in range(len(s)-1):
+        ans.append(int(list(set(s[i+1])-set(s[i]))[0]))
+    return ans
+```
+
