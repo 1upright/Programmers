@@ -283,26 +283,25 @@ def solution(s):
 
 
 
-## n^2 배열 자르기
+## 기능개발
 
 ```python
-def solution(n, left, right):
-    return [max(i//n, i%n)+1 for i in range(left, right+1)]
-```
+def solution(progresses, speeds):
+    from math import ceil
 
+    remains = []
+    N = len(progresses)
+    for i in range(N):
+        remains.append(ceil((100-progresses[i])/speeds[i]))
 
-
-## 튜플
-
-```python
-def solution(s):
-    s = s[2:-2].split('},{')
-    for i in range(len(s)):
-        s[i] = s[i].split(',')
-    s.sort(key=lambda x:len(x))
-    ans = [int(s[0][0])]
-    for i in range(len(s)-1):
-        ans.append(int(list(set(s[i+1])-set(s[i]))[0]))
-    return ans
+    cnt = 0
+    answer = []
+    for i in range(N):
+        if remains[cnt] < remains[i]:
+            answer.append(i-cnt)
+            cnt = i
+    answer.append(N-cnt)
+        
+    return answer
 ```
 
