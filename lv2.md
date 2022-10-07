@@ -305,3 +305,21 @@ def solution(progresses, speeds):
     return answer
 ```
 
+
+
+## 프린터
+
+```python
+def solution(priorities, location):
+    answer = 0
+    while 1:
+        tmp = max(priorities)
+        for i in range(len(priorities)):
+            if tmp == priorities[i]:
+                answer += 1
+                priorities[i] = 0
+                tmp = max(priorities)
+                if i == location:
+                    return answer
+```
+
