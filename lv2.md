@@ -323,3 +323,21 @@ def solution(priorities, location):
                     return answer
 ```
 
+
+
+## 위장
+
+```python
+def solution(clothes):
+    dic = {}
+    for x, y in clothes:
+        if y in dic:
+            dic[y] += 1
+        else:
+            dic[y] = 1
+    
+    cnt = 1
+    for i in dic.values():
+        cnt *= (i+1)
+    return cnt -1
+```
