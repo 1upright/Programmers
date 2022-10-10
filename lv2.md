@@ -363,3 +363,18 @@ def solution(phone_book):
     return True
 ```
 
+
+
+## 뉴스 클러스터링
+
+```python
+def solution(str1, str2):
+    from collections import Counter
+    
+    str1, str2 = str1.lower(), str2.lower()
+    c1 = Counter([str1[i:i+2] for i in range(len(str1)-1) if str1[i:i+2].isalpha()])
+    c2 = Counter([str2[i:i+2] for i in range(len(str2)-1) if str2[i:i+2].isalpha()])
+    
+    return int(sum((c1&c2).values())/sum((c1|c2).values())*65536) if sum((c1|c2).values()) else 65536
+```
+
