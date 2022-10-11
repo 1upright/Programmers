@@ -378,3 +378,23 @@ def solution(str1, str2):
     return int(sum((c1&c2).values())/sum((c1|c2).values())*65536) if sum((c1|c2).values()) else 65536
 ```
 
+
+
+## 타겟 넘버
+
+```python
+def solution(numbers, target):
+    def dfs(i, s):
+        if i == n:
+            if s == target:
+                nonlocal answer
+                answer += 1
+        else:
+            dfs(i+1, s+numbers[i])
+            dfs(i+1, s-numbers[i])
+            
+    n = len(numbers)
+    answer = 0
+    dfs(0, 0)
+    return answer
+```
