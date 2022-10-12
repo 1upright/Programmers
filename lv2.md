@@ -398,3 +398,31 @@ def solution(numbers, target):
     dfs(0, 0)
     return answer
 ```
+
+
+
+## k진수에서 소수 개수 구하기
+
+```python
+def solution(n, k):
+    def is_prime(x):
+        if x == 1:
+            return False
+        for i in range(2, int(x**0.5)+1):
+            if not x%i:
+                return False
+        return True
+    
+    tmp = ''
+    while n:
+        tmp += str(n%k)
+        n = n//k
+    tmp = tmp[::-1]
+    
+    result = 0
+    for num in tmp.split('0'):
+        if num and is_prime(int(num)):
+            result += 1
+    return result
+```
+
