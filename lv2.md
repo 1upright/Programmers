@@ -426,3 +426,22 @@ def solution(n, k):
     return result
 ```
 
+
+
+## 더 맵게
+
+```python
+def solution(scoville, K):
+    import heapq
+    heapq.heapify(scoville)
+    
+    cnt = 0
+    while scoville[0] < K:
+        cnt += 1
+        heapq.heappush(scoville, heapq.heappop(scoville)+heapq.heappop(scoville)*2)
+        if len(scoville) == 1 and scoville[0] < K:
+            return -1
+    
+    return cnt
+```
+
