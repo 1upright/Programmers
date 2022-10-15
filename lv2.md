@@ -462,3 +462,44 @@ def solution(prices):
                 break
     return answer
 ```
+
+
+
+## 주차 요금 계산
+
+```python
+def solution(fees, records):
+    import math
+    from collections import deque
+    
+    time, fee, unit_time, unit_fee = fees
+    
+    dic = {}
+    for x in records:
+        t, n, y = x.split()
+        if n in dic:
+            dic[n].append(t)
+        else:
+            dic[n] = deque([t])
+    
+    for x in dic:
+        if len(dic[x])%2:
+            dic[x].append('23:59')
+    
+    dic2 = {}
+    for x in sorted(dic):
+        dic2[x] = 0
+        y = dic[x]
+        while y:
+            a, b = y.popleft(), y.popleft()
+            p, q = a.split(':')
+            r, s = b.split(':')
+            dic2[x] += int(r)*60+int(s)-int(p)*60-int(q)
+    
+    answer = []
+    for x in dic2:
+        y = dic2[x]
+        answer.append(fee if y<time else fee+math.ceil((y-time)/unit_time)*unit_fee)
+
+    return answer
+```
