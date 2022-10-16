@@ -503,3 +503,32 @@ def solution(fees, records):
 
     return answer
 ```
+
+
+
+## 압축
+
+```python
+def solution(msg):
+
+    dic = {}
+    for i in range(26):
+        dic[chr(65+i)] = i+1
+    
+    answer = []
+    word = ''
+    i, no = 0, 26
+    while i < len(msg):
+        word += msg[i]
+        if word in dic:
+            i += 1
+        else:
+            no += 1
+            dic[word] = no
+            answer.append(dic[word[:-1]])
+            word = ''
+
+    answer.append(dic[word])
+    return answer
+```
+
