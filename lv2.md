@@ -555,3 +555,25 @@ def solution(record):
     return answer
 ```
 
+
+
+## n진수 게임
+
+```python
+def foo(i, n):
+    tmp = "0123456789ABCDEF"
+    x, y = divmod(i, n)
+    return foo(x, n) + tmp[y] if x else tmp[y]
+
+def solution(n, t, m, p):
+    s = ''
+    for i in range(t*m):
+        s += foo(i, n)
+    
+    answer = ''
+    for i in range(t):
+        answer += s[i*m+p-1]
+    
+    return answer
+```
+
