@@ -577,3 +577,28 @@ def solution(n, t, m, p):
     return answer
 ```
 
+
+
+## 피로도
+
+```python
+def solution(k, dungeons):
+    def dfs(cnt, s):
+        nonlocal answer
+        if answer < cnt:
+            answer = cnt
+
+        for i in range(l):
+            if not visited[i] and s >= dungeons[i][0]:
+                visited[i] = 1
+                dfs(cnt+1, s-dungeons[i][1])
+                visited[i] = 0
+
+    answer = 0
+    l = len(dungeons)
+    visited = [0]*l
+    dfs(0, k)
+    
+    return answer
+```
+
