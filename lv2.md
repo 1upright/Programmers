@@ -614,3 +614,19 @@ def solution(land):
     return max(land[-1])
 ```
 
+
+
+## 연속 부분 수열 합의 개수
+
+```python
+def solution(elements):
+    new_elements = elements * 2
+    l = len(elements)
+    ans = set()
+
+    for i in range(l):
+        for j in range(i, i+l):
+            ans.add(sum(new_elements[i:j+1]))
+    return len(ans)
+```
+
