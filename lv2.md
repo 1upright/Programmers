@@ -628,5 +628,9 @@ def solution(elements):
         for j in range(i, i+l):
             ans.add(sum(new_elements[i:j+1]))
     return len(ans)
+
+# 숏코딩
+def solution(elements):
+    return len(set(sum((elements*2)[i:i+j]) for i in range(len(elements)) for j in range(1, len(elements)+1)))
 ```
 
