@@ -634,3 +634,44 @@ def solution(elements):
     return len(set(sum((elements*2)[i:i+j]) for i in range(len(elements)) for j in range(1, len(elements)+1)))
 ```
 
+
+
+## 프렌즈4블록
+
+```python
+def solution(m, n, board):
+    from collections import deque
+    
+    for i in range(m):
+        board[i] = list(board[i])
+    
+    answer = 0
+    while 1:
+        check = set()
+        for i in range(m-1):
+            for j in range(n-1):
+                if board[i+1][j] == board[i][j+1] == board[i+1][j+1] == board[i][j] != '0':
+                    check.add((i,j)); check.add((i+1,j)); check.add((i,j+1)); check.add((i+1,j+1))
+        if check:
+            answer += len(check)
+            for i, j in check:
+                board[i][j] = '0'
+            
+            for j in range(n):
+                q = deque()
+                for i in range(m-1, -1, -1):
+                    if board[i][j] == '0':
+                        q.append((i, j))
+                    else:
+                        if q:
+                            ni, nj = q.popleft()
+                            board[ni][nj], board[i][j] = board[i][j], '0'
+                            q.append((i, j))
+            check = set()
+        
+        else:
+            break
+
+    return answer
+```
+
