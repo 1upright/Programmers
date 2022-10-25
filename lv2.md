@@ -718,3 +718,22 @@ def solution(dirs):
 
     return len(visited)
 ```
+
+
+
+## 모음 사전
+
+```python
+def solution(word):
+    dic = {'A':0, 'E':1, 'I':2, 'O':3, 'U':4}
+    
+    answer = 0
+    for i in range(len(word)):
+        N = dic[word[i]]
+        for j in range(4, i, -1):
+            answer += 5 ** (j-i) * N
+        answer += 1 + N
+
+    return answer
+```
+
