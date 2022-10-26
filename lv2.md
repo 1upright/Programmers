@@ -737,3 +737,24 @@ def solution(word):
     return answer
 ```
 
+
+
+## 게임 맵 최단거리
+
+```python
+def solution(maps):
+    from collections import deque
+    q = deque([(0, 0)])
+    N, M = len(maps), len(maps[0])
+    while q:
+        i, j = q.popleft()
+        if i == N-1 and j == M-1:
+            return maps[i][j]
+        for di, dj in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
+            ni, nj = i+di, j+dj
+            if 0<=ni<N and 0<=nj<M and maps[ni][nj] and maps[ni][nj] == 1:
+                maps[ni][nj] = maps[i][j] + 1
+                q.append((ni, nj))
+    return -1
+```
+
