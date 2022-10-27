@@ -758,3 +758,23 @@ def solution(maps):
     return -1
 ```
 
+
+
+## 2개 이하로 다른 비트
+
+```python
+def solution(numbers):
+    answer = []
+    for num in numbers:
+        if num % 2:
+            tmp = '0'+bin(num)[2:]
+            i = tmp.rfind('0')
+            tmp_list = list(tmp)
+            tmp_list[i] = '1'
+            tmp_list[i+1] = '0'
+            x = ''.join(tmp_list)
+            answer.append(int(x, 2))
+        else:
+            answer.append(num+1)
+    return answer
+```
