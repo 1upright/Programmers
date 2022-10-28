@@ -778,3 +778,27 @@ def solution(numbers):
             answer.append(num+1)
     return answer
 ```
+
+
+
+## 다리를 지나는 트럭
+
+```python
+def solution(bridge_length, weight, truck_weights):
+    from collections import deque
+    answer = 1
+    truck_weights = deque(truck_weights)
+    bridge = deque([(truck_weights.popleft(), 1)])
+    while bridge:
+        tmp = []
+        while bridge:
+            x, cnt = bridge.popleft()
+            if cnt+1 <= bridge_length:
+                tmp.append((x, cnt+1))
+        bridge = deque(tmp)
+        s = sum([x[0] for x in bridge])
+        if truck_weights and truck_weights[0]+s <= weight:
+            bridge.append((truck_weights.popleft(), 1))
+        answer += 1
+    return answer
+```
