@@ -802,3 +802,16 @@ def solution(bridge_length, weight, truck_weights):
         answer += 1
     return answer
 ```
+
+
+
+## 2 x n 타일링
+
+```python
+def solution(n):
+    res = [1, 2]
+    while len(res) < n:
+        res.append((res[-1]+res[-2])%1000000007)
+    return res[-1]
+```
+
