@@ -815,3 +815,12 @@ def solution(n):
     return res[-1]
 ```
 
+
+
+## 가장 큰 수
+
+```python
+def solution(numbers):
+    return str(int("".join(sorted([str(x) for x in numbers], key = lambda x : x*3, reverse = True))))
+```
+
