@@ -824,3 +824,27 @@ def solution(numbers):
     return str(int("".join(sorted([str(x) for x in numbers], key = lambda x : x*3, reverse = True))))
 ```
 
+
+
+## 소수 찾기
+
+```python
+def solution(numbers):
+    from itertools import permutations
+    
+    ans = set()
+    for i in range(len(numbers)):
+        for p in permutations(list(numbers), i+1):
+            ans.add(int("".join(p)))
+    
+    cnt = 0
+    for x in ans:
+        if x>= 2:
+            for i in range(2, int(x**0.5)+1):
+                if not x%i: break
+            else:
+                cnt += 1
+
+    return cnt
+```
+
