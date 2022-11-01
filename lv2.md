@@ -848,3 +848,26 @@ def solution(numbers):
     return cnt
 ```
 
+
+
+## 쿼드압축 후 개수 세기
+
+```python
+def solution(arr):
+    cnt = [0, 0]
+    def comp(ni, nj, n):
+        x = arr[ni][nj]
+        for i in range(ni, ni+n):
+            for j in range(nj, nj+n):
+                if arr[i][j] != x:
+                    m = n//2
+                    comp(ni, nj, m)
+                    comp(ni, nj+m, m)
+                    comp(ni+m, nj, m)
+                    comp(ni+m, nj+m, m)
+                    return
+        cnt[x] += 1
+    comp(0, 0, n = len(arr))
+    return cnt
+```
+
