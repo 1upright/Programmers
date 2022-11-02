@@ -871,3 +871,32 @@ def solution(arr):
     return cnt
 ```
 
+
+
+## 할인 행사
+
+```python
+def solution(want, number, discount):
+    dic = {}
+    for i in range(len(want)):
+        dic[want[i]] = number[i]
+    
+    cnt = 0
+    for i in range(len(discount)-9):
+        
+        check = {}
+        for j in range(i, i+10):
+            if discount[j] in check:
+                check[discount[j]] += 1
+            else:
+                check[discount[j]] = 1
+        
+        for x in dic:
+            if x not in check or (x in check and dic[x] > check[x]):
+                break
+        else:
+            cnt += 1
+
+    return cnt
+```
+
