@@ -900,3 +900,16 @@ def solution(want, number, discount):
     return cnt
 ```
 
+
+
+## 124 나라의 숫자
+
+```python
+def solution(n):
+    answer = ''
+    while n:
+        n, x = divmod(n-1, 3)
+        answer += ['1', '2', '4'][x]
+    return answer[::-1]
+```
+
