@@ -913,3 +913,17 @@ def solution(n):
     return answer[::-1]
 ```
 
+
+
+## 큰 수 만들기
+
+```python
+def solution(number, k):
+    answer = []
+    for x in number:
+        while k and answer and answer[-1] < x:
+            answer.pop()
+            k -= 1
+        answer.append(x)
+    return "".join(answer[:len(answer)-k])
+```
