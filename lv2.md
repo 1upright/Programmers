@@ -927,3 +927,25 @@ def solution(number, k):
         answer.append(x)
     return "".join(answer[:len(answer)-k])
 ```
+
+
+
+## 삼각 달팽이
+
+```python
+def solution(n):
+    answer = [[0]*(i+1) for i in range(n)]
+    i, j, x = -1, 0, 1
+    for k in range(n):
+        for _ in range(n-k):
+            if k%3 == 0:
+                i += 1
+            elif k%3 == 1:
+                j += 1
+            elif k%3 == 2:
+                i -= 1
+                j -= 1
+            answer[i][j] = x
+            x += 1
+    return sum(answer, [])
+```
