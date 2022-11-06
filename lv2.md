@@ -949,3 +949,26 @@ def solution(n):
             x += 1
     return sum(answer, [])
 ```
+
+
+
+## 롤케이크 자르기
+
+```python
+def solution(topping):
+    from collections import Counter
+    cnts = Counter(topping)
+    cnts2 = set()
+    ans = 0
+    for x in topping:
+        cnts[x] -= 1
+        if cnts[x] == 0: cnts.pop(x)
+        
+        cnts2.add(x)
+        
+        if len(cnts) == len(cnts2):
+            ans += 1
+        
+    return ans
+```
+
