@@ -972,3 +972,25 @@ def solution(topping):
     return ans
 ```
 
+
+
+## 메뉴 리뉴얼
+
+```python
+def solution(orders, course):
+    from itertools import combinations
+    from collections import Counter
+    
+    answer = []
+    for i in course:
+        menus = []
+        for order in orders:
+            menus += list(combinations(sorted(order), i))
+        cnts = Counter(menus)
+        
+        if cnts and max(cnts.values()) > 1:
+            answer += [''.join(c) for c in cnts if cnts[c] == max(cnts.values())]
+        
+    return sorted(answer)
+```
+
