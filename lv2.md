@@ -994,3 +994,35 @@ def solution(orders, course):
     return sorted(answer)
 ```
 
+
+
+## 괄호 변환
+
+```python
+def is_right(s):
+    check = []
+    for x in s:
+        if x == '(':
+            check.append(x)
+        elif x == ')':
+            if not check:
+                return 0
+            check.pop()
+    return 1
+
+def solution(p):
+    if not p:
+        return p
+    
+    for i in range(len(p)):
+        tmp = p[:i+1]
+        if tmp.count('(') == tmp.count(')'):
+            u, v = p[:i+1], p[i+1:]
+            break
+    
+    if is_right(u):
+        return u + solution(v)
+    
+    return '(' + solution(v) + ')' + u[1:len(u)-1].replace('(', 'x').replace(')', '(').replace('x', ')')
+```
+
