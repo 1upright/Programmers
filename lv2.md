@@ -1026,3 +1026,45 @@ def solution(p):
     return '(' + solution(v) + ')' + u[1:len(u)-1].replace('(', 'x').replace(')', '(').replace('x', ')')
 ```
 
+
+
+## 수식 최대화
+
+```python
+def solution(expression):
+    from itertools import permutations
+    from copy import deepcopy
+    
+    answer = 0
+    
+    exp = []
+    s = 0
+    for i, v in enumerate(expression):
+        if v in ["*", "+", "-"]:
+            exp.append(expression[s:i])
+            exp.append(v)
+            s = i+1
+    exp.append(expression[s:])
+
+    
+    for p in permutations(["*", "+", "-"], 3):
+        tmp_exp = deepcopy(exp)
+        for op in p:
+            tmp = []
+            while tmp_exp:
+                x = tmp_exp.pop(0)
+                if x == op:
+                    if x == '+':
+                        tmp.append(int(tmp.pop())+int(tmp_exp.pop(0)))
+                    elif x == '-':
+                        tmp.append(int(tmp.pop())-int(tmp_exp.pop(0)))
+                    elif x == '*':
+                        tmp.append(int(tmp.pop())*int(tmp_exp.pop(0)))
+                else:
+                    tmp.append(x)
+            tmp_exp = tmp
+        answer = max(abs(tmp_exp[0]), answer)
+
+    return answer
+```
+
