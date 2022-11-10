@@ -1068,3 +1068,27 @@ def solution(expression):
     return answer
 ```
 
+
+
+## N-Queen
+
+```python
+def solution(n):
+    def dfs(i, n):
+        nonlocal res
+        if i == n:
+            res += 1
+            return
+
+        for j in range(n):
+            if v1[j]==v2[i+j]==v3[i-j]==0:
+                v1[j] = v2[i+j] = v3[i-j] = 1
+                dfs(i+1, n)
+                v1[j] = v2[i+j] = v3[i-j] = 0
+    
+    res = 0
+    v1, v2, v3 = [0]*30, [0]*30, [0]*30
+    dfs(0, n)
+    return res
+```
+
