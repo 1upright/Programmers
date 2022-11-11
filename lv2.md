@@ -1092,3 +1092,37 @@ def solution(n):
     return res
 ```
 
+
+
+## 행렬 테두리 회전하기
+
+```python
+def solution(rows, columns, queries):
+    arr = [[j*columns+i+1 for i in range(columns)] for j in range(rows)]
+    answer = []
+    for q in queries:
+        si, sj, ei, ej = q
+        i, j = si, sj
+        move = []
+        while j < ej:
+            move.append((i-1, j-1))
+            j += 1
+        while i < ei:
+            move.append((i-1, j-1))
+            i += 1
+        while j > sj:
+            move.append((i-1, j-1))
+            j -= 1
+        while i > si:
+            move.append((i-1, j-1))
+            i -= 1
+        
+        ti, tj = move[-1]
+        tmp = arr[ti][tj]
+        for i, j in move:
+            tmp, arr[i][j] = arr[i][j], tmp
+            
+        answer.append(min(arr[i][j] for i, j in move))
+    return answer
+```
+
