@@ -1126,3 +1126,30 @@ def solution(rows, columns, queries):
     return answer
 ```
 
+
+
+## 방금 그곡
+
+```python
+def solution(m, musicinfos):
+    answer = []
+    m = m.replace("C#", "c").replace("D#", "d").replace("F#", "f").replace("G#", "g").replace("A#", "a")
+    
+    cnt = 0
+    for info in musicinfos:
+        start, end, title, sound = info.split(',')
+        start_hour, start_minute = map(int, start.split(':'))
+        end_hour, end_minute = map(int, end.split(':'))
+        time = (end_hour-start_hour)*60+(end_minute-start_minute)
+        
+        sound = sound.replace("C#", "c").replace("D#", "d").replace("F#", "f").replace("G#", "g").replace("A#", "a")
+        sound *= time//len(sound)+1
+        sound = sound[:time]
+        
+        if m in sound:
+            cnt -= 1
+            answer.append((time, cnt, title))
+    
+    return sorted(answer)[-1][2] if answer else '(None)'
+```
+
