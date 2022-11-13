@@ -1153,3 +1153,33 @@ def solution(m, musicinfos):
     return sorted(answer)[-1][2] if answer else '(None)'
 ```
 
+
+
+## 배달
+
+```python
+def solution(N, road, K):
+    import heapq
+    
+    INF = 20000000
+    D = [INF]*(N+1)
+    D[1] = 0
+    
+    adj = [[] for _ in range(N+1)]
+    for u, v, w in road:
+        adj[u].append([v, w])
+        adj[v].append([u, w])
+    
+    heap = []
+    heapq.heappush(heap, [0,1])
+    while heap:
+        val, i = heapq.heappop(heap)
+        for v, w in adj[i]:
+            tmp = w + val
+            if D[v] > tmp:
+                D[v] = tmp
+                heapq.heappush(heap, [tmp, v])
+
+    return len([x for x in D if x <=K])
+```
+
