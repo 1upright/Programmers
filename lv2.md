@@ -1183,3 +1183,19 @@ def solution(N, road, K):
     return len([x for x in D if x <=K])
 ```
 
+
+
+## 줄 서는 방법
+
+```python
+def solution(n, k):
+    from math import factorial
+    
+    nums = list(range(1, n+1))
+    answer = []
+    for i in range(n, 0, -1):
+        x, k = divmod(k, factorial(i-1))
+        answer.append(nums.pop(x) if k else nums.pop(x-1))
+    return answer
+```
+
