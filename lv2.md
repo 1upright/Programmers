@@ -1211,3 +1211,30 @@ def solution(board):
                 board[i][j] = min(board[i-1][j], board[i][j-1], board[i-1][j-1])+1
     return max(map(max, board))**2
 ```
+
+
+
+## 두 큐 합 같게 만들기
+
+```python
+def solution(queue1, queue2):
+    from collections import deque
+    
+    queue1, queue2 = deque(queue1), deque(queue2)
+    answer, s1, s2 = 0, sum(queue1), sum(queue2)
+    for _ in range(len(queue1)*3):
+        if s1 > s2:
+            x = queue1.popleft()
+            s1 -= x
+            s2 += x
+            queue2.append(x)
+        elif s1 < s2:
+            x = queue2.popleft()
+            s1 += x
+            s2 -= x
+            queue1.append(x)
+        else:
+            return answer
+        answer += 1
+        
+    return -1
