@@ -1238,3 +1238,16 @@ def solution(queue1, queue2):
         answer += 1
         
     return -1
+
+```
+
+
+
+## 멀쩡한 사각형
+
+```python
+def solution(w,h):
+    from math import gcd
+    return w*h-w-h+gcd(w, h)
+```
+
