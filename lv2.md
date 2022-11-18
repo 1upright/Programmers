@@ -1251,3 +1251,43 @@ def solution(w,h):
     return w*h-w-h+gcd(w, h)
 ```
 
+
+
+## 거리두기 확인하기
+
+```python
+def bfs(place):
+    from collections import deque
+    ppl = []
+    for i in range(5):
+        for j in range(5):
+            if place[i][j] == 'P':
+                ppl.append([i, j])
+    
+    for si, sj in ppl:
+        q = deque([(si, sj)])
+        visited = [[0]*5 for _ in range(5)]
+        visited[si][sj] = 1
+        dist = [[0]*5 for _ in range(5)]
+        
+        while q:
+            i, j = q.popleft()
+            if dist[i][j] > 1:
+                break
+
+            for di, dj in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                ni, nj = i+di, j+dj
+                if 0<=ni<5 and 0<=nj<5 and not visited[ni][nj]:
+                    if place[ni][nj] == 'O':
+                        q.append((ni, nj))
+                        visited[ni][nj] = 1
+                        dist[ni][nj] = dist[i][j]+1
+                    
+                    elif place[ni][nj] == 'P':
+                        return 0
+    return 1
+
+def solution(places):
+    return [bfs(x) for x in places]
+```
+
