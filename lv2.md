@@ -1291,3 +1291,24 @@ def solution(places):
     return [bfs(x) for x in places]
 ```
 
+
+
+## 하노이의 탑
+
+```python
+def solution(n):
+    def move(start, end, mid, n):
+        nonlocal answer
+        if n == 1:
+            answer.append([start, end])
+            return
+
+        move(start, mid, end, n-1)
+        answer.append([start, end])
+        move(mid, end, start, n-1)
+    
+    answer = []
+    move(1, 3, 2, n)
+    return answer
+```
+
