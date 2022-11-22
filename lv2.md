@@ -1312,3 +1312,37 @@ def solution(n):
     return answer
 ```
 
+
+
+## 전력망을 둘로 나누기
+
+```python
+def select(tree, n, a, b):
+    for i in range(1, n+1):
+        for j in tree[i]:
+            if sorted([i, j]) != sorted([a, b]):
+                return i
+
+def solution(n, wires):
+    from collections import deque
+    tree = [[] for _ in range(n+1)]
+    for a, b in wires:
+        tree[a].append(b)
+        tree[b].append(a)
+    
+    answer = 100
+    for a, b in wires:
+        q = deque([select(tree, n, a, b)])
+        cnt = 1
+        visited = [0]*(n+1)
+        while q:
+            node = q.popleft()
+            visited[node] = 1
+            for x in tree[node]:
+                if not visited[x] and sorted([node, x]) != sorted([a, b]):
+                    q.append(x)
+                    cnt += 1
+        answer = min(answer, abs(cnt*2-n))
+    return answer
+```
+
