@@ -1373,3 +1373,25 @@ def solution(s):
     return min(res)
 ```
 
+
+
+## 후보키
+
+```python
+def solution(relation):
+    from itertools import combinations
+    N, M = len(relation), len(relation[0])
+    res = []
+    for i in range(1, M+1):
+        for comb in combinations(range(M), i):
+            tmp = [tuple(relation[k][j] for j in comb) for k in range(N)]
+            
+            if len(set(tmp)) == N:
+                for x in res:
+                    if set(x).issubset(set(comb)):
+                        break
+                else:
+                    res.append(comb)    
+    return len(res)
+```
+
