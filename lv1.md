@@ -848,3 +848,13 @@ def solution(arr):
     return [arr[i] for i in range(len(arr)) if [arr[i]] != arr[i+1:i+2]]
 ```
 
+
+
+## 삼총사
+
+```python
+def solution(number):
+    from itertools import combinations
+    return [1 if sum(combi) else 0 for combi in combinations(number, 3)].count(0)
+```
+
