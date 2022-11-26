@@ -858,3 +858,12 @@ def solution(number):
     return [1 if sum(combi) else 0 for combi in combinations(number, 3)].count(0)
 ```
 
+
+
+## 콜라 문제
+
+```python
+def solution(a, b, n):
+    return (n-b)//(a-b)*b
+```
+
