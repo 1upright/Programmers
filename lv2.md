@@ -1396,16 +1396,3 @@ def solution(relation):
 ```
 
 
-
-## 숫자 짝꿍
-
-```python
-def solution(X, Y):
-    from collections import Counter
-    cnt_x, cnt_y = Counter(X), Counter(Y)
-    answer = ''
-    for x in sorted(cnt_x, reverse=True):
-        answer += x*min(cnt_x[x], cnt_y[x])
-    return ('0' if len(answer)==answer.count('0') else answer) if answer else '-1'
-```
-
