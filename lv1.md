@@ -881,3 +881,13 @@ def solution(X, Y):
     return ('0' if len(answer)==answer.count('0') else answer) if answer else '-1'
 ```
 
+
+
+## 푸드 파이트 대회
+
+```python
+def solution(food):
+    tmp = "".join([str(i)*(food[i]//2) for i in range(4)])
+    return tmp+'0'+tmp[::-1]
+```
+
