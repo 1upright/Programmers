@@ -1396,3 +1396,17 @@ def solution(relation):
 ```
 
 
+
+## 귤 고르기
+
+```python
+def solution(k, tangerine):
+    from collections import Counter
+    cnt = answer = 0
+    for kind, n in Counter(tangerine).most_common():
+        cnt += n
+        answer += 1
+        if cnt >= k:
+            return answer
+```
+
