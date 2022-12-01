@@ -891,3 +891,21 @@ def solution(food):
     return tmp+'0'+tmp[::-1]
 ```
 
+
+
+## 과일 장수
+
+```python
+def solution(k, m, score):
+    apples = sorted(score, reverse=True)[:len(score)//m*m]
+    res = 0
+    for i in range(0, len(apples), m):
+        tmp = apples[i:i+m]
+        res += min(tmp)*m
+    return res
+
+# 숏코딩
+def solution(k, m, score):
+    return sum(sorted(score)[len(score)%m::m])*m
+```
+
