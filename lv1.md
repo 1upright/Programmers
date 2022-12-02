@@ -909,3 +909,29 @@ def solution(k, m, score):
     return sum(sorted(score)[len(score)%m::m])*m
 ```
 
+
+
+## 문자열 나누기
+
+```python
+def solution(s):
+    first = ''
+    check = []
+    result = 0
+    for x in s:
+        if not first:
+            first = x
+
+        check.append(x)
+
+        if check.count(first) == len(check)-check.count(first):
+            first = ''
+            check = []
+            result += 1
+            
+    if check:
+        result += 1
+
+    return result
+```
+
