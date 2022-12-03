@@ -935,3 +935,19 @@ def solution(s):
     return result
 ```
 
+
+
+## 옹알이 (2)
+
+```python
+def solution(babbling):
+    cnt = 0
+    for b in babbling:
+        for babble in ["aya", "ye", "woo", "ma"]:
+            if babble*2 not in b:
+                b = b.replace(babble, " ")
+        if not b.strip():
+            cnt += 1
+    return cnt
+```
+
