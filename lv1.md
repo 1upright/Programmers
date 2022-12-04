@@ -951,3 +951,18 @@ def solution(babbling):
     return cnt
 ```
 
+
+
+## 명예의 전당 (1)
+
+```python
+def solution(k, score):
+    answer = []
+    result = []
+    for s in score:
+        answer.append(s)
+        answer = sorted(answer, reverse=True)[:k]
+        result.append(answer[-1])
+    return result
+```
+
