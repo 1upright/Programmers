@@ -966,3 +966,18 @@ def solution(k, score):
     return result
 ```
 
+
+
+## 기사단원의 무기
+
+```python
+def solution(number, limit, power):
+    cnt = [1 for _ in range(number+1)]
+    for i in range(2, number+1):
+        for j in range(i, number+1, i):
+            cnt[j] += 1
+        if cnt[i] > limit:
+            cnt[i] = power
+    return sum(cnt)-1
+```
+
