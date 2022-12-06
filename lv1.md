@@ -981,3 +981,20 @@ def solution(number, limit, power):
     return sum(cnt)-1
 ```
 
+
+
+## 햄버거 만들기
+
+```python
+def solution(ingredient):
+    cnt = 0
+    s = []
+    for x in ingredient:
+        s.append(x)
+        if len(s) >= 4 and s[-4:] == [1, 2, 3, 1]:
+            for _ in range(4):
+                s.pop()
+            cnt += 1
+    return cnt
+```
+
