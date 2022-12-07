@@ -1410,3 +1410,12 @@ def solution(k, tangerine):
             return answer
 ```
 
+
+
+## 점 찍기
+
+```python
+def solution(k, d):
+    return sum(int((d**2-i**2)**0.5)//k+1 for i in range(0, d+1, k))
+```
+
