@@ -1419,3 +1419,20 @@ def solution(k, d):
     return sum(int((d**2-i**2)**0.5)//k+1 for i in range(0, d+1, k))
 ```
 
+
+
+## 택배 상자
+
+```python
+def solution(order):
+    sub = []
+    now = 0
+    for i in range(1, len(order)+1):
+        sub.append(i)
+        while sub[-1] == order[now]:
+            sub.pop()
+            now += 1
+            if not sub: break
+    return now
+```
+
