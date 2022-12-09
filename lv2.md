@@ -1436,3 +1436,21 @@ def solution(order):
     return now
 ```
 
+
+
+## 조이스틱
+
+```python
+def solution(name):
+    answer = 0
+    move = len(name)-1
+    for i, c in enumerate(name):
+        answer += min(ord(c)-ord('A'), ord('Z')-ord(c)+1)
+        next = i+1
+        while next<len(name) and name[next]=='A':
+            next += 1
+        move = min(move, 2*i+len(name)-next, 2*(len(name)-next)+i)
+    answer += move
+    return answer
+```
+
