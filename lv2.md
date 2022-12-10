@@ -1454,3 +1454,20 @@ def solution(name):
     return answer
 ```
 
+
+
+## 숫자 블록
+
+```python
+def solution(begin, end):
+    answer = []
+    for i in range(begin, end+1):
+        for j in range(2, int(i**0.5)+1):
+            if not i%j and i//j<=10000000:
+                answer.append(i//j)
+                break
+        else:
+            answer.append(int(i!=1))
+    return answer
+```
+
