@@ -1471,3 +1471,15 @@ def solution(begin, end):
     return answer
 ```
 
+
+
+## 숫자 카드 나누기
+
+```python
+def solution(arrayA, arrayB):
+    from functools import reduce
+    from math import gcd
+    x, y = reduce(gcd, arrayA), reduce(gcd, arrayB)
+    return max(x if all(n%x for n in arrayB) else 0, y if all(n%y for n in arrayA) else 0)
+```
+
