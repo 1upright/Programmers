@@ -1483,3 +1483,50 @@ def solution(arrayA, arrayB):
     return max(x if all(n%x for n in arrayB) else 0, y if all(n%y for n in arrayA) else 0)
 ```
 
+
+
+## 순위 검색
+
+```python
+# 시간 초과
+def solution(info, query):
+    result = []
+    candidate = [x.split() for x in info]
+    condition = [x.replace("and ", "").split() for x in query]
+    for x in condition:
+        cnt = 0
+        for y in candidate:
+            if all(x[i] == '-' or x[i] == y[i] for i in range(4)) and int(x[4]) <= int(y[4]):
+                cnt += 1
+        result.append(cnt)
+        
+    return result
+
+# 정답
+def solution(info, query):
+    from itertools import combinations
+    from collections import defaultdict
+    from bisect import bisect_left
+
+    candidate = [x.split() for x in info]
+    dic = defaultdict(list)
+    for x in candidate:
+        for i in range(5):
+            for combi in combinations(x[:-1], i):
+                dic[''.join(combi)].append(int(x[-1]))
+    
+    for d in dic.values():
+        d.sort()
+    
+    condition = [x.replace("and ", "").replace('-', '').split() for x in query]
+    answer = []
+    for x in condition:
+        con, score = ''.join(x[:-1]), int(x[-1])
+        if con not in dic:
+            answer.append(0)
+            continue
+        answer.append(len(dic[con])-bisect_left(dic[con], score))
+
+    return answer
+```
+
