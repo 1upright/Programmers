@@ -1530,3 +1530,26 @@ def solution(info, query):
     return answer
 ```
 
+
+
+## 혼자 놀기의 달인
+
+```python
+def solution(cards):
+    boxes = {i+1: card for i, card in enumerate(cards)}
+    groups = []
+    
+    while boxes:
+        target = list(boxes.keys())[0]
+        visited = []
+        while target not in visited:
+            visited.append(target)
+            tmp = boxes[target]
+            del boxes[target]
+            target = tmp
+        groups.append(len(visited))
+    
+    groups.sort(reverse=True)
+    return groups[0]*groups[1] if len(groups)>1 else 0
+```
+
