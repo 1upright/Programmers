@@ -1553,3 +1553,26 @@ def solution(cards):
     return groups[0]*groups[1] if len(groups)>1 else 0
 ```
 
+
+
+## 3 x n 타일링
+
+```python
+def solution(n):
+    if n%2: return 0
+    n //= 2
+    dp = [0, 3, 11]
+    if n<3: return dp[n]
+    
+    for i in range(3, n+1):
+        dp.append((3*dp[i-1]+sum(dp[1:i-1])*2+2)%1000000007)
+    return dp[n]
+
+# 다른 사람의 풀이
+def solution(n):
+    if n%2: return 0
+    x = y = 1
+    for _ in range(n//2): x, y = y, (4*y-x)%1000000007
+    return y
+```
+
