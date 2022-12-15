@@ -14,3 +14,24 @@ def solution(triangle):
                 triangle[i][j] += max(triangle[i-1][j], triangle[i-1][j-1])
     return max(triangle[-1])
 ```
+
+
+
+## 이중우선순위큐
+
+```python
+def solution(operations):
+    import heapq
+    heap = []
+    for op in operations:
+        x, y = op.split()
+        if x == 'I':
+            heapq.heappush(heap, int(y))
+        elif heap:
+            if y == '1':
+                heap.remove(max(heap))
+            else:
+                heapq.heappop(heap)
+    return [max(heap), heap[0]] if heap else [0, 0]
+```
+
