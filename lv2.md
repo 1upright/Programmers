@@ -1576,3 +1576,32 @@ def solution(n):
     return y
 ```
 
+
+
+## 양궁 대회
+
+```python
+def solution(n, info):
+    from itertools import combinations_with_replacement
+    
+    answer = [-1]
+    max_gap = 0
+    for combi in combinations_with_replacement(range(11), n):
+        tmp = [0]*11
+        for i in combi:
+            tmp[10-i] += 1
+        
+        ryan = apeach = 0
+        for i in range(11):
+            if tmp[i] > info[i]:
+                ryan += 10-i
+            elif tmp[i] <= info[i] and info[i]:
+                apeach += 10-i
+        
+        gap = ryan - apeach
+        if ryan > apeach and max_gap < gap:
+            max_gap = gap
+            answer = tmp
+    
+    return answer
+```
