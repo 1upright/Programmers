@@ -1605,3 +1605,23 @@ def solution(n, info):
     
     return answer
 ```
+
+
+
+## 우박수열 정적분
+
+```python
+def solution(k, ranges):
+    nums = [k]
+    while k != 1:
+        if k%2:
+            k = k*3+1
+        else:
+            k //= 2
+        nums.append(k)
+        
+    areas = [(nums[i]+nums[i+1])/2 for i in range(len(nums)-1)]
+    N = len(areas)
+    return [-1.0 if i-j>N else sum(areas[i:N+j]) if i-j<N else 0.0 for i, j in ranges]
+```
+
