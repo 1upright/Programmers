@@ -998,3 +998,17 @@ def solution(ingredient):
     return cnt
 ```
 
+
+
+## 가장 가까운 같은 글자
+
+```python
+def solution(s):
+    answer = []
+    dic = {}
+    for i, v in enumerate(s):
+        answer.append(i-dic[v] if v in dic else -1)
+        dic[v] = i
+    return answer
+```
+
