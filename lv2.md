@@ -1625,3 +1625,29 @@ def solution(k, ranges):
     return [-1.0 if i-j>N else sum(areas[i:N+j]) if i-j<N else 0.0 for i, j in ranges]
 ```
 
+
+
+## 교점에 별 만들기
+
+```python
+def solution(line):
+    from itertools import combinations
+    
+    star = []
+    for com in combinations(range(len(line)), 2):
+        a, b, e = line[com[0]]
+        c, d, f = line[com[1]]
+        if a*d-b*c:
+            x, y = (b*f-e*d)/(a*d-b*c), (e*c-a*f)/(a*d-b*c)
+            u, v = int(x), int(y)
+            if x==u and y==v and (u, v) not in star:
+                star.append((u, v))
+    
+    x_min, x_max, y_min, y_max = min(star)[0], max(star)[0], min(star, key = lambda x: x[1])[1], max(star, key = lambda x: x[1])[1]
+    result = [['.']*(abs(x_max-x_min)+1) for _ in range((abs(y_max-y_min)+1))]
+    for x, y in star:
+        result[abs(y_max-y)][abs(x_min-x)] = '*'
+
+    return [''.join(s) for s in result]
+```
+
