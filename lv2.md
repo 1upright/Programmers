@@ -1651,3 +1651,24 @@ def solution(line):
     return [''.join(s) for s in result]
 ```
 
+
+
+## 디펜스 게임
+
+```python
+def solution(n, k, enemy):
+    import heapq
+    
+    heap = []
+    for i, v in enumerate(enemy):
+        heapq.heappush(heap, -v)
+        if v <= n:
+            n -= v
+        elif k and v > n:
+            k -= 1
+            n -= heapq.heappop(heap)+v
+        else:
+            return i
+    return len(enemy)
+```
+
