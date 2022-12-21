@@ -1678,29 +1678,24 @@ def solution(n, k, enemy):
 
 ```python
 def solution(grid):
+    N, M = len(grid), len(grid[0])
+    visited = [[[0]*4 for _ in range(M)] for _ in range(N)]
     answer = []
-
-    N, M = len(grid[0]), len(grid)
-    visited = [[[0]*4 for _ in range(N)] for _ in range(M)]
-    
-    for i in range(M):
-        for j in range(N):
+    for i in range(N):
+        for j in range(M):
             for d in range(4):
                 if not visited[i][j][d]:
                     cnt, ni, nj = 0, i, j
                     while not visited[ni][nj][d]:
                         visited[ni][nj][d] = 1
                         cnt += 1
-                        if grid[ni][nj] == "S":
-                            pass
-                        elif grid[ni][nj] == "L":
-                            d = (d-1) % 4
+                        if grid[ni][nj] == "L":
+                            d = (d-1)%4
                         elif grid[ni][nj] == "R":
-                            d = (d+1) % 4
-                        ni = (ni + [1, 0, -1, 0][d]) % M
-                        nj = (nj + [0, -1, 0, 1][d]) % N
+                            d = (d+1)%4
+                        ni = (ni + [1, 0, -1, 0][d]) % N
+                        nj = (nj + [0, -1, 0, 1][d]) % M
 
                     answer.append(cnt)
     return sorted(answer)
 ```
-
