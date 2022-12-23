@@ -35,3 +35,16 @@ def solution(operations):
     return [max(heap), heap[0]] if heap else [0, 0]
 ```
 
+
+
+## 최고의 집합
+
+```python
+def solution(n, s):
+    if n > s: return [-1]
+    x, y = divmod(s, n)
+    ans = [x]*n
+    for i in range(y): ans[i] += 1
+    return sorted(ans)
+```
+
