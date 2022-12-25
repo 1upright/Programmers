@@ -90,3 +90,43 @@ def solution(n, works):
     return sum(x**2 if x<0 else 0 for x in heap)
 ```
 
+
+
+## 네트워크
+
+```python
+def solution(n, computers):
+    from collections import deque
+    
+    visited = [[0]*n for _ in range(n)]
+    cnt = 0
+    for i in range(n):
+        q = deque([])
+        for j in range(n):
+            if computers[i][j] and not visited[i][j]:
+                q.append((i, j))
+        
+        if q: cnt += 1
+
+        while q:
+            ni, nj = q.popleft()
+            visited[ni][nj] = 1
+            for k in range(n):
+                if computers[nj][k] and not visited[nj][k]:
+                    q.append((nj, k))
+    
+    return cnt
+
+# 다른 사람의 풀이
+def solution(n, computers):
+    tmp = list(range(n))
+    for i in range(n):
+        for j in range(n):
+            if computers[i][j]:
+                for k in range(n):
+                    if tmp[k] == tmp[i]:
+                        tmp[k] = tmp[j]
+
+    return len(set(tmp))
+```
+
