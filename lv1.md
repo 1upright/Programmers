@@ -1012,3 +1012,12 @@ def solution(s):
     return answer
 ```
 
+
+
+## 크기가 작은 부분의 문자열
+
+```python
+def solution(t, p):
+    return [int(t[i:i+len(p)])>int(p) for i in range(len(t)-len(p)+1)].count(False)
+```
+
