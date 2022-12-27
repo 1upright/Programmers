@@ -1699,3 +1699,15 @@ def solution(grid):
                     answer.append(cnt)
     return sorted(answer)
 ```
+
+
+
+## 테이블 해시 함수
+
+```python
+def solution(data, col, row_begin, row_end):
+    from functools import reduce
+    
+    return reduce(lambda x, y: x^y, [sum(x%(i+1) for x in v) for i, v in enumerate(sorted(data, key = lambda x :(x[col-1], -x[0])))][row_begin-1:row_end])
+```
+
