@@ -1711,3 +1711,23 @@ def solution(data, col, row_begin, row_end):
     return reduce(lambda x, y: x^y, [sum(x%(i+1) for x in v) for i, v in enumerate(sorted(data, key = lambda x :(x[col-1], -x[0])))][row_begin-1:row_end])
 ```
 
+
+
+## 마법의 엘리베이터
+
+```python
+def solution(storey):
+    answer = i = 0
+    while storey:
+        x = storey%10
+        if x < 5 or (x==5 and storey%100<50):
+            answer += x
+        else:
+            answer += 10-x
+            storey += 10
+        i += 1
+        storey //= 10
+    
+    return answer
+```
+
