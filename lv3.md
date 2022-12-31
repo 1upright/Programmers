@@ -176,3 +176,17 @@ def solution(m, n, puddles):
     return dp[n][m]
 ```
 
+
+
+## 단속카메라
+
+```python
+def solution(routes):
+    answer, tmp = 0, -30001
+    for enter, exit in sorted(routes, key = lambda x: x[1]):
+        if tmp < enter:
+            answer += 1
+            tmp = exit
+    return answer
+```
+
