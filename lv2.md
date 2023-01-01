@@ -1731,3 +1731,26 @@ def solution(storey):
     return answer
 ```
 
+
+
+## 유사 칸토어 비트열
+
+```python
+def solution(n, l, r):
+    def cnt(x):
+        from math import log
+        
+        if x <= 5: return '11011'[:x].count('1')
+    
+        time = int(log(x, 5))
+        a, b = divmod(x, 5**time)
+        if a == 1:
+            return a*(4**time)+cnt(b)
+        elif a == 2:
+            return 2*(4**time)
+        else:
+            return (a-1)*(4**time)+cnt(b)
+
+    return cnt(r)-cnt(l-1)
+```
+
