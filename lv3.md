@@ -209,3 +209,25 @@ def solution(A, B):
     return cnt
 ```
 
+
+
+## 베스트 앨범
+
+```python
+def solution(genres, plays):
+    from collections import defaultdict
+    
+    data = defaultdict(list)
+    cnt = defaultdict(int)
+    for g, p, i in sorted([[genres[i], -plays[i], i] for i in range(len(genres))]):
+        data[g].append((p, i))
+        cnt[g] -= p
+        
+    answer = []
+    for x in [data[genre][:min(len(data[genre]), 2)] for genre, num in sorted(cnt.items(), key=lambda x: -x[1])]:
+        for a, b in x:
+            answer.append(b)
+    
+    return answer
+```
+
