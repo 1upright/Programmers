@@ -190,3 +190,22 @@ def solution(routes):
     return answer
 ```
 
+
+
+## 숫자 게임
+
+```python
+def solution(A, B):
+    A.sort(reverse=True)
+    B.sort(reverse=True)
+    cnt = 0
+    while B:
+        if B[-1] > A[-1]:
+            A.pop()
+            B.pop()
+            cnt += 1
+        else:
+            B.pop()
+    return cnt
+```
+
