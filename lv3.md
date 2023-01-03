@@ -231,3 +231,15 @@ def solution(genres, plays):
     return answer
 ```
 
+
+
+## 기지국 설치
+
+```python
+def solution(n, stations, w):
+    from math import ceil
+    
+    arr = [-w] + stations + [n+1+w]
+    return sum(ceil(x/(w+w+1)) if x>0 else 0 for x in [(arr[i]-w-1)-(arr[i-1]+w) for i in range(1, len(arr))])
+```
+
