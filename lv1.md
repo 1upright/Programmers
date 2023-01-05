@@ -1021,3 +1021,24 @@ def solution(t, p):
     return [int(t[i:i+len(p)])>int(p) for i in range(len(t)-len(p)+1)].count(False)
 ```
 
+
+
+## 개인정보 수집 유효기간
+
+```python
+def solution(today, terms, privacies):
+    standard = int(today[2:4])*28*12+int(today[5:7])*28+int(today[8:10])
+    dic = {}
+    for term in terms:
+        x, y = term.split()
+        dic[x] = standard - int(y)*28
+        
+    answer = []
+    for i, v in enumerate(privacies):
+        day, term = v.split()
+        if int(day[2:4])*28*12+int(day[5:7])*28+int(day[8:10]) <= dic[term]:
+            answer.append(i+1)
+
+    return answer
+```
+
