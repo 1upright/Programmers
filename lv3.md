@@ -243,3 +243,30 @@ def solution(n, stations, w):
     return sum(ceil(x/(w+w+1)) if x>0 else 0 for x in [(arr[i]-w-1)-(arr[i-1]+w) for i in range(1, len(arr))])
 ```
 
+
+
+##  가장 먼 노드
+
+```python
+def solution(n, edge):
+    from collections import deque
+    
+    adj = [[] for _ in range(n+1)]
+    for u, v in edge:
+        adj[u].append(v)
+        adj[v].append(u)
+    
+    visited = [0]*(n+1)
+    visited[1] = 1
+    
+    q = deque([1])
+    while q:
+        x = q.popleft()
+        for y in adj[x]:
+            if not visited[y]:
+                visited[y] = visited[x]+1
+                q.append(y)
+    
+    return visited.count(max(visited))
+```
+
