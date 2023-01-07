@@ -270,3 +270,43 @@ def solution(n, edge):
     return visited.count(max(visited))
 ```
 
+
+
+## 미로 탈출 명령어
+
+```python
+def solution(n, m, x, y, r, c, k):
+    w = r-x
+    h = c-y
+    val = k-abs(w)-abs(h)
+    if val<0 or val%2:
+        return 'impossible'
+    else:
+        dist = {'d':(1, 0), 'l':(0, -1), 'r':(0, 1), 'u':(-1, 0)}
+        move = {'d':0, 'l':0, 'r':0, 'u':0}
+        if w>0: move['d'] += w
+        elif w<0: move['u'] -= w
+        if h>0: move['r'] += h
+        elif h<0: move['l'] -= h
+
+        if n-max(x, r) > val//2:
+            move['d'] += val//2
+            move['u'] += val//2
+        else:
+            move['d'] += n-max(x, r)
+            move['u'] += n-max(x, r)
+            move['l'] += val//2-n+max(x, r)
+            move['r'] += val//2-n+max(x, r)
+
+        ans = ''
+        for _ in range(k):
+            for m in move:
+                if move[m] and 1<=dist[m][0]+x<=n and 1<=dist[m][1]+y<=n:
+                    move[m] -= 1
+                    ans += m
+                    x += dist[m][0]
+                    y += dist[m][1]
+                    break
+    return ans
+```
+
