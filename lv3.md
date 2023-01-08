@@ -310,3 +310,58 @@ def solution(n, m, x, y, r, c, k):
     return ans
 ```
 
+
+
+## 표 병합
+
+```python
+def solution(commands):
+    arr = [[['', str(i)+' '+str(j)] for j in range(51)] for i in range(51)]
+    res = []
+
+    for command in commands:
+        com = command.split()
+
+        if com[0] == 'UPDATE' and len(com) == 4:
+            r1, c1 = int(com[1]), int(com[2])
+            for i in range(51):
+                for j in range(51):
+                    if arr[i][j][1] == arr[r1][c1][1]:
+                        arr[i][j][0] = com[3]
+
+        elif com[0] == 'UPDATE' and len(com) == 3:
+            for i in range(51):
+                for j in range(51):
+                    if arr[i][j][0] == com[1]:
+                        arr[i][j][0] = com[2]
+
+        elif com[0] == 'MERGE':
+            r1, c1, r2, c2 = int(com[1]), int(com[2]), int(com[3]), int(com[4])
+            if arr[r2][c2][0] and not arr[r1][c1][0]:
+                r1, c1, r2, c2 = r2, c2, r1, c1
+            r3, c3 = arr[r1][c1][1].split()
+            r4, c4 = arr[r2][c2][1].split()
+            for i in range(51):
+                for j in range(51):
+                    if arr[i][j][1] == r4+' '+c4:
+                        arr[i][j][0] = arr[int(r3)][int(c3)][0]
+                        arr[i][j][1] = r3+' '+c3
+
+        elif com[0] == 'UNMERGE':
+            r1, c1 = int(com[1]), int(com[2])
+            tmp = arr[r1][c1][0]
+            tmp2 = arr[r1][c1][1]
+            for i in range(51):
+                for j in range(51):
+                    if arr[i][j][1] == tmp2:
+                        arr[i][j][0] = ''
+                        arr[i][j][1] = str(i)+' '+str(j)
+            arr[r1][c1][0] = tmp
+
+        elif com[0] == 'PRINT':
+            r1, c1 = int(com[1]), int(com[2])
+            x = arr[r1][c1][0] if arr[r1][c1][0] else 'EMPTY'
+            res.append(x)
+    return res
+```
+
