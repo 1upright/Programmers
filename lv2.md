@@ -1754,3 +1754,26 @@ def solution(n, l, r):
     return cnt(r)-cnt(l-1)
 ```
 
+
+
+## 이모티콘 할인 행사
+
+```python
+def solution(users, emoticons):
+    from itertools import product
+    
+    answer = [-1, -1]
+    for discounts in product([10, 20, 30, 40], repeat=len(emoticons)):
+        tmp = [0, 0]
+        for rate, price in users:
+            cost = sum((100-discounts[i])/100*emoticons[i] if discounts[i] >= rate else 0 for i in range(len(emoticons)))
+            if cost >= price:
+                tmp[0] += 1
+            else:
+                tmp[1] += cost
+                
+        answer = max(answer, tmp)
+
+    return answer
+```
+
