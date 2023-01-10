@@ -1777,3 +1777,35 @@ def solution(users, emoticons):
     return answer
 ```
 
+
+
+## 택배 배달과 수거하기
+
+```python
+def solution(cap, n, deliveries, pickups):
+    def foo(arr):
+        indices = []
+        box, idx = 0, n-1
+        while idx > -1:
+            if not arr[idx]:
+                idx -= 1
+                continue
+            if not box:
+                indices.append(idx)
+            spare = cap - box
+            if arr[idx] <= spare:
+                box += arr[idx]
+                idx -= 1
+            else:
+                arr[idx] -= spare
+                box = 0
+        return indices
+    
+    indices_d, indices_p = foo(deliveries)[::-1], foo(pickups)[::-1]
+    answer = 0
+    while indices_d or indices_p:
+        answer += (max(indices_d.pop() if indices_d else 0, indices_p.pop() if indices_p else 0)+1)*2
+    return answer
+
+# 다른 사람의 풀이 참고
+```
