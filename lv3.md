@@ -365,3 +365,27 @@ def solution(commands):
     return res
 ```
 
+
+
+## 디스크 컨트롤러
+
+```python
+def solution(jobs):
+    import heapq
+    
+    n = len(jobs)
+    jobs.sort(key = lambda x: x[1])
+    answer = start = 0
+    while jobs:
+        for i in range(len(jobs)):
+            if jobs[i][0] <= start:
+                start += jobs[i][1]
+                answer += (start-jobs[i][0])/n
+                jobs.pop(i)
+                break
+        else:
+            start += 1    
+    
+    return int(answer)
+```
+
