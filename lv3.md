@@ -389,3 +389,21 @@ def solution(jobs):
     return int(answer)
 ```
 
+
+
+## 불량 사용자
+
+```python
+def solution(user_id, banned_id):
+    from re import fullmatch
+    from itertools import permutations
+    
+    bans = '/'.join(banned_id).replace('*','.')
+    res = set()
+    for per in permutations(user_id, len(banned_id)):
+        if fullmatch(bans, '/'.join(per)):
+            res.add(''.join(sorted(per)))
+
+    return len(res)
+```
+
