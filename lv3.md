@@ -407,3 +407,37 @@ def solution(user_id, banned_id):
     return len(res)
 ```
 
+
+
+## 보석 쇼핑
+
+```python
+def solution(gems):
+    from collections import defaultdict
+    
+    n, m = len(gems), len(set(gems))
+    answer = [0, n-1]
+    s = e = 0
+    dic = defaultdict(int)
+    dic[gems[0]] += 1
+    while e<n:
+        if len(dic)<m:
+            e += 1
+            if e<n: dic[gems[e]] += 1
+
+        else:
+            x = gems[s]
+            
+            if answer[1]-answer[0] > e-s:
+                answer = [s, e]
+            
+            if dic[x]==1:
+                del dic[x]
+            else:
+                dic[x] -= 1
+
+            s += 1
+
+    return [x+1 for x in answer]
+```
+
