@@ -459,3 +459,29 @@ def solution(n, times):
     return answer
 ```
 
+
+
+## 징검다리 건너기
+
+```python
+def solution(stones, k):
+    answer, s, e = 0, 1, max(stones)
+    while s <= e:
+        mid = (s+e)//2
+        cnt = 0
+        for stone in stones:
+            if stone <= mid:
+                cnt += 1
+            else:
+                cnt = 0
+
+            if cnt >= k:
+                answer = mid
+                e = mid-1
+                break
+        else:
+            s = mid+1
+        
+    return answer
+```
+
