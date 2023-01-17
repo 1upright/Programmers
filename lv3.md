@@ -555,3 +555,28 @@ def solution(n, costs):
     return answer
 ```
 
+
+
+## 여행경로
+
+```python
+def solution(tickets):
+    from collections import defaultdict
+    
+    paths = defaultdict(list)
+    for s, e in tickets: paths[s].append(e)
+    for k in paths: paths[k].sort(reverse=True)
+
+    stack = ["ICN"]
+    answer = []
+    while stack:
+        top = stack.pop()
+        if paths[top]:
+            stack.append(top)
+            stack.append(paths[top].pop())
+        else:
+            answer.append(top)
+
+    return answer[::-1]
+```
+
