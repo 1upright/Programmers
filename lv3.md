@@ -508,3 +508,50 @@ def solution(sticker):
     return max(dp1[-1], dp1[-2], dp2[-1], dp2[-2])
 ```
 
+
+
+## 섬 연결하기
+
+```python
+def solution(n, costs):
+    def find(x):
+        if x == rep[x]:
+            return x
+        rep[x] = find(rep[x])
+        return rep[x]
+    
+    def union(a, b):
+        a = find(a)
+        b = find(b)
+        if b < a:
+            rep[a] = b
+        else:
+            rep[b] = a
+    
+    costs.sort(key = lambda x: x[2])
+    rep = list(range(n))
+    
+    res = 0
+    for u, v, w in costs:
+        if find(u) != find(v):
+            union(u, v)
+            res += w
+
+    return res
+
+## 다른 풀이
+def solution(n, costs):
+    costs.sort(key = lambda x: x[2])
+    visited = set([costs[0][0]])
+    
+    answer = 0
+    while len(visited) < n:
+        for u, v, w in costs:
+            if (u in visited and v not in visited) or (u not in visited and v in visited):
+                visited.update([u, v])
+                answer += w
+                break
+
+    return answer
+```
+
