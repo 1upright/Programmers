@@ -595,3 +595,23 @@ def solution(s):
     return answer
 ```
 
+
+
+## 순위
+
+```python
+def solution(n, results):
+    from collections import defaultdict
+    
+    wins, loses = defaultdict(set), defaultdict(set)
+    for winner, loser in results:
+        wins[loser].add(winner)
+        loses[winner].add(loser)
+    
+    for x in range(1, n+1):
+        for winner in wins[x]: loses[winner].update(loses[x])
+        for loser in loses[x]: wins[loser].update(wins[x])
+
+    return [len(wins[x])+len(loses[x])==n-1 for x in range(1, n+1)].count(True)
+```
+
