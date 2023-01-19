@@ -580,3 +580,18 @@ def solution(tickets):
     return answer[::-1]
 ```
 
+
+
+## 가장 긴 펠린드롬
+
+```python
+def solution(s):
+    answer = 0
+    for i in range(len(s)):
+        for j in range(i+1, len(s)+1):
+            x = s[i:j]
+            if x == x[::-1]:
+                answer = max(answer, len(x))
+    return answer
+```
+
