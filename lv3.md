@@ -617,29 +617,6 @@ def solution(n, results):
 
 
 
-## 시소 짝꿍
-
-```python
-def solution(weights):
-    from collections import defaultdict
-    
-    dic = defaultdict(int)
-    for weight in weights:
-        dic[weight] += 1
-    
-    cnt = 0
-    for x in dic:
-        for y in [x/2*3, x/3*2, x/2, x*2, x/4*3, x/3*4]:
-            if y in dic:
-                cnt += dic[x]*dic[y]
-    
-        cnt += dic[x]*(dic[x]-1)
-    
-    return cnt//2
-```
-
-
-
 ## 경주로 건설
 
 ```python
