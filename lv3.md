@@ -638,3 +638,31 @@ def solution(weights):
     return cnt//2
 ```
 
+
+
+## 경주로 건설
+
+```python
+def solution(board):
+    from collections import deque
+    
+    n = len(board)
+    answer = 600000
+    visited = {}
+    q = deque([(0, 0, 0, -1)])
+    while q:
+        i, j, cnt, d = q.popleft()
+        for idx, (di, dj) in enumerate([(1, 0), (-1, 0), (0, 1), (0, -1)]):
+            ni, nj = i+di, j+dj
+            if 0<=ni<n and 0<=nj<n and not board[ni][nj]:
+                ncnt = cnt + (100 if d == idx or d == -1 else 600)
+                
+                if ni == n-1 and nj == n-1:
+                    answer = min(answer, ncnt)
+                elif (ni, nj, idx) not in visited or visited[(ni, nj, idx)] > ncnt:
+                    visited[(ni, nj, idx)] = ncnt
+                    q.append((ni, nj, ncnt, idx))
+
+    return answer
+```
+
