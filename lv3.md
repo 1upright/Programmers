@@ -643,3 +643,17 @@ def solution(board):
     return answer
 ```
 
+
+
+## 거스름돈
+
+```python
+def solution(n, money):
+    dp = [1]+[0]*n
+    
+    for m in money:
+        for cost in range(m, n+1):
+            dp[cost] += dp[cost-m]
+    
+    return dp[n]%1000000007
+```
