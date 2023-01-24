@@ -657,3 +657,23 @@ def solution(n, money):
     
     return dp[n]%1000000007
 ```
+
+
+
+## 풍선 터트리기
+
+```python
+def solution(a):
+    check = [0]*len(a)
+    l = r = 1000000001
+    for i in range(len(a)):
+        if l > a[i]:
+            l = a[i]
+            check[i] = 1
+        if r > a[-1-i]:
+            r = a[-1-i]
+            check[-1-i] = 1
+
+    return sum(check)
+```
+
