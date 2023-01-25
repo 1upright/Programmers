@@ -677,3 +677,36 @@ def solution(a):
     return sum(check)
 ```
 
+
+
+## 합승 택시 요금
+
+```python
+def solution(n, s, a, b, fares):
+    import heapq
+    
+    def dijkstra(start, end):
+        D = [20000001]*(n+1)
+        heap = []
+        D[start] = 0
+        heapq.heappush(heap, [0, start])
+        while heap:
+            val, i = heapq.heappop(heap)
+            if i == end:
+                return D[end]
+            for v, w in adj[i]:
+                tmp = w + val
+                if D[v] > tmp:
+                    D[v] = tmp
+                    heapq.heappush(heap, [tmp, v])
+        return 20000001
+
+    adj = [[] for _ in range(n+1)]
+    for u, v, w in fares:
+        adj[u].append([v, w])
+        adj[v].append([u, w])
+    heap = []
+    
+    return min(dijkstra(s, i) + dijkstra(i, a) + dijkstra(i, b) for i in range(1, n+1))
+```
+
