@@ -710,3 +710,27 @@ def solution(n, s, a, b, fares):
     return min(dijkstra(s, i) + dijkstra(i, a) + dijkstra(i, b) for i in range(1, n+1))
 ```
 
+
+
+## 셔틀버스
+
+```python
+def solution(n, t, m, timetable):
+    times = sorted([int(time[:2])*60+int(time[3:]) for time in timetable])
+    bus_times = [9*60+t*i for i in range(n)]
+    
+    i = 0
+    for time in bus_times:
+        cnt = 0
+        while cnt<m and i<len(times) and times[i]<=time:
+            i += 1
+            cnt += 1
+        
+        if cnt<m:
+            answer = time
+        else:
+            answer = times[i-1]-1
+
+    return str(answer//60).zfill(2)+":"+str(answer%60).zfill(2)
+```
+
