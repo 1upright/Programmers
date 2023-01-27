@@ -1833,3 +1833,33 @@ def solution(weights):
     return cnt//2
 ```
 
+
+
+## 무인도 여행
+
+```python
+def solution(maps):
+    from collections import deque
+    
+    n, m = len(maps), len(maps[0])
+    result = []
+    visited = [[0]*m for _ in range(n)]
+    for i in range(n):
+        for j in range(m):
+            if maps[i][j] != 'X' and not visited[i][j]:
+                q = deque([(i, j)])
+                visited[i][j] = 1
+                cnt = int(maps[i][j])
+                while q:
+                    si, sj = q.popleft()
+                    for di, dj in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+                        ni, nj = si+di, sj+dj
+                        if 0<=ni<n and 0<=nj<m and maps[ni][nj] != 'X' and not visited[ni][nj]:
+                            q.append((ni, nj))
+                            visited[ni][nj] = 1
+                            cnt += int(maps[ni][nj])
+                result.append(cnt)
+    
+    return sorted(result) if result else [-1]
+```
+
