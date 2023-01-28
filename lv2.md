@@ -1863,3 +1863,24 @@ def solution(maps):
     return sorted(result) if result else [-1]
 ```
 
+
+
+## 숫자 변환하기
+
+```python
+def solution(x, y, n):
+    from collections import deque
+    
+    q = deque([x])
+    cnt = [0]*1000001
+    cnt[x] = 1
+    while q:
+        u = q.popleft()
+        for v in u+n, u*2, u*3:
+            if 1<=v<=1000000 and not cnt[v]:
+                cnt[v] = cnt[u]+1
+                q.append(v)
+
+    return cnt[y]-1
+```
+
