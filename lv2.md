@@ -1884,3 +1884,38 @@ def solution(x, y, n):
     return cnt[y]-1
 ```
 
+
+
+## 뒤에 있는 큰 수 찾기
+
+```python
+# 풀이 1
+def solution(numbers):
+    result = [-1]*len(numbers)
+    stack = []
+    
+    for i, v in enumerate(numbers):
+        while stack and numbers[stack[-1]] < v:
+            result[stack.pop()] = v
+
+        stack.append(i)
+
+    return result
+
+# 풀이 2
+def solution(numbers):
+    from heapq import heappush, heappop
+    
+    result = [-1]*len(numbers)
+    heap = []
+    
+    for i, v in enumerate(numbers):
+        while heap and heap[0][0] < v:
+            val, idx = heappop(heap)
+            result[idx] = v
+
+        heappush(heap, (v, i))
+
+    return result
+```
+
