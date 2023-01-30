@@ -734,3 +734,30 @@ def solution(n, t, m, timetable):
     return str(answer//60).zfill(2)+":"+str(answer%60).zfill(2)
 ```
 
+
+
+## 부대복귀
+
+```python
+def solution(n, roads, sources, destination):
+    from collections import deque
+    
+    adj = [[] for _ in range(n+1)]
+    for u, v in roads:
+        adj[u].append(v)
+        adj[v].append(u)
+    
+    dist = [-1]*(n+1)
+    dist[destination] = 0
+    q = deque([destination])
+
+    while q:
+        x = q.popleft()
+        for y in adj[x]:
+            if dist[y] == -1:
+                dist[y] = dist[x]+1
+                q.append(y)
+
+    return [dist[x] for x in sources]
+```
+
