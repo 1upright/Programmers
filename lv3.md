@@ -761,3 +761,22 @@ def solution(n, roads, sources, destination):
     return [dist[x] for x in sources]
 ```
 
+
+
+## 인사고과
+
+```python
+def solution(scores):
+    x, y = scores[0]
+    scores.sort(key=lambda x: (-x[0], x[1]))
+    mx, answer = 0, 1
+    for a, b in scores:
+        if x<a and y<b:
+            return -1
+        if mx<=b:
+            if x+y<a+b:
+                answer += 1
+            mx = b
+    return answer
+```
+
