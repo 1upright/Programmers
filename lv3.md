@@ -780,3 +780,66 @@ def solution(scores):
     return answer
 ```
 
+
+
+## 자물쇠와 열쇠
+
+```python
+def rotate(arr, m, d):
+    res = [[0]*m for _ in range(m)]
+    
+    if d == 0:
+        for i in range(m):
+            for j in range(m):
+                res[i][j] = arr[i][j]
+
+    elif d == 1:
+        for i in range(m):
+            for j in range(m):
+                res[j][m-i-1] = arr[i][j]
+
+    elif d == 2:
+        for i in range(m):
+            for j in range(m):
+                res[m-i-1][m-j-1] = arr[i][j]
+
+    elif d == 3:
+        for i in range(m):
+            for j in range(m):
+                res[m-j-1][i] = arr[i][j]
+    
+    return res
+
+def check(arr, n):
+    for i in range(n, n*2):
+        for j in range(n, n*2):
+            if arr[i][j] != 1:
+                return False
+    
+    return True
+
+def solution(key, lock):
+    from copy import deepcopy
+    
+    m, n = len(key), len(lock)
+    new_lock = [[0]*(n*3) for _ in range(n*3)]
+    for i in range(n):
+        for j in range(n):
+            new_lock[n+i][n+j] = lock[i][j]
+    
+    for i in range(1, n*2):
+        for j in range(1, n*2):
+            for d in range(4):
+                tmp_lock = deepcopy(new_lock)
+                tmp_key = rotate(key, m, d)
+                
+                for r in range(m):
+                    for c in range(m):
+                        tmp_lock[i+r][j+c] += tmp_key[r][c]
+                
+                if check(tmp_lock, n):
+                    return True
+                
+    return False
+```
+
