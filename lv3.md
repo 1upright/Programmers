@@ -843,3 +843,33 @@ def solution(key, lock):
     return False
 ```
 
+
+
+## 110 옮기기
+
+```python
+def solution(s):
+    answer = []
+    for t in s:
+        stack = []
+        cnt_110 = 0
+        for x in t:
+            if x == '0' and stack[-2:] == ['1', '1']:
+                cnt_110 += 1
+                stack.pop();stack.pop()
+            else:
+                stack.append(x)
+        
+        cnt_1 = 0
+        while stack:
+            if stack[-1] == '1':
+                stack.pop()
+                cnt_1 += 1
+            else:
+                break
+
+        answer.append(''.join(stack)+'110'*cnt_110+'1'*cnt_1)
+
+    return answer
+```
+
