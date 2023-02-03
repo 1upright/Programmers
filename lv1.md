@@ -1042,3 +1042,26 @@ def solution(today, terms, privacies):
     return answer
 ```
 
+
+
+## 둘만의 암호
+
+```python
+def solution(s, skip, index):
+    answer = ''
+    for x in s:
+        cnt = 0
+        while cnt < index:
+            x = 'a' if x == 'z' else chr(ord(x)+1)
+            if x not in skip:
+                cnt += 1
+        answer += x
+    
+    return answer
+
+# 다른 풀이
+def solution(s, skip, index):
+    arr = [chr(i) for i in range(97, 123) if chr(i) not in skip]*3
+    return "".join([arr[arr.index(i)+index] for i in s])
+```
+
