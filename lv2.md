@@ -1919,3 +1919,29 @@ def solution(numbers):
     return result
 ```
 
+
+
+## 호텔 대실
+
+```python
+def solution(book_time):
+    import heapq
+
+    times = sorted([(int(a[:2])*60+int(a[3:]), int(b[:2])*60+int(b[3:])) for a, b in book_time])
+    heap = []
+    cnt = 1
+    for s, e in times:
+        if not heap:
+            heapq.heappush(heap, e)
+            continue
+
+        if heap[0] <= s:
+            heapq.heappop(heap)
+        else:
+            cnt += 1
+
+        heapq.heappush(heap, e+10)
+
+    return cnt
+```
+
