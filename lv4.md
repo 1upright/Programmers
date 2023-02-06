@@ -19,3 +19,14 @@ def solution(money):
     return max(dp1[-1], dp2[-2])
 ```
 
+
+
+## 올바른 괄호의 개수
+
+```python
+def solution(n):
+    from math import factorial
+    
+    return factorial(n*2)/factorial(n)/factorial(n+1)
+```
+
