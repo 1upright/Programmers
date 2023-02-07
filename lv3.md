@@ -873,3 +873,26 @@ def solution(s):
     return answer
 ```
 
+
+
+## 스타 수열
+
+```python
+def solution(a):
+    from collections import Counter
+    
+    answer = -1
+    c = Counter(a)
+    for k, v in c.items():
+        if v*2 > answer:
+            cnt = idx = 0
+            while idx < len(a)-1:
+                if (a[idx] != k and a[idx+1] != k) or a[idx] == a[idx+1]:
+                    idx += 1
+                    continue
+                cnt += 2
+                idx += 2
+            answer = max(answer, cnt)
+    return answer
+```
+
