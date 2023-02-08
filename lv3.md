@@ -896,3 +896,22 @@ def solution(a):
     return answer
 ```
 
+
+
+## 다단계 칫솔 판매
+
+```python
+def solution(enroll, referral, seller, amount):
+    answer = [0]*len(enroll)
+    dic = {v:i for i, v in enumerate(enroll)}
+    for s, a in zip(seller, amount):
+        earning = a*100
+        while s != '-' and earning > 0:
+            idx = dic[s]
+            answer[idx] += (earning - earning//10)
+            earning //= 10
+            s = referral[idx]
+    
+    return answer
+```
+
