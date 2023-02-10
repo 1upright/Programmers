@@ -915,3 +915,52 @@ def solution(enroll, referral, seller, amount):
     return answer
 ```
 
+
+
+## 길 찾기 게임
+
+```python
+# 모르겠어서 인터넷 베낌
+
+def solution(nodeinfo):
+    from collections import deque
+    
+    nodes = sorted([v+[i+1] for i, v in enumerate(nodeinfo)], key=lambda x: (-x[1], x[0]))
+    dic = {}
+    for x, y, idx in nodes:
+        dic[idx] = [x, y, -1, -1]
+        now = nodes[0][2]
+        while 1:
+            if x > dic[now][0]:
+                if dic[now][3] == -1:
+                    dic[now][3] = idx
+                    break
+                now = dic[now][3]
+            elif x < dic[now][0]:
+                if dic[now][2] == -1:
+                    dic[now][2] = idx
+                    break
+                now = dic[now][2]
+            else:
+                break
+
+    answer = []
+    for x, y, idx in [(3, 2, 0), (2, 3, 1)]:
+        s = [nodes[0][2]]
+        res = deque()
+        while s:
+            now = s.pop()
+            if idx == 0:
+                res.append(now)
+            elif idx == 1:
+                res.appendleft(now)
+            
+            for c in (x, y):
+                if dic[now][c] != -1:
+                    s.append(dic[now][c])
+        
+        answer.append(list(res))
+
+    return answer
+```
+
