@@ -964,3 +964,45 @@ def solution(nodeinfo):
     return answer
 ```
 
+
+
+## 표 편집
+
+```python
+def solution(n, k, cmd):
+    link = {i: [i-1, i+1] for i in range(1, n+1)}
+    answer = ['O']*n
+    s = []
+    now = k+1
+    for c in cmd:
+        if c[0] == 'U':
+            for _ in range(int(c[2:])):
+                now = link[now][0]
+
+        elif c[0] == 'D':
+            for _ in range(int(c[2:])):
+                now = link[now][1]
+        
+        elif c[0] == 'C':
+            prev, nxt = link[now]
+            s.append((prev, now, nxt))
+            answer[now-1] = 'X'
+            now = link[now][0] if nxt == n+1 else link[now][1]
+            
+            if prev != 0:
+                link[prev][1] = nxt
+            if nxt != n+1:
+                link[nxt][0] = prev
+        
+        elif c[0] == 'Z':
+            prev, last, nxt = s.pop()
+            answer[last-1] = 'O'
+            
+            if prev != 0:
+                link[prev][1] = last
+            if nxt != n+1:
+                link[nxt][0] = last
+    
+    return "".join(answer)
+```
+
