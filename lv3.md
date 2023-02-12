@@ -1006,3 +1006,35 @@ def solution(n, k, cmd):
     return "".join(answer)
 ```
 
+
+
+## 파괴되지 않은 건물
+
+```python
+def solution(board, skill):
+    n, m = len(board), len(board[0])
+    arr = [[0]*(m+1) for _ in range(n+1)] 
+    for typ, r1, c1, r2, c2, degree in skill:
+        arr[r1][c1] += -degree if typ == 1 else degree
+        arr[r1][c2+1] += degree if typ == 1 else -degree
+        arr[r2+1][c1] += degree if typ == 1 else -degree
+        arr[r2+1][c2+1] += -degree if typ == 1 else degree
+
+    for i in range(n):
+        for j in range(m):
+            arr[i][j+1] += arr[i][j]
+
+    for j in range(m):
+        for i in range(n):
+            arr[i+1][j] += arr[i][j]
+
+    answer = 0
+    for i in range(n):
+        for j in range(m):
+            board[i][j] += arr[i][j]
+            if board[i][j] > 0:
+                answer += 1
+
+    return answer
+```
+
