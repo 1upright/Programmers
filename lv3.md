@@ -1038,3 +1038,30 @@ def solution(board, skill):
     return answer
 ```
 
+
+## 파이썬
+
+```python
+def check(arr):
+    for x, y, a in arr:
+        if (a == 0 and not (y == 0 or [x-1, y, 1] in arr or [x, y, 1] in arr or [x, y-1, 0] in arr)) or (a == 1 and not ([x, y-1, 0] in arr or [x+1, y-1, 0] in arr or ([x-1, y, 1] in arr and [x+1, y, 1] in arr))):
+            return False
+    return True
+
+def solution(n, build_frame):
+    answer = []
+    for x, y, a, b in build_frame:
+        if b == 0:
+            answer.remove([x, y, a])
+        else:
+            answer.append([x, y, a])
+        
+        if not check(answer):
+            if b == 0:
+                answer.append([x, y, a])
+            else:
+                answer.remove([x, y, a])
+
+    return sorted(answer)
+```
+
