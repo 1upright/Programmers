@@ -30,3 +30,29 @@ def solution(n):
     return factorial(n*2)/factorial(n)/factorial(n+1)
 ```
 
+
+
+## 호텔 방 배정
+
+```python
+import sys
+sys.setrecursionlimit(10000)
+
+def find(x, room):
+    if x not in room:
+        room[x] = x+1
+        return x
+    
+    y = find(room[x], room)
+    room[x] = y+1
+    return y
+
+def solution(k, room_number):
+    answer = []
+    room = {}
+    for x in room_number:
+        answer.append(find(x, room))
+
+    return answer
+```
+
