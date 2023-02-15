@@ -1065,3 +1065,24 @@ def solution(n, build_frame):
     return sorted(answer)
 ```
 
+
+
+## N으로 표현
+
+```python
+def solution(N, number):
+    dp = []
+    for i in range(1, 9):
+        tmp = set([int(str(N)*i)])
+        for j in range(i-1):
+            for x in dp[j]:
+                for y in dp[-1-j]:
+                    tmp.update([x+y, x-y, x*y, x//y if y else x])
+                    
+        if number in tmp: return i
+    
+        dp.append(tmp)
+
+    return -1
+```
+
