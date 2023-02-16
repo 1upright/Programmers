@@ -1065,3 +1065,21 @@ def solution(s, skip, index):
     return "".join([arr[arr.index(i)+index] for i in s])
 ```
 
+
+
+## 카드 뭉치
+
+```python
+def solution(cards1, cards2, goal):
+    cards1.reverse(); cards2.reverse()
+    for x in goal:
+        if cards1 and x == cards1[-1]:
+            cards1.pop()
+        elif cards2 and x == cards2[-1]:
+            cards2.pop()
+        else:
+            return "No"
+
+    return "Yes"
+```
+
