@@ -1945,3 +1945,53 @@ def solution(book_time):
     return cnt
 ```
 
+
+
+## 미로 탈출
+
+```python
+def solution(maps):
+    from collections import deque
+    
+    n, m = len(maps), len(maps[0])
+    visited = [[0]*m for _ in range(n)]
+    
+    q = deque([])
+    for i in range(n):
+        for j in range(m):
+            if maps[i][j] == 'S':
+                q.append((i, j, 0))
+                visited[i][j] = 1
+
+    flag = 0
+    q2 = deque([])
+    visited2 = [[0]*m for _ in range(n)]
+    while q:
+        i, j, cnt = q.popleft()
+        if maps[i][j] == 'L':
+            flag = 1
+            q2.append((i, j, cnt))
+            visited2[i][j] = 1
+            break
+
+        for di, dj in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+            ni, nj = i+di, j+dj
+            if 0<=ni<n and 0<=nj<m and maps[ni][nj] != 'X' and not visited[ni][nj]:
+                q.append((ni, nj, cnt+1))
+                visited[ni][nj] = 1
+
+    if flag:
+        while q2:
+            i, j, cnt = q2.popleft()
+            if maps[i][j] == 'E':
+                return cnt
+
+            for di, dj in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                ni, nj = i+di, j+dj
+                if 0<=ni<n and 0<=nj<m and maps[ni][nj] != 'X' and not visited2[ni][nj]:
+                    q2.append((ni, nj, cnt+1))
+                    visited2[ni][nj] = 1
+
+    return -1
+```
+
