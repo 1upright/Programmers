@@ -56,3 +56,27 @@ def solution(k, room_number):
     return answer
 ```
 
+
+
+## 무지의 먹방 라이브
+
+```python
+def solution(food_times, k):
+    import heapq
+    
+    if sum(food_times) <= k: return -1
+    
+    heap = []
+    for i in range(len(food_times)):
+        heapq.heappush(heap, (food_times[i], i+1))
+    
+    prev, leftover = 0, len(food_times)
+    while (heap[0][0]-prev)*leftover <= k:
+        now = heapq.heappop(heap)[0]
+        k -= (now-prev)*leftover
+        leftover -= 1
+        prev = now
+    
+    return sorted(heap, key=lambda x: x[1])[k%leftover][1]
+```
+
