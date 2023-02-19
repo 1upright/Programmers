@@ -80,3 +80,29 @@ def solution(food_times, k):
     return sorted(heap, key=lambda x: x[1])[k%leftover][1]
 ```
 
+
+
+## 쿠키 구입
+
+```python
+def solution(cookie):
+    n, answer = len(cookie), 0
+    for i in range(n-1):
+        l, r, l_sum, r_sum = i, i+1, cookie[i], cookie[i+1]
+        
+        while 1:
+            if l_sum == r_sum:
+                answer = max(answer, l_sum)
+            
+            if l>0 and l_sum<=r_sum:
+                l -= 1
+                l_sum += cookie[l]
+            elif r<n-1 and l_sum>=r_sum:
+                r += 1
+                r_sum += cookie[r]
+            else:
+                break
+    
+    return answer
+```
+
