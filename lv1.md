@@ -1083,3 +1083,29 @@ def solution(cards1, cards2, goal):
     return "Yes"
 ```
 
+
+
+## 대충 만든 자판
+
+```python
+def solution(keymap, targets):
+    answer = []
+    for target in targets:
+        cnt = 0
+        for x in target:
+            tmp = -1
+            for k in keymap:
+                if x in k and (tmp == -1 or k.index(x) < tmp):
+                    tmp = k.index(x)+1
+
+            if tmp == -1:
+                cnt = -1
+                break
+
+            cnt += tmp
+
+        answer.append(cnt)
+
+    return answer
+```
+
