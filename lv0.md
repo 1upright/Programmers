@@ -52,3 +52,12 @@ def solution(num1, num2):
     return 1 if num1==num2 else -1
 ```
 
+
+
+## 나이 출력
+
+```python
+def solution(age):
+    return 2023-age
+```
+
