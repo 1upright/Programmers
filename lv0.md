@@ -61,3 +61,12 @@ def solution(age):
     return 2023-age
 ```
 
+
+
+## 각도기
+
+```python
+def solution(angle):
+    return 1 if angle<90 else 2 if angle==90 else 3 if angle<180 else 4
+```
+
