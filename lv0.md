@@ -70,3 +70,11 @@ def solution(angle):
     return 1 if angle<90 else 2 if angle==90 else 3 if angle<180 else 4
 ```
 
+
+
+## 두 수의 나눗셈
+
+```python
+def solution(num1, num2):
+    return int(num1/num2*1000)
+```
