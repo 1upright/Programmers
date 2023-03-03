@@ -78,3 +78,13 @@ def solution(angle):
 def solution(num1, num2):
     return int(num1/num2*1000)
 ```
+
+
+
+## 짝수의 합
+
+```python
+def solution(n):
+    return n//2*(n//2+1)
+```
+
