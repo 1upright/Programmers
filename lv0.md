@@ -96,3 +96,13 @@ def solution(n):
 def solution(n, k):
     return n*12000+(k-n//10)*2000
 ```
+
+
+
+## 배열의 평균값
+
+```python
+def solution(numbers):
+    return sum(numbers)/len(numbers)
+```
+
