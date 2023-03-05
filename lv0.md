@@ -106,3 +106,12 @@ def solution(numbers):
     return sum(numbers)/len(numbers)
 ```
 
+
+
+## 배열 뒤집기
+
+```python
+def solution(num_list):
+    return num_list[::-1]
+```
+
