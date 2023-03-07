@@ -115,3 +115,11 @@ def solution(num_list):
     return num_list[::-1]
 ```
 
+
+
+## 배열 원소의 길이
+
+```python
+def solution(strlist):
+    return [len(x) for x in strlist]
+```
