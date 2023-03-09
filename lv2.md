@@ -1995,3 +1995,17 @@ def solution(maps):
     return -1
 ```
 
+
+
+## 덧칠하기
+
+```python
+def solution(n, m, section):
+    now = answer = 0
+    for x in section:
+        if now < x:
+            now = x+m-1
+            answer += 1
+    return answer
+```
+
