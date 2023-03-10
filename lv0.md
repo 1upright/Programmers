@@ -123,3 +123,13 @@ def solution(num_list):
 def solution(strlist):
     return [len(x) for x in strlist]
 ```
+
+
+
+## 점의 위치 구하기
+
+```python
+def solution(dot):
+    return 1+int(dot[0]*dot[1]<0)+int(dot[1]<0)*2
+```
+
