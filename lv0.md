@@ -133,3 +133,12 @@ def solution(dot):
     return 1+int(dot[0]*dot[1]<0)+int(dot[1]<0)*2
 ```
 
+
+
+## 중복된 숫자 개수
+
+```python
+def solution(array, n):
+    return array.count(n)
+```
+
