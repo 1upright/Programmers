@@ -2009,3 +2009,36 @@ def solution(n, m, section):
     return answer
 ```
 
+
+
+## 혼자서 하는 틱택토
+
+```python
+def solution(board):
+    def check(x):
+        for i in range(3):
+            if board[i] == x*3:
+                return True
+        
+        for j in range(3):
+            if [board[i][j] for i in range(3)] == [x]*3:
+                return True
+        
+        if [board[i][i] for i in range(3)] == [x]*3:
+            return True
+        
+        if [board[i][2-i] for i in range(3)] == [x]*3:
+            return True
+    
+    cnt_o = sum(r.count('O') for r in board)
+    cnt_x = sum(r.count('X') for r in board)
+    
+    if not 0 <= cnt_o-cnt_x <= 1:
+        return 0
+    
+    if (check('O') and cnt_o == cnt_x) or (check('X') and cnt_o == cnt_x+1):
+        return 0
+
+    return 1
+```
+
