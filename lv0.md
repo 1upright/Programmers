@@ -142,3 +142,12 @@ def solution(array, n):
     return array.count(n)
 ```
 
+
+
+## 배열 자르기
+
+```python
+def solution(numbers, num1, num2):
+    return numbers[num1:num2+1]
+```
+
