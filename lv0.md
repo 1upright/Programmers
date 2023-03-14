@@ -151,3 +151,12 @@ def solution(numbers, num1, num2):
     return numbers[num1:num2+1]
 ```
 
+
+
+## 배열 두 배 만들기
+
+```python
+def solution(numbers):
+    return [x*2 for x in numbers]
+```
+
