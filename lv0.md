@@ -160,3 +160,13 @@ def solution(numbers):
     return [x*2 for x in numbers]
 ```
 
+
+
+## 삼각형의 완성 조건 (1)
+
+```python
+def solution(sides):
+    a, b, c = sorted(sides)
+    return 1 if a+b>c else 2
+```
+
