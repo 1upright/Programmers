@@ -170,3 +170,12 @@ def solution(sides):
     return 1 if a+b>c else 2
 ```
 
+
+
+## 아이스 아메리카노
+
+```python
+def solution(money):
+    return divmod(money, 5500)
+```
+
