@@ -179,3 +179,12 @@ def solution(money):
     return divmod(money, 5500)
 ```
 
+
+
+## 피자 나눠 먹기 (1)
+
+```python
+def solution(n):
+    return (n+6)//7
+```
+
