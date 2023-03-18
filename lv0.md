@@ -188,3 +188,12 @@ def solution(n):
     return (n+6)//7
 ```
 
+
+
+## 머쓱이보다 키 큰 사람
+
+```python
+def solution(array, height):
+    return [x>height for x in array].count(True)
+```
+
