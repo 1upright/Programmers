@@ -197,3 +197,12 @@ def solution(array, height):
     return [x>height for x in array].count(True)
 ```
 
+
+
+## 중앙값 구하기
+
+```python
+def solution(array):
+    return sorted(array)[len(array)//2]
+```
+
