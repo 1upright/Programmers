@@ -216,3 +216,12 @@ def solution(num_list):
     return [n, len(num_list)-n]
 ```
 
+
+
+## 문자열 뒤집기
+
+```python
+def solution(my_string):
+    return my_string[::-1]
+```
+
