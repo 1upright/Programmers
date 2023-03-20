@@ -206,3 +206,13 @@ def solution(array):
     return sorted(array)[len(array)//2]
 ```
 
+
+
+## 짝수 홀수 개수
+
+```python
+def solution(num_list):
+    n = [x%2 for x in num_list].count(0)
+    return [n, len(num_list)-n]
+```
+
