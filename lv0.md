@@ -225,3 +225,12 @@ def solution(my_string):
     return my_string[::-1]
 ```
 
+
+
+## 피자 나눠 먹기 (3)
+
+```python
+def solution(slice, n):
+    return (n+slice-1)//slice
+```
+
