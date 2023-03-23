@@ -234,3 +234,13 @@ def solution(slice, n):
     return (n+slice-1)//slice
 ```
 
+
+
+## 최댓값 만들기 (1)
+
+```python
+def solution(numbers):
+    numbers.sort()
+    return numbers[-1]*numbers[-2]
+```
+
