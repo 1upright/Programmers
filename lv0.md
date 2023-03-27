@@ -261,3 +261,13 @@ def solution(s1, s2):
 def solution(my_string, letter):
     return my_string.replace(letter, '')
 ```
+
+
+
+## 옷 가게 할인 받기
+
+```python
+def solution(price):
+    return price*80//100 if price>=500000 else price*90//100 if price>=300000 else price*95//100 if price >= 100000 else price
+```
+
