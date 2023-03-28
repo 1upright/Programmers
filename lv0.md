@@ -271,3 +271,12 @@ def solution(price):
     return price*80//100 if price>=500000 else price*90//100 if price>=300000 else price*95//100 if price >= 100000 else price
 ```
 
+
+
+## 편지
+
+```python
+def solution(message):
+    return len(message)*2
+```
+
