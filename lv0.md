@@ -280,3 +280,12 @@ def solution(message):
     return len(message)*2
 ```
 
+
+
+## 순서쌍의 개수
+
+```python
+def solution(n):
+    return len([x for x in range(1, n+1) if not n%x])
+```
+
