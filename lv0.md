@@ -289,3 +289,12 @@ def solution(n):
     return len([x for x in range(1, n+1) if not n%x])
 ```
 
+
+
+## 모음 제거
+
+```python
+def solution(my_string):
+    return my_string.replace('a', '').replace('e', '').replace('i', '').replace('o', '').replace('u', '')
+```
+
