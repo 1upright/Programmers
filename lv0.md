@@ -298,3 +298,12 @@ def solution(my_string):
     return my_string.replace('a', '').replace('e', '').replace('i', '').replace('o', '').replace('u', '')
 ```
 
+
+
+## 숨어 있는 숫자의 덧셈 (1)
+
+```python
+def solution(my_string):
+    return sum(int(x) for x in my_string if str.isdigit(x))
+```
+
