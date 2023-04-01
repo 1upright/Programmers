@@ -316,3 +316,11 @@ def solution(n):
     return list(range(1, n+1, 2))
 ```
 
+
+
+## 자릿수 더하기
+
+```python
+def solution(n):
+    return sum(int(x) for x in str(n))
+```
