@@ -307,3 +307,12 @@ def solution(my_string):
     return sum(int(x) for x in my_string if str.isdigit(x))
 ```
 
+
+
+## 짝수는 싫어요
+
+```python
+def solution(n):
+    return list(range(1, n+1, 2))
+```
+
