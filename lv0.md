@@ -324,3 +324,13 @@ def solution(n):
 def solution(n):
     return sum(int(x) for x in str(n))
 ```
+
+
+
+## 문자열 안에 문자열
+
+```python
+def solution(str1, str2):
+    return (int(str2 in str1)-1)*(-1)+1
+```
+
