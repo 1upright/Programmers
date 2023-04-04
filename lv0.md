@@ -334,3 +334,12 @@ def solution(str1, str2):
     return (int(str2 in str1)-1)*(-1)+1
 ```
 
+
+
+## 개미 군단
+
+```python
+def solution(hp):
+    return hp//5+hp%5//3+hp%5%3
+```
+
