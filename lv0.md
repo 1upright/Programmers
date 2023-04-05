@@ -343,3 +343,12 @@ def solution(hp):
     return hp//5+hp%5//3+hp%5%3
 ```
 
+
+
+## 제곱수 판별하기
+
+```python
+def solution(n):
+    return 1 if int(n**0.5)**2==n else 2
+```
+
