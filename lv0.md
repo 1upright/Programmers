@@ -352,3 +352,12 @@ def solution(n):
     return 1 if int(n**0.5)**2==n else 2
 ```
 
+
+
+## 암호 해독
+
+```python
+def solution(cipher, code):
+    return cipher[code-1::code]
+```
+
