@@ -361,3 +361,12 @@ def solution(cipher, code):
     return cipher[code-1::code]
 ```
 
+
+
+## 종이 자르기
+
+```python
+def solution(M, N):
+    return M*N-1
+```
+
