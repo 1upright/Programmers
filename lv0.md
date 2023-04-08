@@ -370,3 +370,16 @@ def solution(M, N):
     return M*N-1
 ```
 
+
+
+## 대문자와 소문자
+
+```python
+def solution(my_string):
+    return "".join(x.lower() if x.isupper() else x.upper() for x in my_string)
+
+# 다른 풀이
+def solution(my_string):
+    return my_string.swapcase()
+```
+
