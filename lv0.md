@@ -383,3 +383,12 @@ def solution(my_string):
     return my_string.swapcase()
 ```
 
+
+
+## 가위 바위 보
+
+```python
+def solution(rsp):
+    return "".join({'2':'0', '0':'5', '5':'2'}[x] for x in rsp)
+```
+
