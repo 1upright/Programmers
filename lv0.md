@@ -392,3 +392,12 @@ def solution(rsp):
     return "".join({'2':'0', '0':'5', '5':'2'}[x] for x in rsp)
 ```
 
+
+
+## 세균 증식
+
+```python
+def solution(n, t):
+    return n*2**t
+```
+
