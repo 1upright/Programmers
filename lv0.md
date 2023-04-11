@@ -401,3 +401,12 @@ def solution(n, t):
     return n*2**t
 ```
 
+
+
+## 문자열 정렬하기 (1)
+
+```python
+def solution(my_string):
+    return sorted(int(x) for x in my_string if str.isdigit(x))
+```
+
