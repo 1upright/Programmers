@@ -410,3 +410,12 @@ def solution(my_string):
     return sorted(int(x) for x in my_string if str.isdigit(x))
 ```
 
+
+
+## 주사위의 개수
+
+```python
+def solution(box, n):
+    return eval('*'.join(str(x//n) for x in box))
+```
+
