@@ -419,3 +419,11 @@ def solution(box, n):
     return eval('*'.join(str(x//n) for x in box))
 ```
 
+
+
+## 직각삼각형 출력하기
+
+```python
+for i in range(int(input())): print('*'*(i+1))
+```
+
