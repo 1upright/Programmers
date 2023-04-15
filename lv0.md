@@ -438,3 +438,13 @@ def solution(my_string, num1, num2):
     return "".join(tmp)
 ```
 
+
+
+## 최댓값 만들기 (2)
+
+```python
+def solution(numbers):
+    numbers.sort()
+    return max(numbers[0]*numbers[1], numbers[-1]*numbers[-2])
+```
+
