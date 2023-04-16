@@ -448,3 +448,12 @@ def solution(numbers):
     return max(numbers[0]*numbers[1], numbers[-1]*numbers[-2])
 ```
 
+
+
+## n의 배수 만들기
+
+```python
+def solution(n, numlist):
+    return [x for x in numlist if not x%n]
+```
+
