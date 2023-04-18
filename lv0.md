@@ -466,3 +466,12 @@ def solution(numbers, direction):
     return numbers[-1:]+numbers[:-1] if direction=="right" else numbers[1:]+numbers[:1]
 ```
 
+
+
+## 외계행성의 나이
+
+```python
+def solution(age):
+    return "".join(chr(int(x)+97) for x in str(age))
+```
+
