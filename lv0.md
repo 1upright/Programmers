@@ -475,3 +475,12 @@ def solution(age):
     return "".join(chr(int(x)+97) for x in str(age))
 ```
 
+
+
+## 가장 큰 수 찾기
+
+```python
+def solution(array):
+    return max([[v, i] for i, v in enumerate(array)])
+```
+
