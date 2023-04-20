@@ -484,3 +484,13 @@ def solution(array):
     return max([[v, i] for i, v in enumerate(array)])
 ```
 
+
+
+## 피자 나눠 먹기 (2)
+
+```python
+def solution(n):
+    import math
+    return n//math.gcd(n, 6)
+```
+
