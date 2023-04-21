@@ -503,3 +503,12 @@ def solution(flo):
     return int(flo)
 ```
 
+
+
+## n의 배수
+
+```python
+def solution(num, n):
+    return 0 if num%n else 1
+```
+
