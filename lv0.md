@@ -494,3 +494,12 @@ def solution(n):
     return n//math.gcd(n, 6)
 ```
 
+
+
+## 정수 부분
+
+```python
+def solution(flo):
+    return int(flo)
+```
+
