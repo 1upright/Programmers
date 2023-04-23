@@ -512,3 +512,12 @@ def solution(num, n):
     return 0 if num%n else 1
 ```
 
+
+
+## 대문자로 바꾸기
+
+```python
+def solution(myString):
+    return myString.upper()
+```
+
