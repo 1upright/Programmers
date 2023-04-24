@@ -521,3 +521,12 @@ def solution(myString):
     return myString.upper()
 ```
 
+
+
+## 문자열로 변환
+
+```python
+def solution(n):
+    return str(n)
+```
+
