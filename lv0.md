@@ -530,3 +530,12 @@ def solution(n):
     return str(n)
 ```
 
+
+
+## 문자열 곱하기
+
+```python
+def solution(my_string, k):
+    return my_string*k
+```
+
