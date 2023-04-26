@@ -539,3 +539,12 @@ def solution(my_string, k):
     return my_string*k
 ```
 
+
+
+## 문자 리스트를 문자열로 변환하기
+
+```python
+def solution(arr):
+    return "".join(arr)
+```
+
