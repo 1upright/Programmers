@@ -548,3 +548,12 @@ def solution(arr):
     return "".join(arr)
 ```
 
+
+
+## 공배수
+
+```python
+def solution(number, n, m):
+    return 0 if number%n or number%m else 1
+```
+
