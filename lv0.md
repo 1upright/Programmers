@@ -557,3 +557,12 @@ def solution(number, n, m):
     return 0 if number%n or number%m else 1
 ```
 
+
+
+## 소문자로 바꾸기
+
+```python
+def solution(myString):
+    return myString.lower()
+```
+
