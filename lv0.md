@@ -575,3 +575,12 @@ def solution(n_str):
     return int(n_str)
 ```
 
+
+
+## 문자열의 앞의 n글자
+
+```python
+def solution(my_string, n):
+    return my_string[:n]
+```
+
