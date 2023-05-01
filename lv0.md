@@ -584,3 +584,12 @@ def solution(my_string, n):
     return my_string[:n]
 ```
 
+
+
+## n번째 원소까지
+
+```python
+def solution(num_list, n):
+    return num_list[:n]
+```
+
