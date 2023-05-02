@@ -593,3 +593,12 @@ def solution(num_list, n):
     return num_list[:n]
 ```
 
+
+
+## flag에 따라 다른 값 반환하기
+
+```python
+def solution(a, b, flag):
+    return a+b if flag else a-b
+```
+
