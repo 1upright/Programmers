@@ -602,3 +602,12 @@ def solution(a, b, flag):
     return a+b if flag else a-b
 ```
 
+
+
+## 길이에 따른 연산
+
+```python
+def solution(num_list):
+    return sum(num_list) if len(num_list)>10 else eval('*'.join([str(n) for n in num_list]))
+```
+
