@@ -611,3 +611,12 @@ def solution(num_list):
     return sum(num_list) if len(num_list)>10 else eval('*'.join([str(n) for n in num_list]))
 ```
 
+
+
+## 정수 찾기
+
+```python
+def solution(num_list, n):
+    return 1 if n in num_list else 0
+```
+
