@@ -620,3 +620,12 @@ def solution(num_list, n):
     return 1 if n in num_list else 0
 ```
 
+
+
+## 카운트 업
+
+```python
+def solution(start, end):
+    return list(range(start, end+1))
+```
+
