@@ -651,3 +651,12 @@ def solution(my_string, n):
     return my_string[-n:]
 ```
 
+
+
+## n 번째 원소부터
+
+```python
+def solution(num_list, n):
+    return num_list[n-1:]
+```
+
