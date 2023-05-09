@@ -660,3 +660,12 @@ def solution(num_list, n):
     return num_list[n-1:]
 ```
 
+
+
+## 부분 문자열
+
+```python
+def solution(str1, str2):
+    return int(str1 in str2)
+```
+
