@@ -669,3 +669,12 @@ def solution(str1, str2):
     return int(str1 in str2)
 ```
 
+
+
+## 부분 문자열인지 확인하기
+
+```python
+def solution(my_string, target):
+    return int(target in my_string)
+```
+
