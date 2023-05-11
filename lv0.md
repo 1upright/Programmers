@@ -678,3 +678,14 @@ def solution(my_string, target):
     return int(target in my_string)
 ```
 
+
+
+## 첫 번째로 나오는 음수
+
+```python
+def solution(num_list):
+    for i, v in enumerate(num_list):
+        if v<0: return i
+    return -1
+```
+
