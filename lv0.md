@@ -689,3 +689,12 @@ def solution(num_list):
     return -1
 ```
 
+
+
+## rny_string
+
+```python
+def solution(rny_string):
+    return rny_string.replace('m', 'rn')
+```
+
