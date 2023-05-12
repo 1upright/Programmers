@@ -698,3 +698,12 @@ def solution(rny_string):
     return rny_string.replace('m', 'rn')
 ```
 
+
+
+## 카운트 다운
+
+```python
+def solution(start, end):
+    return list(range(start, end-1, -1))
+```
+
