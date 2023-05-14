@@ -707,3 +707,12 @@ def solution(start, end):
     return list(range(start, end-1, -1))
 ```
 
+
+
+## 조건에 맞게 수열 변환하기 3
+
+```python
+def solution(arr, k):
+    return [x*k if k%2 else x+k for x in arr]
+```
+
