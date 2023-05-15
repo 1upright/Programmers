@@ -716,3 +716,12 @@ def solution(arr, k):
     return [x*k if k%2 else x+k for x in arr]
 ```
 
+
+
+## 문자열 정수의 합
+
+```python
+def solution(num_str):
+    return sum(int(x) for x in num_str)
+```
+
