@@ -725,3 +725,12 @@ def solution(num_str):
     return sum(int(x) for x in num_str)
 ```
 
+
+
+## 공백으로 구분하기 1
+
+```python
+def solution(my_string):
+    return my_string.split()
+```
+
