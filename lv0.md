@@ -743,3 +743,11 @@ def solution(num_list):
     return int(eval('*'.join(str(n) for n in num_list)) < sum(num_list)**2)
 ```
 
+
+
+## 주사위 게임 1
+
+```py
+def solution(a, b):
+    return a*a+b*b if a%2 and b%2 else abs(a-b) if not a%2 and not b%2 else (a+b)*2
+```
