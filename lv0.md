@@ -751,3 +751,13 @@ def solution(num_list):
 def solution(a, b):
     return a*a+b*b if a%2 and b%2 else abs(a-b) if not a%2 and not b%2 else (a+b)*2
 ```
+
+
+
+## 뒤에서 5등 위로
+
+```python
+def solution(num_list):
+    return sorted(num_list)[5:]
+```
+
