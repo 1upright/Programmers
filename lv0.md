@@ -761,3 +761,12 @@ def solution(num_list):
     return sorted(num_list)[5:]
 ```
 
+
+
+## 이어 붙인 수
+
+```python
+def solution(num_list):
+    return int("".join([str(x) for x in num_list if x%2]))+int("".join([str(x) for x in num_list if not x%2]))
+```
+
