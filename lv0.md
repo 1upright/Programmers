@@ -770,3 +770,12 @@ def solution(num_list):
     return int("".join([str(x) for x in num_list if x%2]))+int("".join([str(x) for x in num_list if not x%2]))
 ```
 
+
+
+## 조건에 맞게 수열 변환하기 1
+
+```python
+def solution(arr):
+    return [x//2 if (x>=50 and not x%2) else x*2 if (x<50 and x%2) else x for x in arr]
+```
+
