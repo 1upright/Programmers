@@ -779,3 +779,12 @@ def solution(arr):
     return [x//2 if (x>=50 and not x%2) else x*2 if (x<50 and x%2) else x for x in arr]
 ```
 
+
+
+## 글자 이어 붙여 문자열 만들기
+
+```python
+def solution(my_string, index_list):
+    return "".join([my_string[n] for n in index_list])
+```
+
