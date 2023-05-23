@@ -797,3 +797,12 @@ def solution(num_list, n):
     return num_list[::n]
 ```
 
+
+
+## 문자열 붙여서 출력하기
+
+```python
+str1, str2 = input().strip().split(' ')
+print(str1+str2)
+```
+
