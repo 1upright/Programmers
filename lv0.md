@@ -788,3 +788,12 @@ def solution(my_string, index_list):
     return "".join([my_string[n] for n in index_list])
 ```
 
+
+
+## n개 간격의 원소들
+
+```python
+def solution(num_list, n):
+    return num_list[::n]
+```
+
