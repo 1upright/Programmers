@@ -806,3 +806,12 @@ str1, str2 = input().strip().split(' ')
 print(str1+str2)
 ```
 
+
+
+## 뒤에서 5등까지
+
+```python
+def solution(num_list):
+    return sorted(num_list)[:5]
+```
+
