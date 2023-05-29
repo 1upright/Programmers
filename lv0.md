@@ -842,3 +842,12 @@ def solution(myString):
     return myString.lower().replace('a', 'A')
 ```
 
+
+
+## 배열에서 문자열 대소문자 변환하기
+
+```python
+def solution(strArr):
+    return [s.upper() if i%2 else s.lower() for i, s in enumerate(strArr)]
+```
+
