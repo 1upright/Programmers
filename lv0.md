@@ -851,3 +851,12 @@ def solution(strArr):
     return [s.upper() if i%2 else s.lower() for i, s in enumerate(strArr)]
 ```
 
+
+
+## 수 조작하기 1
+
+```python
+def solution(n, control):
+    return sum(1 if x=='w' else -1 if x=='s' else 10 if x=='d' else -10 for x in control)+n
+```
+
