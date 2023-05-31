@@ -860,3 +860,12 @@ def solution(n, control):
     return sum(1 if x=='w' else -1 if x=='s' else 10 if x=='d' else -10 for x in control)+n
 ```
 
+
+
+## 배열 만들기
+
+```python
+def solution(n, k):
+    return list(range(k, n+1, k))
+```
+
