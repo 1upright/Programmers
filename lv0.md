@@ -869,3 +869,12 @@ def solution(n, k):
     return list(range(k, n+1, k))
 ```
 
+
+
+## 접두사인지 확인하기
+
+```python
+def solution(my_string, is_prefix):
+    return int(my_string.startswith(is_prefix))
+```
+
