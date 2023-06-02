@@ -878,3 +878,12 @@ def solution(my_string, is_prefix):
     return int(my_string.startswith(is_prefix))
 ```
 
+
+
+## 더 크게 합치기
+
+```python
+def solution(a, b):
+    return max(int(str(a)+str(b)), int(str(b)+str(a)))
+```
+
