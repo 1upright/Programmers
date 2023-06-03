@@ -887,3 +887,12 @@ def solution(a, b):
     return max(int(str(a)+str(b)), int(str(b)+str(a)))
 ```
 
+
+
+## 홀짝 구분하기
+
+```python
+a = int(input())
+print(f'{a} is {"odd" if a%2 else "even"}')
+```
+
