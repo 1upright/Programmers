@@ -905,3 +905,12 @@ def solution(str_list, ex):
     return "".join(x for x in str_list if ex not in x)
 ```
 
+
+
+## 홀수 vs 짝수
+
+```python
+def solution(num_list):
+    return max(sum(num_list[::2]), sum(num_list[1::2]))
+```
+
