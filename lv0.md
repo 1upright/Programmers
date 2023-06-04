@@ -896,3 +896,12 @@ a = int(input())
 print(f'{a} is {"odd" if a%2 else "even"}')
 ```
 
+
+
+## 꼬리 문자열
+
+```python
+def solution(str_list, ex):
+    return "".join(x for x in str_list if ex not in x)
+```
+
