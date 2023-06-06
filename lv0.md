@@ -923,3 +923,12 @@ def solution(arr):
     return sum([[x]*x for x in arr], [])
 ```
 
+
+
+## 접미사인지 확인하기
+
+```python
+def solution(my_string, is_suffix):
+    return int(my_string[-len(is_suffix):]==is_suffix)
+```
+
