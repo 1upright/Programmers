@@ -914,3 +914,12 @@ def solution(num_list):
     return max(sum(num_list[::2]), sum(num_list[1::2]))
 ```
 
+
+
+## 배열의 원소만큼 추가하기
+
+```python
+def solution(arr):
+    return sum([[x]*x for x in arr], [])
+```
+
