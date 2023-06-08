@@ -932,3 +932,12 @@ def solution(my_string, is_suffix):
     return int(my_string[-len(is_suffix):]==is_suffix)
 ```
 
+
+
+## 배열의 길이에 따라 다른 연산하기
+
+```python
+def solution(arr, n):
+    return [v if i%2 else v+n for i, v in enumerate(arr)] if len(arr)%2 else [v if not i%2 else v+n for i, v in enumerate(arr)]
+```
+
