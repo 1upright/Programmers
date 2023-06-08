@@ -941,3 +941,12 @@ def solution(arr, n):
     return [v if i%2 else v+n for i, v in enumerate(arr)] if len(arr)%2 else [v if not i%2 else v+n for i, v in enumerate(arr)]
 ```
 
+
+
+## 공백으로 구분하기 2
+
+```python
+def solution(my_string):
+    return my_string.split()
+```
+
