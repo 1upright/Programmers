@@ -959,3 +959,12 @@ def solution(my_string, alp):
     return my_string.replace(alp, alp.upper())
 ```
 
+
+
+## 문자열 바꿔서 찾기
+
+```python
+def solution(myString, pat):
+    return int(pat in myString.replace('A', 'C').replace('B', 'A').replace('C', 'B'))
+```
+
