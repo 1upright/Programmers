@@ -968,3 +968,12 @@ def solution(myString, pat):
     return int(pat in myString.replace('A', 'C').replace('B', 'A').replace('C', 'B'))
 ```
 
+
+
+## 덧셈식 출력하기
+
+```python
+a, b = map(int, input().strip().split(' '))
+print(f'{a} + {b} = {a+b}')
+```
+
