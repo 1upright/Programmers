@@ -977,3 +977,20 @@ a, b = map(int, input().strip().split(' '))
 print(f'{a} + {b} = {a+b}')
 ```
 
+
+
+## 배열 비교하기
+
+```python
+def solution(arr1, arr2):
+    if len(arr1)>len(arr2):
+        return 1
+    elif len(arr1)<len(arr2):
+        return -1
+    elif sum(arr1)>sum(arr2):
+        return 1
+    elif sum(arr1)<sum(arr2):
+        return -1
+    return 0
+```
+
