@@ -994,3 +994,12 @@ def solution(arr1, arr2):
     return 0
 ```
 
+
+
+## 0 떼기
+
+```python
+def solution(n_str):
+    return str(int(n_str))
+```
+
