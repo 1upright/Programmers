@@ -1012,3 +1012,12 @@ def solution(myString):
     return "".join(chr(max(ord(x), 108)) for x in myString)
 ```
 
+
+
+## 홀짝에 따라 다른 값 반환하기
+
+```python
+def solution(n):
+    return sum(x*2+1 for x in range(n//2+1)) if n%2 else sum(x**2 for x in range(n//2+1))*4
+```
+
