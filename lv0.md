@@ -1021,3 +1021,12 @@ def solution(n):
     return sum(x*2+1 for x in range(n//2+1)) if n%2 else sum(x**2 for x in range(n//2+1))*4
 ```
 
+
+
+## 5명씩
+
+```python
+def solution(names):
+    return names[::5]
+```
+
