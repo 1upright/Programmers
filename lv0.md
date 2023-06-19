@@ -1048,3 +1048,12 @@ def solution(arr, delete_list):
     return [x for x in arr if x not in delete_list]
 ```
 
+
+
+## 순서 바꾸기
+
+```python
+def solution(num_list, n):
+    return num_list[n:]+num_list[:n]
+```
+
