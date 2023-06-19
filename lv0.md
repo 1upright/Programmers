@@ -1039,3 +1039,12 @@ def solution(todo_list, finished):
     return [v for i, v in enumerate(todo_list) if not finished[i]]
 ```
 
+
+
+## 배열의 원소 삭제하기
+
+```python
+def solution(arr, delete_list):
+    return [x for x in arr if x not in delete_list]
+```
+
