@@ -1057,3 +1057,12 @@ def solution(num_list, n):
     return num_list[n:]+num_list[:n]
 ```
 
+
+
+## 접미사 배열
+
+```python
+def solution(my_string):
+    return sorted([my_string[i:] for i in range(len(my_string))])
+```
+
