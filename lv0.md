@@ -1079,3 +1079,12 @@ def solution(arr):
     return 1
 ```
 
+
+
+## 부분 문자열 이어 붙여 문자열 만들기
+
+```python
+def solution(my_strings, parts):
+    return "".join(v[parts[i][0]:parts[i][1]+1] for i, v in enumerate(my_strings))
+```
+
