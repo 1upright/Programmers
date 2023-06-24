@@ -1088,3 +1088,12 @@ def solution(my_strings, parts):
     return "".join(v[parts[i][0]:parts[i][1]+1] for i, v in enumerate(my_strings))
 ```
 
+
+
+## 특별한 이차원 배열 1
+
+```python
+def solution(n):
+    return [[int(i==j) for i in range(n)] for j in range(n)]
+```
+
