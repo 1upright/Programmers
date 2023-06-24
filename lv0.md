@@ -1097,3 +1097,12 @@ def solution(n):
     return [[int(i==j) for i in range(n)] for j in range(n)]
 ```
 
+
+
+## 배열 만들기 3
+
+```python
+def solution(arr, intervals):
+    return arr[intervals[0][0]:intervals[0][1]+1]+arr[intervals[1][0]:intervals[1][1]+1]
+```
+
