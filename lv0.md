@@ -1115,3 +1115,12 @@ def solution(binomial):
     return eval(binomial)
 ```
 
+
+
+## ad 제거하기
+
+```python
+def solution(strArr):
+    return [s for s in strArr if "ad" not in s]
+```
+
