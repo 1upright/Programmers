@@ -1124,3 +1124,12 @@ def solution(strArr):
     return [s for s in strArr if "ad" not in s]
 ```
 
+
+
+## x 사이의 개수
+
+```python
+def solution(myString):
+    return [len(v) for v in myString.split('x')]
+```
+
