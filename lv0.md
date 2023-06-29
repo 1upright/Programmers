@@ -1133,3 +1133,12 @@ def solution(myString):
     return [len(v) for v in myString.split('x')]
 ```
 
+
+
+## 9로 나눈 나머지
+
+```python
+def solution(number):
+    return sum(int(x) for x in number)%9
+```
+
