@@ -1142,3 +1142,12 @@ def solution(number):
     return sum(int(x) for x in number)%9
 ```
 
+
+
+## 369 게임
+
+```python
+def solution(order):
+    return str(order).count('3')+str(order).count('6')+str(order).count('9')
+```
+
