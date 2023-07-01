@@ -1151,3 +1151,11 @@ def solution(order):
     return str(order).count('3')+str(order).count('6')+str(order).count('9')
 ```
 
+
+
+## 문자열 돌리기
+
+```python
+for c in input(): print(c)
+```
+
