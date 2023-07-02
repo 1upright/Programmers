@@ -1168,3 +1168,12 @@ def solution(a, b):
     return max(int(str(a)+str(b)), 2*a*b)
 ```
 
+
+
+## 숫자 찾기
+
+```python
+def solution(num, k):
+    return str(num).index(str(k))+1 if str(k) in str(num) else -1
+```
+
