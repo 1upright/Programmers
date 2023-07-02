@@ -1159,3 +1159,12 @@ def solution(order):
 for c in input(): print(c)
 ```
 
+
+
+## 두 수의 연산값 비교하기
+
+```python
+def solution(a, b):
+    return max(int(str(a)+str(b)), 2*a*b)
+```
+
