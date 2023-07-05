@@ -1177,3 +1177,12 @@ def solution(num, k):
     return str(num).index(str(k))+1 if str(k) in str(num) else -1
 ```
 
+
+
+## 약수 구하기
+
+```python
+def solution(n):
+    return [x for x in range(1, n+1) if not n%x]
+```
+
