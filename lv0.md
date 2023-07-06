@@ -1202,3 +1202,15 @@ def solution(n):
     return answer
 ```
 
+
+
+## 가까운 1 찾기
+
+```python
+def solution(arr, idx):
+    for i, v in enumerate(arr):
+        if i>=idx and v==1:
+            return i
+    return -1
+```
+
