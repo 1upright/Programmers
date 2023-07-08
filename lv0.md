@@ -1214,3 +1214,12 @@ def solution(arr, idx):
     return -1
 ```
 
+
+
+## 문자열 잘라서 정렬하기
+
+```python
+def solution(myString):
+    return sorted([x for x in myString.split('x') if x])
+```
+
