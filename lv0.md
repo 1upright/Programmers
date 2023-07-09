@@ -1223,3 +1223,12 @@ def solution(myString):
     return sorted([x for x in myString.split('x') if x])
 ```
 
+
+
+## 문자열 정렬하기 (2)
+
+```python
+def solution(my_string):
+    return "".join(sorted(my_string.lower()))
+```
+
