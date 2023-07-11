@@ -1241,3 +1241,12 @@ def solution(a, b, c):
     return (a+b+c)*(a**2+b**2+c**2)*(a**3+b**3+c**3) if a==b==c else (a+b+c)*(a**2+b**2+c**2) if a==b or b==c or a==c else a+b+c
 ```
 
+
+
+## 문자열 섞기
+
+```python
+def solution(str1, str2):
+    return "".join(str1[i]+str2[i] for i in range(len(str1)))
+```
+
