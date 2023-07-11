@@ -1250,3 +1250,12 @@ def solution(str1, str2):
     return "".join(str1[i]+str2[i] for i in range(len(str1)))
 ```
 
+
+
+## 중복된 문자 제거
+
+```python
+def solution(my_string):
+    return "".join(dict.fromkeys(my_string))
+```
+
