@@ -1259,3 +1259,18 @@ def solution(my_string):
     return "".join(dict.fromkeys(my_string))
 ```
 
+
+
+## 합성수 찾기
+
+```python
+def solution(n):
+    cnt = 0
+    for i in range(2, n+1):
+        for j in range(2, i):
+            if not i%j:
+                cnt += 1
+                break
+    return cnt
+```
+
