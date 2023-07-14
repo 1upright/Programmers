@@ -1274,3 +1274,13 @@ def solution(n):
     return cnt
 ```
 
+
+
+## 수 조작하기
+
+```python
+def solution(numLog):
+    dic = {-1:'w', 1:'s', -10:'d', 10:'a'}
+    return "".join(dic[numLog[i]-numLog[i+1]] for i in range(len(numLog)-1))
+```
+
