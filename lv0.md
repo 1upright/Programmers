@@ -1284,3 +1284,12 @@ def solution(numLog):
     return "".join(dic[numLog[i]-numLog[i+1]] for i in range(len(numLog)-1))
 ```
 
+
+
+## 배열 만들기 5
+
+```python
+def solution(intStrs, k, s, l):
+    return [int(x[s:s+l]) for x in intStrs if int(x[s:s+l])>k]
+```
+
