@@ -1293,3 +1293,19 @@ def solution(intStrs, k, s, l):
     return [int(x[s:s+l]) for x in intStrs if int(x[s:s+l])>k]
 ```
 
+
+
+## 모스부호 (1)
+
+```python
+def solution(letter):
+    morse = { 
+        '.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f',
+        '--.':'g','....':'h','..':'i','.---':'j','-.-':'k','.-..':'l',
+        '--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r',
+        '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
+        '-.--':'y','--..':'z'
+    }
+    return "".join(morse[x] for x in letter.split())
+```
+
