@@ -1309,3 +1309,12 @@ def solution(letter):
     return "".join(morse[x] for x in letter.split())
 ```
 
+
+
+## 날짜 비교하기
+
+```python
+def solution(date1, date2):
+    return int(date1<date2)
+```
+
