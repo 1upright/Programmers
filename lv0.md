@@ -1318,3 +1318,11 @@ def solution(date1, date2):
     return int(date1<date2)
 ```
 
+
+
+## 2차원으로 만들기
+
+```python
+def solution(num_list, n):
+    return [[num_list[i*n+j] for j in range(n)] for i in range(len(num_list)//n)]
+```
