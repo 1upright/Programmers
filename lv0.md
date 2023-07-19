@@ -1326,3 +1326,16 @@ def solution(date1, date2):
 def solution(num_list, n):
     return [[num_list[i*n+j] for j in range(n)] for i in range(len(num_list)//n)]
 ```
+
+
+
+## 팩토리얼
+
+```python
+def solution(n):
+    val = 1
+    for i in range(1, 12):
+        val *= i
+        if val>n: return i-1
+```
+
