@@ -1339,3 +1339,12 @@ def solution(n):
         if val>n: return i-1
 ```
 
+
+
+## A를 B로 바꾸기
+
+```python
+def solution(before, after):
+    return int(sorted(before)==sorted(after))
+```
+
