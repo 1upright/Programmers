@@ -248,3 +248,34 @@ FROM animal_ins i
 LEFT JOIN animal_outs o ON i.animal_id = o.animal_id WHERE o.animal_id IS NULL
 ORDER BY datetime LIMIT 3;
 ```
+
+
+
+## 진료과별 총 예약 횟수 출력하기
+
+```mysql
+SELECT mcdp_cd AS "진료과코드", COUNT(*) AS "5월예약건수" FROM appointment WHERE apnt_ymd LIKE "2022-05%" GROUP BY mcdp_cd ORDER BY 2, 1
+```
+
+
+
+## 자동차 종류 별 특정 옵션이 포함된 자동차 수 구하기
+
+```mysql
+SELECT car_type, COUNT(*) AS cars FROM car_rental_company_car 
+WHERE options LIKE "%통풍시트%" 
+OR options LIKE "%열선시트%" 
+OR options LIKE "%가죽시트%"
+GROUP BY car_type ORDER BY car_type
+```
+
+
+
+## 있었는데요 없었습니다
+
+```mysql
+SELECT i.animal_id, i.name FROM animal_ins i
+LEFT JOIN animal_outs o ON i.animal_id=o.animal_id WHERE i.datetime>o.datetime
+ORDER BY i.datetime
+```
+
