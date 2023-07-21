@@ -1348,3 +1348,12 @@ def solution(before, after):
     return int(sorted(before)==sorted(after))
 ```
 
+
+
+## 등차수열의 특정한 항만 더하기
+
+```python
+def solution(a, d, included):
+    return sum(a+i*d for i, v in enumerate(included) if v)
+```
+
