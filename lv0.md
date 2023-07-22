@@ -1357,3 +1357,12 @@ def solution(a, d, included):
     return sum(a+i*d for i, v in enumerate(included) if v)
 ```
 
+
+
+## k의 개수
+
+```python
+def solution(i, j, k):
+    return sum(str(x).count(str(k)) for x in range(i, j+1))
+```
+
