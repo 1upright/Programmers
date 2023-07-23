@@ -1366,3 +1366,12 @@ def solution(i, j, k):
     return sum(str(x).count(str(k)) for x in range(i, j+1))
 ```
 
+
+
+## 세로 읽기
+
+```python
+def solution(my_string, m, c):
+    return my_string[c-1::m]
+```
+
