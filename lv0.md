@@ -1375,3 +1375,15 @@ def solution(my_string, m, c):
     return my_string[c-1::m]
 ```
 
+
+
+## 수열과 구간 쿼리 1
+
+```python
+def solution(arr, queries):
+    for s, e in queries:
+        for i in range(s, e+1):
+            arr[i] += 1
+    return arr
+```
+
