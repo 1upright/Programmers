@@ -1401,3 +1401,12 @@ def solution(board, k):
     return answer
 ```
 
+
+
+## 진료순서 정하기
+
+```python
+def solution(emergency):
+    return [sorted(emergency, reverse=True).index(x)+1 for x in emergency]
+```
+
