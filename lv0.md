@@ -1410,3 +1410,13 @@ def solution(emergency):
     return [sorted(emergency, reverse=True).index(x)+1 for x in emergency]
 ```
 
+
+
+## 숨어있는 숫자의 덧셈 (2)
+
+```python
+def solution(my_string):
+    import re
+    return sum(int(x) for x in re.split('[A-Za-z]', my_string) if x)
+```
+
