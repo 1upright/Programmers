@@ -1420,3 +1420,12 @@ def solution(my_string):
     return sum(int(x) for x in re.split('[A-Za-z]', my_string) if x)
 ```
 
+
+
+## 문자열 뒤집기
+
+```python
+def solution(my_string, s, e):
+    return my_string[:s]+my_string[s:e+1][::-1]+my_string[e+1:]
+```
+
