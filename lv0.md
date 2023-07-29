@@ -1429,3 +1429,12 @@ def solution(my_string, s, e):
     return my_string[:s]+my_string[s:e+1][::-1]+my_string[e+1:]
 ```
 
+
+
+## 가까운 수
+
+```python
+def solution(array, n):
+    return sorted(array, key = lambda x: (abs(x-n), x-n))[0]
+```
+
