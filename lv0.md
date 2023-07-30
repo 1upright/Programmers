@@ -1438,3 +1438,18 @@ def solution(array, n):
     return sorted(array, key = lambda x: (abs(x-n), x-n))[0]
 ```
 
+
+
+## 빈 배열에 추가, 삭제하기
+
+```python
+def solution(arr, flag):
+    answer = []
+    for x, y in zip(arr, flag):
+        if y:
+            answer.extend([x]*2*x)
+        else:
+            answer = answer[:-x]
+    return answer
+```
+
