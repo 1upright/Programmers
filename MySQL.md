@@ -307,3 +307,29 @@ LEFT JOIN animal_outs o ON i.animal_id=o.animal_id
 WHERE i.sex_upon_intake LIKE 'Intact%' AND (o.sex_upon_outcome LIKE 'Spayed%' OR o.sex_upon_outcome Like 'Neutered%');
 ```
 
+
+
+## 카테고리 별 도서 판매량 집계하기
+
+```mysql
+SELECT b.category, SUM(s.sales) AS total_sales FROM book b
+LEFT JOIN book_sales s ON b.book_id=s.book_id WHERE s.sales_date LIKE '2022-01%' GROUP BY 1 ORDER BY 1;
+```
+
+
+
+## 조건에 맞는 도서와 저자 리스트 출력하기
+
+```mysql
+SELECT b.book_id, a.author_name, date_format(b.published_date,'%Y-%m-%d') as published_date FROM book b
+LEFT JOIN author a ON b.author_id=a.author_id WHERE b.category LIKE '경제' ORDER BY 3;
+```
+
+
+
+## 루시와 엘라 찾기
+
+```mysql
+SELECT animal_id, name, sex_upon_intake from animal_ins
+WHERE name IN ('Lucy','Ella','Pickle','Rogan','Sabrina','Mitty') ORDER BY 1;
+```
