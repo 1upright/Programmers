@@ -1482,3 +1482,13 @@ b = int(b)
 print(a*b)
 ```
 
+
+
+## 세 개의 구분자
+
+```python
+def solution(myStr):
+    arr = myStr.replace('a', ' ').replace('b', ' ').replace('c', ' ').split()
+    return arr if arr else ["EMPTY"]
+```
+
