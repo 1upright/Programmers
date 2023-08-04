@@ -333,3 +333,36 @@ LEFT JOIN author a ON b.author_id=a.author_id WHERE b.category LIKE '경제' ORD
 SELECT animal_id, name, sex_upon_intake from animal_ins
 WHERE name IN ('Lucy','Ella','Pickle','Rogan','Sabrina','Mitty') ORDER BY 1;
 ```
+
+
+
+## 조건별로 분류하여 주문상태 출력하기
+
+```mysql
+SELECT order_id, product_id, date_format(out_date, "%Y-%m-%d") AS out_date,
+    CASE WHEN out_date<="2022-05-01" THEN "출고완료"
+    WHEN out_date>"2022-05-01" THEN "출고대기"
+    ELSE "출고미정"
+    END "출고여부"
+FROM food_order;
+```
+
+
+
+## 성분으로 구분한 아이스크림 총 주문량
+
+```mysql
+SELECT i.ingredient_type, sum(f.total_order) AS total_order FROM icecream_info i
+LEFT JOIN first_half f ON i.flavor=f.flavor GROUP BY 1;
+```
+
+
+
+## 조건에 맞는 사용자와 총 거래금액 조회하기
+
+```mysql
+SELECT u.user_id, u.nickname, SUM(b.price) AS total_sales FROM used_goods_user u
+LEFT JOIN used_goods_board b ON u.user_id=b.writer_id 
+WHERE b.status LIKE "DONE" GROUP BY 1 HAVING SUM(b.price)>=700000 ORDER BY 3;
+```
+
