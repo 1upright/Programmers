@@ -1492,3 +1492,12 @@ def solution(myStr):
     return arr if arr else ["EMPTY"]
 ```
 
+
+
+## 한 번만 등장한 문자
+
+```python
+def solution(s):
+    return "".join(sorted(x for x in set(s) if s.count(x)==1))
+```
+
