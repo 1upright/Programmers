@@ -1501,3 +1501,12 @@ def solution(s):
     return "".join(sorted(x for x in set(s) if s.count(x)==1))
 ```
 
+
+
+## 7의 개수
+
+```python
+def solution(array):
+    return str(array).count('7')
+```
+
