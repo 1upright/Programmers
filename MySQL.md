@@ -366,3 +366,27 @@ LEFT JOIN used_goods_board b ON u.user_id=b.writer_id
 WHERE b.status LIKE "DONE" GROUP BY 1 HAVING SUM(b.price)>=700000 ORDER BY 3;
 ```
 
+
+
+## 조건에 맞는 도서 리스트 출력하기
+
+```mysql
+SELECT book_id, date_format(published_date, "%Y-%m-%d") AS published_date FROM book WHERE category LIKE "인문" AND published_date LIKE "2021%" ORDER BY published_date;
+```
+
+
+
+## 가격대 별 상품 개수 구하기
+
+```mysql
+SELECT price-price%10000 AS price_group, COUNT(*) AS products FROM product GROUP BY 1 ORDER BY 1;
+```
+
+
+
+## 모든 레코드 조회하기
+
+```mysql
+SELECT * FROM animal_ins ORDER BY animal_id;
+```
+
