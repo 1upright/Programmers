@@ -1510,3 +1510,11 @@ def solution(array):
     return str(array).count('7')
 ```
 
+
+
+## 특수문자 출력하기
+
+```python
+print("!@#$%^&*(\\'\"<>?:;")
+```
+
