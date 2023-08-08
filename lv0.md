@@ -1527,3 +1527,12 @@ def solution(numbers):
     return int(numbers.replace("one", "1").replace("two", "2").replace("three", "3").replace("four", "4").replace("five", "5").replace("six", "6").replace("seven", "7").replace("eight", "8").replace("nine", "9").replace("zero", "0"))
 ```
 
+
+
+## 잘라서 배열로 저장하기
+
+```python
+def solution(my_str, n):
+    return [my_str[i:i+n] for i in range(0, len(my_str), n)]
+```
+
