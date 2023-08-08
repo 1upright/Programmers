@@ -390,3 +390,28 @@ SELECT price-price%10000 AS price_group, COUNT(*) AS products FROM product GROUP
 SELECT * FROM animal_ins ORDER BY animal_id;
 ```
 
+
+
+## 평균 일일 대여 요금 구하기
+
+```mysql
+SELECT ROUND(AVG(daily_fee)) AS average_fee FROM car_rental_company_car WHERE car_type LIKE "SUV";
+```
+
+
+
+## 3월에 태어난 여성 회원 목록 출력하기
+
+```mysql
+SELECT member_id, member_name, gender, date_format(date_of_birth, "%Y-%m-%d") AS date_of_birth from member_profile WHERE date_of_birth LIKE "%-03-%" AND gender='W' AND tlno IS NOT NULL ORDER BY 1;
+```
+
+
+
+## 즐겨찾기가 가장 많은 식당 정보 출력하기
+
+```mysql
+SELECT food_type, rest_id, rest_name, favorites FROM rest_info
+WHERE (food_type, favorites) IN (SELECT food_type, MAX(favorites) FROM rest_info GROUP BY food_type) GROUP BY 1 ORDER BY 1 DESC;
+```
+
