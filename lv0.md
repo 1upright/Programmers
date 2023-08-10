@@ -1544,3 +1544,19 @@ def solution(my_str, n):
 def solution(bin1, bin2):
     return bin(int(bin1, 2)+int(bin2, 2))[2:]
 ```
+
+
+
+## 컨트롤 제트
+
+```python
+def solution(s):
+    stack = []
+    for x in s.split():
+        if x == 'Z':
+            stack.pop()
+        else:
+            stack.append(int(x))
+    return sum(stack)
+```
+
