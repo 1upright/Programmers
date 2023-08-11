@@ -1560,3 +1560,12 @@ def solution(s):
     return sum(stack)
 ```
 
+
+
+## 문자열 계산하기
+
+```python
+def solution(my_string):
+    return eval(my_string)
+```
+
