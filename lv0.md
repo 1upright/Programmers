@@ -1569,3 +1569,11 @@ def solution(my_string):
     return eval(my_string)
 ```
 
+
+
+## 특정 문자열로 끝나는 가장 긴 부분 문자열 찾기
+
+```python
+def solution(myString, pat):
+    return pat.join(myString.split(pat)[:-1])+pat
+```
