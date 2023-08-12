@@ -1577,15 +1577,3 @@ def solution(my_string):
 def solution(myString, pat):
     return pat.join(myString.split(pat)[:-1])+pat
 ```
-
-
-
-## 글자 지우기
-
-```python
-def solution(my_string, indices):
-    arr = list(my_string)
-    for i in indices: arr[i] = ""
-    return "".join(arr)
-```
-
