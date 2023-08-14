@@ -1588,3 +1588,13 @@ def solution(my_string, indices):
     for i in indices: arr[i] = ""
     return "".join(arr)
 ```
+
+
+
+## 1로 만들기
+
+```python
+def solution(num_list):
+    return sum(len(bin(x))-3 for x in num_list)
+```
+
