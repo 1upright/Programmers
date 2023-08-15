@@ -1598,3 +1598,12 @@ def solution(num_list):
     return sum(len(bin(x))-3 for x in num_list)
 ```
 
+
+
+## 문자열이 몇 번 등장하는지 세기
+
+```python
+def solution(myString, pat):
+    return sum(myString[i:i+len(pat)]==pat for i in range(len(myString)-len(pat)+1))
+```
+
