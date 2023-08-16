@@ -1607,3 +1607,13 @@ def solution(myString, pat):
     return sum(myString[i:i+len(pat)]==pat for i in range(len(myString)-len(pat)+1))
 ```
 
+
+
+## 배열의 길이를 2의 거듭제곱으로 만들기
+
+```python
+def solution(arr):
+    n, m = len(arr), 1
+    while n > m: m *= 2
+    return arr+[0]*(m-n)
+```
