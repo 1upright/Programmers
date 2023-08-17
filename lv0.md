@@ -1617,3 +1617,22 @@ def solution(arr):
     while n > m: m *= 2
     return arr+[0]*(m-n)
 ```
+
+
+
+## 2의 영역
+
+```python
+def solution(arr):
+    s = e = -1
+    for i in range(len(arr)):
+        if arr[i] == 2:
+            s = i
+            break
+    for i in range(len(arr)-1, -1, -1):
+        if arr[i] == 2:
+            e = i
+            break
+    return [-1] if s==-1 else arr[s:e+1]
+```
+
