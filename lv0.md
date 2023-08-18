@@ -1636,3 +1636,13 @@ def solution(arr):
     return [-1] if s==-1 else arr[s:e+1]
 ```
 
+
+
+## 리스트 자르기
+
+```python
+def solution(n, slicer, num_list):
+    a, b, c = slicer
+    return [num_list[:b+1], num_list[a:], num_list[a:b+1], num_list[a:b+1:c]][n-1]
+```
+
