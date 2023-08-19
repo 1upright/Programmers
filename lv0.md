@@ -1646,3 +1646,13 @@ def solution(n, slicer, num_list):
     return [num_list[:b+1], num_list[a:], num_list[a:b+1], num_list[a:b+1:c]][n-1]
 ```
 
+
+
+## a와 b 출력하기
+
+```python
+a, b = map(int, input().strip().split(' '))
+print(f'a = {a}')
+print(f'b = {b}')
+```
+
