@@ -1669,3 +1669,13 @@ def solution(arr, queries):
     return arr
 ```
 
+
+
+## 문자열 묶기
+
+```python
+def solution(strArr):
+    from collections import Counter
+    return Counter(len(x) for x in strArr).most_common()[0][1]
+```
+
