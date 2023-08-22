@@ -1679,3 +1679,19 @@ def solution(strArr):
     return Counter(len(x) for x in strArr).most_common()[0][1]
 ```
 
+
+
+## 소인수분해
+
+```python
+def solution(n):
+    arr, k = [], 2
+    while n>1:
+        if not n%k:
+            n //= k
+            arr.append(k)
+        else:
+            k += 1
+    return sorted(list(set(arr)))
+```
+
