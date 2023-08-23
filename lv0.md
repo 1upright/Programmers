@@ -1695,3 +1695,23 @@ def solution(n):
     return sorted(list(set(arr)))
 ```
 
+
+
+## 조건에 맞게 수열 변환하기 2
+
+```python
+def solution(arr):
+    from copy import deepcopy
+    cnt = 0
+    while 1:
+        arr2 = deepcopy(arr)
+        for i, v in enumerate(arr):
+            if v>=50 and not v%2:
+                arr[i] = v//2
+            elif v<50 and v%2:
+                arr[i] = v*2+1
+        if arr == arr2:
+            return cnt
+        cnt += 1
+```
+
