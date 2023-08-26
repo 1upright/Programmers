@@ -1733,3 +1733,12 @@ def solution(q, r, code):
     return code[r::q]
 ```
 
+
+
+## 공 던지기
+
+```python
+def solution(numbers, k):
+    return [(x-1)%len(numbers)+1 for x in range(1, k*2+1, 2)][-1]
+```
+
