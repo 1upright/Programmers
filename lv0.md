@@ -1742,3 +1742,18 @@ def solution(numbers, k):
     return [(x-1)%len(numbers)+1 for x in range(1, k*2+1, 2)][-1]
 ```
 
+
+
+## 문자 개수 세기
+
+```python
+def solution(my_string):
+    result = [0]*52
+    for x in my_string:
+        if x.isupper():
+            result[ord(x)-65] += 1
+        else:
+            result[ord(x)-71] += 1
+    return result
+```
+
