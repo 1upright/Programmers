@@ -1757,3 +1757,13 @@ def solution(my_string):
     return result
 ```
 
+
+
+## 구슬을 나누는 경우의 수
+
+```python
+def solution(balls, share):
+    from math import comb
+    return comb(balls, share)
+```
+
