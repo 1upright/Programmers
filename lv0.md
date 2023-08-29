@@ -1767,3 +1767,24 @@ def solution(balls, share):
     return comb(balls, share)
 ```
 
+
+
+## 배열 만들기 4
+
+```python
+def solution(arr):
+    stk = []
+    i = 0
+    while i<len(arr):
+        x = arr[i]
+        if not stk:
+            stk.append(x)
+            i += 1
+        elif stk[-1]<arr[i]:
+            stk.append(x)
+            i += 1
+        else:
+            stk.pop()
+    return stk
+```
+
