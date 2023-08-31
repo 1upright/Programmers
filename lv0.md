@@ -1788,3 +1788,12 @@ def solution(arr):
     return stk
 ```
 
+
+
+## 두 수의 합
+
+```python
+def solution(a, b):
+    return str(int(a)+int(b))
+```
+
