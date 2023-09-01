@@ -1797,3 +1797,12 @@ def solution(a, b):
     return str(int(a)+int(b))
 ```
 
+
+
+## 삼각형의 완성조건 (2)
+
+```python
+def solution(sides):
+    return min(sides)*2-1
+```
+
