@@ -1806,3 +1806,11 @@ def solution(sides):
     return min(sides)*2-1
 ```
 
+
+
+## 대소문자 바꿔서 출력하기
+
+```python
+print(input().swapcase())
+```
+
