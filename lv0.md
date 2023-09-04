@@ -1823,3 +1823,12 @@ def solution(my_string, overwrite_string, s):
     return my_string[:s]+overwrite_string+my_string[s+len(overwrite_string):]
 ```
 
+
+
+## 조건 문자열
+
+```python
+def solution(ineq, eq, n, m):
+    return int(eval(str(n)+ineq+(eq if eq=='=' else '')+str(m)))
+```
+
