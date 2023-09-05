@@ -1832,3 +1832,17 @@ def solution(ineq, eq, n, m):
     return int(eval(str(n)+ineq+(eq if eq=='=' else '')+str(m)))
 ```
 
+
+
+## 왼쪽 오른쪽
+
+```python
+def solution(str_list):
+    for i, v in enumerate(str_list):
+        if v == 'l':
+            return str_list[:i]
+        if v == 'r':
+            return str_list[i+1:]
+    return []
+```
+
