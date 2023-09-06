@@ -415,3 +415,100 @@ SELECT food_type, rest_id, rest_name, favorites FROM rest_info
 WHERE (food_type, favorites) IN (SELECT food_type, MAX(favorites) FROM rest_info GROUP BY food_type) GROUP BY 1 ORDER BY 1 DESC;
 ```
 
+
+
+## 대여 기록이 존재하는 자동차 리스트 구하기
+
+```mysql
+SELECT c.car_id FROM car_rental_company_car c
+LEFT JOIN car_rental_company_rental_history h ON c.car_id=h.car_id
+WHERE h.start_date>='2022-10-01' AND c.car_type='세단'
+GROUP BY c.car_id ORDER BY c.car_id DESC;
+```
+
+
+
+## 식품분류별 가장 비싼 식품의 정보 조회하기
+
+```mysql
+SELECT category, price, product_name FROM food_product
+WHERE price IN (SELECT max(price) FROM food_product GROUP BY category)
+AND category IN ('식용유', '과자', '국', '김치')
+GROUP BY 1 ORDER BY 2 DESC;
+```
+
+
+
+## 없어진 기록 찾기
+
+```mysql
+SELECT animal_id, name FROM animal_outs WHERE animal_id not in (SELECT animal_id FROM animal_ins) ORDER BY animal_id;
+```
+
+
+
+## 5월 식품들의 총매출 조회하기
+
+```mysql
+SELECT p.product_id, p.product_name, sum(o.amount*p.price) AS total_sales FROM food_product p
+LEFT JOIN food_order o ON p.product_id=o.product_id
+WHERE YEAR(o.produce_date)=2022 AND MONTH(o.produce_date)=5 GROUP BY product_id ORDER BY 3 DESC, 1;
+```
+
+
+
+## 재구매가 일어난 상품과 회원 리스트 구하기
+
+```mysql
+SELECT user_id, product_id FROM online_sale GROUP BY user_id, product_id HAVING COUNT(*)>1 ORDER BY 1, 2 DESC;
+```
+
+
+
+## 과일로 만든 아이스크림 고르기
+
+```mysql
+SELECT f.flavor FROM first_half f LEFT JOIN icecream_info i ON f.flavor=i.flavor
+WHERE f.total_order>3000 AND i.ingredient_type='fruit_based'
+ORDER BY f.total_order DESC;
+```
+
+
+
+## 최댓값 구하기
+
+```mysql
+SELECT max(datetime) FROM animal_ins;
+```
+
+
+
+## 조건에 맞는 사용자 정보 조회하기
+
+```mysql
+SELECT user_id, nickname, CONCAT_WS(' ', u.city, u.street_address1, u.street_address2) AS 전체주소, CONCAT_WS('-', SUBSTR(u.tlno, 1, 3), SUBSTR(u.tlno, 4, LENGTH(u.tlno) - 7), SUBSTR(u.tlno, -4, 4)) AS 전화번호
+FROM used_goods_board b LEFT JOIN used_goods_user u ON b.writer_id=u.user_id GROUP BY b.writer_id HAVING COUNT(b.writer_id)>=3 ORDER BY 1 DESC;
+```
+
+
+
+## 특정 옵션이 포함된 자동차 리스트 구하기
+
+```mysql
+SELECT * FROM car_rental_company_car WHERE options LIKE "%네비게이션%" ORDER BY car_id DESC;
+```
+
+
+
+## 조건에 부합하는 중고거래 상태 조회하기
+
+```mysql
+SELECT board_id, writer_id, title, price, CASE
+    WHEN STATUS = 'SALE' THEN '판매중'
+    WHEN STATUS = 'RESERVED' THEN '예약중'
+    WHEN STATUS = 'DONE' THEN '거래완료'
+    END AS STATUS
+FROM used_goods_board
+WHERE created_date='2022-10-05' ORDER BY board_id DESC;
+```
+
