@@ -1846,3 +1846,21 @@ def solution(str_list):
     return []
 ```
 
+
+
+## 배열 만들기 6
+
+```python
+def solution(arr):
+    i, stk = 0, []
+    while i<len(arr):
+        if not stk:
+            stk.append(arr[i])
+        elif stk[-1] == arr[i]:
+            stk.pop()
+        else:
+            stk.append(arr[i])
+        i += 1
+    return stk if stk else [-1]
+```
+
