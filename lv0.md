@@ -1875,3 +1875,14 @@ def solution(my_string, queries):
     return my_string
 ```
 
+
+
+## 최빈값 구하기
+
+```python
+def solution(array):
+    from collections import Counter
+    cnt = Counter(array).most_common()
+    return cnt[0][0] if len(cnt)==1 or cnt[0][1]!=cnt[1][1] else -1
+```
+
