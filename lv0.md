@@ -1886,3 +1886,16 @@ def solution(array):
     return cnt[0][0] if len(cnt)==1 or cnt[0][1]!=cnt[1][1] else -1
 ```
 
+
+
+## 무작위로 K개의 수 뽑기
+
+```python
+def solution(arr, k):
+    result = []
+    for x in arr:
+        if x not in result: result.append(x)
+        if len(result)==k: break
+    return result + [-1]*(k-len(result))
+```
+
