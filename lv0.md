@@ -1899,3 +1899,20 @@ def solution(arr, k):
     return result + [-1]*(k-len(result))
 ```
 
+
+
+## 정사각형으로 만들기
+
+```python
+def solution(arr):
+    n, m = len(arr), len(arr[0])
+    k = max(n, m)
+    answer = [[0]*k for _ in range(k)]
+
+    for i in range(n):
+        for j in range(m):
+            answer[i][j] = arr[i][j]
+
+    return answer
+```
+
