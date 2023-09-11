@@ -1916,3 +1916,11 @@ def solution(arr):
     return answer
 ```
 
+
+
+## 문자열 출력하기
+
+```python
+print(input())
+```
+
