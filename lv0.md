@@ -1924,3 +1924,13 @@ def solution(arr):
 print(input())
 ```
 
+
+
+## 다음에 올 숫자
+
+```python
+def solution(common):
+    a, b, c = common[:3]
+    return common[-1]+b-a if a+c==b*2 else common[-1]*b//a
+```
+
