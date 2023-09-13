@@ -1934,3 +1934,16 @@ def solution(common):
     return common[-1]+b-a if a+c==b*2 else common[-1]*b//a
 ```
 
+
+
+## 분수의 덧셈
+
+```python
+def solution(numer1, denom1, numer2, denom2):
+    from math import gcd
+    x = denom1*denom2//gcd(denom1, denom2)
+    y = numer1*x//denom1+numer2*x//denom2
+    z = gcd(x, y)
+    return [y//z, x//z]
+```
+
