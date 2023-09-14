@@ -1125,3 +1125,14 @@ def solution(wallpaper):
     return [min(x), min(y), max(x)+1, max(y)+1]
 ```
 
+
+
+## 추억 점수
+
+```python
+def solution(name, yearning, photo):
+    dic = {}
+    for i in range(len(name)): dic[name[i]] = yearning[i]        
+    return [sum(dic[x] for x in p if x in dic) for p in photo]
+```
+
