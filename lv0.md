@@ -1947,3 +1947,16 @@ def solution(numer1, denom1, numer2, denom2):
     return [y//z, x//z]
 ```
 
+
+
+## 수열과 구간 쿼리 2
+
+```python
+def solution(arr, queries):
+    result = []
+    for s, e, k in queries:
+        x = [arr[i] for i in range(s, e+1) if arr[i]>k]
+        result.append(min(x) if x else -1)
+    return result
+```
+
