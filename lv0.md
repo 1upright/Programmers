@@ -1960,3 +1960,14 @@ def solution(arr, queries):
     return result
 ```
 
+
+
+## 외계어 사전
+
+```python
+def solution(spell, dic):
+    for d in dic:
+        if all(x in d for x in spell): return 1
+    return 2
+```
+
