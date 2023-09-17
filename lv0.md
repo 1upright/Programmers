@@ -1971,3 +1971,18 @@ def solution(spell, dic):
     return 2
 ```
 
+
+
+## 달리기 경주
+
+```python
+def solution(players, callings):
+    ranking = {v:i for i, v in enumerate(players)}
+    for calling in callings:
+        i = ranking[calling]
+        ranking[calling], ranking[players[i-1]] = i-1, i
+        players[i], players[i-1] = players[i-1], players[i]
+        
+    return players
+```
+
