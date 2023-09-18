@@ -1136,3 +1136,39 @@ def solution(name, yearning, photo):
     return [sum(dic[x] for x in p if x in dic) for p in photo]
 ```
 
+
+
+## 공원 산책
+
+```python
+def solution(park, routes):
+    n, m = len(park), len(park[0])
+    for i in range(n):
+        for j in range(m):
+            if park[i][j] == 'S':
+                ni, nj = i, j
+                break
+    
+    for route in routes:
+        d, move = route.split()
+        move = int(move)
+        
+        if d == 'N':
+            if 0<=ni-move and 'X' not in [park[i][nj] for i in range(ni-move, ni)]:
+                ni -= move
+        
+        elif d == 'S':
+            if ni+move<n and 'X' not in [park[i][nj] for i in range(ni+1, ni+move+1)]:
+                ni += move
+            
+        elif d == 'W':
+            if 0<=nj-move and 'X' not in park[ni][nj-move:nj]:
+                nj -= move
+        
+        elif d == 'E':
+            if nj+move<m and 'X' not in park[ni][nj+1:nj+move+1]:
+                nj += move
+    
+    return [ni, nj]
+```
+
