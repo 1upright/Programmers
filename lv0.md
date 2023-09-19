@@ -1986,3 +1986,14 @@ def solution(players, callings):
     return players
 ```
 
+
+
+## 그림 확대
+
+```python
+def solution(picture, k):
+    answer = []
+    for p in picture: answer.extend(["".join(x*k for x in p)]*k)
+    return answer
+```
+
