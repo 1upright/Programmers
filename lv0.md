@@ -1997,3 +1997,13 @@ def solution(picture, k):
     return answer
 ```
 
+
+
+## 직사각형 넓이 구하기
+
+```python
+def solution(dots):
+    l, r = min(dots), max(dots)
+    return (r[0]-l[0])*(r[1]-l[1])
+```
+
