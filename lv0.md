@@ -2007,3 +2007,21 @@ def solution(dots):
     return (r[0]-l[0])*(r[1]-l[1])
 ```
 
+
+
+## 캐릭터의 좌표
+
+```python
+def solution(keyinput, board):
+    move = {"up":(0,1),"down":(0,-1),"left":(-1,0),"right":(1,0)}
+    i = j = 0
+    bi, bj = board[0]//2, board[1]//2
+    for key in keyinput:
+        di, dj = move[key]
+        if -bi<=i+di<=bi:
+            i += di
+        if -bj<=j+dj<=bj:
+            j += dj
+    return [i, j]
+```
+
