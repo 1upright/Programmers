@@ -2025,3 +2025,14 @@ def solution(keyinput, board):
     return [i, j]
 ```
 
+
+
+## 로그인 성공?
+
+```python
+def solution(id_pw, db):
+    dic = {i:p for i, p in db}
+    id_, pw_ = id_pw
+    return "fail" if id_ not in dic else "login" if dic[id_]==pw_ else "wrong pw"
+```
+
