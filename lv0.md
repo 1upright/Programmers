@@ -2036,3 +2036,13 @@ def solution(id_pw, db):
     return "fail" if id_ not in dic else "login" if dic[id_]==pw_ else "wrong pw"
 ```
 
+
+
+## 등수 매기기
+
+```python
+def solution(score):
+    arr = [sum(x) for x in score]
+    arr2 = sorted(arr, reverse=True)
+    return [arr2.index(x)+1 for x in arr]
+```
