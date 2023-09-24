@@ -2046,3 +2046,13 @@ def solution(score):
     arr2 = sorted(arr, reverse=True)
     return [arr2.index(x)+1 for x in arr]
 ```
+
+
+
+## 치킨 쿠폰
+
+```python
+def solution(chicken):
+    return (chicken-1)//9 if chicken else 0
+```
+
