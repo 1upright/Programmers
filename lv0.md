@@ -2056,3 +2056,16 @@ def solution(chicken):
     return (chicken-1)//9 if chicken else 0
 ```
 
+
+
+## 유한소수 판별하기
+
+```python
+def solution(a, b):
+    from math import gcd
+    c = b//gcd(a, b)
+    while not c%2: c //= 2
+    while not c%5: c //= 5
+    return 1 if c==1 else 2
+```
+
