@@ -2069,3 +2069,17 @@ def solution(a, b):
     return 1 if c==1 else 2
 ```
 
+
+
+## 문자열 밀기
+
+```python
+def solution(A, B):
+    result = 0
+    while result < len(A):
+        if A == B: return result
+        A = A[-1] + A[:-1]
+        result += 1
+    return -1
+```
+
