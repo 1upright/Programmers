@@ -2042,3 +2042,26 @@ def solution(board):
     return 1
 ```
 
+
+
+## 연속된 부분 수열의 합
+
+```python
+def solution(sequence, k):
+    l, r, check, n, result = 0, -1, 0, len(sequence), []
+    
+    while 1:
+        if check<k:
+            r += 1
+            if r>=n: break
+            check += sequence[r]
+        else:
+            check -= sequence[l]
+            l += 1
+            if l>=n: break
+        if check==k:
+            result.append([l, r])
+
+    return sorted(result, key=lambda x: (x[1]-x[0], x[0]))[0]
+```
+
