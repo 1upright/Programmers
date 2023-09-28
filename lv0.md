@@ -2083,3 +2083,13 @@ def solution(A, B):
     return -1
 ```
 
+
+
+## 전국 대회 선발 고사
+
+```python
+def solution(rank, attendance):
+    arr = [rank.index(x) for x in range(1, len(rank)+1) if attendance[rank.index(x)]]
+    return arr[0]*10000+arr[1]*100+arr[2]
+```
+
