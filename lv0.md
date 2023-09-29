@@ -2093,3 +2093,18 @@ def solution(rank, attendance):
     return arr[0]*10000+arr[1]*100+arr[2]
 ```
 
+
+
+## 저주의 숫자 3
+
+```python
+def solution(n):
+    answer = 0
+    while n:
+        answer += 1
+        if '3' in str(answer) or not answer%3:
+            continue
+        n -= 1
+    return answer
+```
+
