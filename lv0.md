@@ -2126,3 +2126,26 @@ def solution(l, r):
     return [x for x in range(l, r+1) if not set(str(x)) & set(['1', '2', '3', '4', '6', '7', '8', '9'])] or [-1]
 ```
 
+
+
+## 다항식 더하기
+
+```python
+def solution(polynomial):
+    arr = polynomial.split(' + ')
+    a = b = 0
+    for x in arr:
+        if 'x' in x:
+            a += int(x[:-1] or '1')
+        else:
+            b += int(x)
+    
+    if a and b:
+        return 'x + '+str(b) if a==1 else str(a)+'x + '+str(b)
+    if a:
+        return 'x' if a==1 else str(a)+'x'
+    if b:
+        return str(b)
+    return 0
+```
+
