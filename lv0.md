@@ -2117,3 +2117,12 @@ def solution(numlist, n):
     return sorted(numlist, key=lambda x: (abs(x-n), -x))
 ```
 
+
+
+## 배열 만들기 2
+
+```python
+def solution(l, r):
+    return [x for x in range(l, r+1) if not set(str(x)) & set(['1', '2', '3', '4', '6', '7', '8', '9'])] or [-1]
+```
+
