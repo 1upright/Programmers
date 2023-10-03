@@ -2167,3 +2167,16 @@ def solution(code):
     return ret or "EMPTY"
 ```
 
+
+
+## OX퀴즈
+
+```python
+def solution(quiz):
+    answer = []
+    for q in quiz:
+        a, b = q.split(" = ")
+        answer.append('O' if eval(a)==int(b) else 'X')
+    return answer
+```
+
