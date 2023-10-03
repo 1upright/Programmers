@@ -2149,3 +2149,21 @@ def solution(polynomial):
     return 0
 ```
 
+
+
+## 코드 처리하기
+
+```python
+def solution(code):
+    mode = 0
+    ret = ''
+    for i, v in enumerate(code):
+        if v == '1':
+            mode = (mode-1)*(-1)
+        elif mode == 0 and not i%2:
+            ret += v
+        elif mode == 1 and i%2:
+            ret += v
+    return ret or "EMPTY"
+```
+
