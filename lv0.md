@@ -2180,3 +2180,14 @@ def solution(quiz):
     return answer
 ```
 
+
+
+## 배열 조각하기
+
+```python
+def solution(arr, query):
+    for i, v in enumerate(query):
+        arr = arr[v:] if i%2 else arr[:v+1]
+    return arr
+```
+
