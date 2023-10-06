@@ -2191,3 +2191,13 @@ def solution(arr, query):
     return arr
 ```
 
+
+
+## 연속된 수의 합
+
+```python
+def solution(num, total):
+    a, b = total//num, num//2
+    return list(range(a-b+1-num%2, a+b+1))
+```
+
