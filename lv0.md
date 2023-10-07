@@ -2201,3 +2201,28 @@ def solution(num, total):
     return list(range(a-b+1-num%2, a+b+1))
 ```
 
+
+
+## 안전지대
+
+```python
+def solution(board):
+    d = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, -1), (-1, 1)]
+    n = len(board)
+    for i in range(n):
+        for j in range(n):
+            if board[i][j] == 1:
+                for di, dj in d:
+                    ni, nj = i+di, j+dj
+                    if 0<=ni<n and 0<=nj<n and not board[ni][nj]:
+                        board[ni][nj] = 2
+    
+    cnt = 0
+    for i in range(n):
+        for j in range(n):
+            if not board[i][j]:
+                cnt += 1
+    
+    return cnt
+```
+
