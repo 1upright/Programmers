@@ -2226,3 +2226,30 @@ def solution(board):
     return cnt
 ```
 
+
+
+## 주사위 게임 3
+
+```python
+def solution(a, b, c, d):
+    from collections import Counter
+    n = len(set([a, b, c, d]))
+    if n==1:
+        return a*1111
+    if n==4:
+        return min(a, b, c, d)
+    
+    cnt = Counter([a, b, c, d])
+    cnts = sorted([(cnt[x], x) for x in cnt])
+
+    if n==3:
+        q, r, p = [c[1] for c in cnts]
+        return q*r
+    if n==2:
+        if cnts[0][0]==2:
+            p, q = [c[1] for c in cnts]
+            return (p+q)*abs(p-q)
+        q, p = [c[1] for c in cnts]
+        return (10*p+q)**2
+```
+
