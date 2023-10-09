@@ -2253,3 +2253,22 @@ def solution(a, b, c, d):
         return (10*p+q)**2
 ```
 
+
+
+## 겹치는 선분의 길이
+
+```python
+def solution(lines):
+    cnt = [0]*201
+    for s, e in lines:
+        for i in range(s, e):
+            cnt[i+100] += 1
+    
+    result = 0
+    for x in cnt:
+        if x>1:
+            result += 1
+    
+    return result
+```
+
