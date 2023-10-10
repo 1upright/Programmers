@@ -2272,3 +2272,17 @@ def solution(lines):
     return result
 ```
 
+
+
+## 옹알이 (1)
+
+```python
+def solution(babbling):
+    cnt = 0
+    for b in babbling:
+        for x in ["aya", "ye", "woo", "ma"]:
+            b = b.replace(x, "*")
+        if not b.replace("*", ""): cnt += 1
+    return cnt
+```
+
