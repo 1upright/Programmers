@@ -2065,3 +2065,37 @@ def solution(sequence, k):
     return sorted(result, key=lambda x: (x[1]-x[0], x[0]))[0]
 ```
 
+
+
+## 리코쳇 로봇
+
+```python
+def solution(board):
+    from collections import deque
+    
+    n, m = len(board), len(board[0])
+    q = deque()
+    visited = [[-1]*m for _ in range(n)]
+    
+    for i in range(n):
+        for j in range(m):
+            if board[i][j]=='R':
+                q.append((i, j))
+                visited[i][j] = 0
+            elif board[i][j]=='G':
+                gi, gj = i, j
+    
+    while q:
+        i, j = q.popleft()
+        for di, dj in [(-1, 0), (1, 0), (0, 1), (0, -1)]:
+            ni, nj = i, j
+            while 0<=ni+di<n and 0<=nj+dj<m and board[ni+di][nj+dj] != 'D':
+                ni += di
+                nj += dj
+            if visited[ni][nj] == -1:
+                q.append((ni, nj))
+                visited[ni][nj] = visited[i][j]+1
+    
+    return visited[gi][gj]
+```
+
