@@ -2099,3 +2099,39 @@ def solution(board):
     return visited[gi][gj]
 ```
 
+
+
+## 광물 캐기
+
+```python
+def solution(picks, minerals):
+    from itertools import permutations
+    
+    minerals.extend([""]*(5-len(minerals)%5))
+    n = min(sum(picks), len(minerals)//5)
+    uses = []
+    while len(uses)<n:
+        if picks[0]:
+            picks[0] -= 1
+            uses.append("diamond")
+        elif picks[1]:
+            picks[1] -= 1
+            uses.append("iron")
+        elif picks[2]:
+            picks[2] -= 1
+            uses.append("stone")
+    
+    answer = 50*25
+    dic = {("diamond", "diamond"):1, ("diamond", "iron"):1, ("diamond", "stone"):1, ("iron", "diamond"):5, ("iron", "iron"):1, ("iron", "stone"):1, ("stone", "diamond"):25, ("stone", "iron"):5, ("stone", "stone"):1}
+    for per in set(permutations(uses, n)):
+        fatigue = 0
+        for i, v in enumerate(per):
+            for j in range(i*5, i*5+5):
+                if minerals[j]:
+                    fatigue += dic[(v, minerals[j])]
+        
+        answer = min(answer, fatigue)
+    
+    return answer
+```
+
