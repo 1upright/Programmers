@@ -2296,3 +2296,26 @@ def solution(dots):
     return int((a-c)/(b-d)==(e-g)/(f-h) or (a-e)/(b-f)==(c-g)/(d-h) or ((a-g)/(b-h)==(c-e)/(d-f)))
 ```
 
+
+
+## 정수를 나선형으로 배치하기
+
+```python
+def solution(n):
+    arr = [[0]*n for _ in range(n)]
+    d = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+    
+    num = i = j = idx = 0
+    num += 1
+    while num<=n**2:
+        di, dj = d[idx]
+        if not 0<=i+di<n or not 0<=j+dj<n or arr[i+di][j+dj]:
+            idx = (idx+1)%4
+        di, dj = d[idx]
+        arr[i][j] = num
+        i += di
+        j += dj
+        num += 1
+            
+    return arr
+```
