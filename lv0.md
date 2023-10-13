@@ -2286,3 +2286,13 @@ def solution(babbling):
     return cnt
 ```
 
+
+
+## 평행
+
+```python
+def solution(dots):
+    [a, b], [c, d], [e, f], [g, h] = dots
+    return int((a-c)/(b-d)==(e-g)/(f-h) or (a-e)/(b-f)==(c-g)/(d-h) or ((a-g)/(b-h)==(c-e)/(d-f)))
+```
+
