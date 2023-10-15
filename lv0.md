@@ -2319,3 +2319,20 @@ def solution(n):
             
     return arr
 ```
+
+
+
+## 두 원 사이의 정수 쌍
+
+```python
+def solution(r1, r2):
+    answer = (r2-r1+1)*2
+    for x in range(1, r2+1):
+        a = int((r2**2-x**2)**0.5)*2+1
+        if x<r1:
+            b = (r1**2-x**2)**0.5
+            a -= b*2-1 if b==int(b) else int(b)*2+1
+        answer += a*2
+    return answer
+```
+
