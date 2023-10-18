@@ -538,3 +538,15 @@ SELECT car_id,
     END) AS availability FROM car_rental_company_rental_history
     GROUP BY 1 ORDER BY 1 DESC;
 ```
+
+
+
+## 자동차 평균 대여 기간 구하기
+
+```mysql
+SELECT car_id, ROUND(AVG(DATEDIFF(end_date, start_date))+1, 1) AS average_duration FROM car_rental_company_rental_history
+    GROUP BY 1
+    HAVING average_duration>=7
+    ORDER BY 2 DESC, 1 DESC;
+```
+
