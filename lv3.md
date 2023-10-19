@@ -1108,3 +1108,15 @@ def solution(matrix_sizes):
     return dp[0][-1]
 ```
 
+
+
+## 연속 펄스 부분 수열의 합
+
+```python
+def solution(sequence):
+    sums = [0]
+    for i, v in enumerate(sequence):
+        sums.append(sums[-1]+v*(i%2*2-1))
+    return max(sums)-min(sums)
+```
+
