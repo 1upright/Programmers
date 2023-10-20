@@ -2135,3 +2135,39 @@ def solution(picks, minerals):
     return answer
 ```
 
+
+
+## 과제 진행하기
+
+```python
+def solution(plans):
+    plans.sort(key = lambda x: x[1])
+    for plan in plans:
+        n, s, pt = plan
+        h, m = s.split(":")
+        plan[1] = int(h)*60+int(m)
+        plan[2] = int(pt)
+
+    result, stack, now = [], [plans[0]], plans[0][1]
+    for plan in plans[1:]:
+        nxt = plan[1]
+        while stack:
+            n, s, pt = stack.pop()
+            if now < s: now = s
+            
+            if now + pt <= nxt:
+                now += pt
+                result.append(n)
+            else:
+                stack.append([n, s, now+pt-nxt])
+                now = nxt
+                break
+        
+        stack.append(plan)
+
+    while stack:
+        result.append(stack.pop()[0])
+    
+    return result
+```
+
