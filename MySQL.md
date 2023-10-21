@@ -550,3 +550,14 @@ SELECT car_id, ROUND(AVG(DATEDIFF(end_date, start_date))+1, 1) AS average_durati
     ORDER BY 2 DESC, 1 DESC;
 ```
 
+
+
+## 조건에 부합하는 중고거래 댓글 조회하기
+
+```mysql
+SELECT b.title, b.board_id, r.reply_id, r.writer_id, r.contents, DATE_FORMAT(r.created_date, '%Y-%m-%d') AS created_date
+FROM used_goods_board b JOIN used_goods_reply r ON b.board_id=r.board_id
+WHERE b.created_date LIKE '2022-10%'
+ORDER BY created_date, b.title;
+```
+
