@@ -572,3 +572,15 @@ WHERE a.apnt_ymd LIKE '2022-04-13%' AND a.mcdp_cd = 'CS' AND a.apnt_cncl_yn = 'N
 ORDER BY 6;
 ```
 
+
+
+## 년, 월, 성별 별 상품 구매 회원 수 구하기
+
+```mysql
+SELECT YEAR(s.sales_date) AS year, MONTH(s.sales_date) AS month, u.gender, COUNT(DISTINCT u.user_id) AS user
+FROM user_info u JOIN online_sale s ON s.user_id=u.user_id
+WHERE u.gender IS NOT NULL
+GROUP BY 1, 2, 3
+ORDER BY 1, 2, 3;
+```
+
