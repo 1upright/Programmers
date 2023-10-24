@@ -2171,3 +2171,19 @@ def solution(plans):
     return result
 ```
 
+
+
+## 요격 시스템
+
+```python
+def solution(targets):
+    cnt = now = 0
+    for s, e in sorted(targets):
+        if s < now:
+            now = min(now, e)
+        else:
+            cnt += 1
+            now = e
+    return cnt
+```
+
