@@ -584,3 +584,14 @@ GROUP BY 1, 2, 3
 ORDER BY 1, 2, 3;
 ```
 
+
+
+## 서울에 위치한 식당 목록 출력하기
+
+```mysql
+SELECT i.rest_id, i.rest_name, i.food_type, i.favorites, i.address, ROUND(AVG(r.review_score), 2) AS score
+FROM rest_review r JOIN rest_info i ON r.rest_id=i.rest_id
+WHERE i.address LIKE '서울%'
+GROUP BY 1 ORDER BY 6 DESC, 4 DESC;
+```
+
