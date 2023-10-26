@@ -595,3 +595,13 @@ WHERE i.address LIKE '서울%'
 GROUP BY 1 ORDER BY 6 DESC, 4 DESC;
 ```
 
+
+
+## 헤비 유저가 소유한 장소
+
+```mysql
+SELECT * FROM places
+WHERE host_id in (SELECT host_id FROM places GROUP BY host_id HAVING COUNT(*)>1)
+ORDER BY id;
+```
+
