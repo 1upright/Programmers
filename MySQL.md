@@ -605,3 +605,12 @@ WHERE host_id in (SELECT host_id FROM places GROUP BY host_id HAVING COUNT(*)>1)
 ORDER BY id;
 ```
 
+
+
+## 주문량이 많은 아이스크림들 조회하기
+
+```mysql
+SELECT f.flavor FROM first_half f JOIN july j ON f.flavor=j.flavor
+GROUP BY flavor ORDER BY SUM(f.total_order) + SUM(j.total_order) DESC LIMIT 3;
+```
+
