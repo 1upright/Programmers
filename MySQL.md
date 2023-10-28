@@ -614,3 +614,17 @@ SELECT f.flavor FROM first_half f JOIN july j ON f.flavor=j.flavor
 GROUP BY flavor ORDER BY SUM(f.total_order) + SUM(j.total_order) DESC LIMIT 3;
 ```
 
+
+
+## 대여 횟수가 많은 자동차들의 월별 대여 횟수 구하기
+
+```mysql
+SELECT MONTH(start_date) AS month, car_id, COUNT(history_id) AS records FROM car_rental_company_rental_history
+WHERE car_id in (SELECT car_id FROM car_rental_company_rental_history
+                WHERE start_date BETWEEN '2022-08-01' AND '2022-10-31'
+                GROUP BY 1 HAVING COUNT(car_id)>=5)
+AND start_date BETWEEN '2022-08-01' AND '2022-10-31'
+GROUP BY 1, 2
+ORDER BY 1, 2 DESC;
+```
+
