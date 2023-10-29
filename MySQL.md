@@ -628,3 +628,16 @@ GROUP BY 1, 2
 ORDER BY 1, 2 DESC;
 ```
 
+
+
+## 오프라인/온라인 판매 데이터 통합하기
+
+```mysql
+SELECT DATE_FORMAT(sales_date, "%Y-%m-%d") AS sales_date, product_id, user_id, sales_amount FROM online_sale
+WHERE sales_date BETWEEN "2022-03-01" AND "2022-03-31"
+UNION ALL
+SELECT DATE_FORMAT(sales_date, "%Y-%m-%d") AS sales_date, product_id, NULL AS user_id, sales_amount FROM offline_sale
+WHERE sales_date BETWEEN "2022-03-01" AND "2022-03-31"
+ORDER BY 1, 2, 3;
+```
+
