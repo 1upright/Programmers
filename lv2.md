@@ -2187,3 +2187,23 @@ def solution(targets):
     return cnt
 ```
 
+
+
+## 당구 연습
+
+```python
+def solution(m, n, startX, startY, balls):
+    reverses = [[-startX, startY], [startX, -startY], [m*2-startX, startY], [startX, n*2-startY]]
+    result = []
+    for x, y in balls:
+        distances = [(x-a)**2+(y-b)**2 for a, b in reverses]
+        if x==startX:
+            if y<startY: distances[1] = float('inf')
+            elif y>startY: distances[3] = float('inf')
+        elif y==startY:
+            if x<startX: distances[0] = float('inf')
+            elif x>startX: distances[2] = float('inf')
+        result.append(min(distances))
+    return result
+```
+
