@@ -641,3 +641,14 @@ WHERE sales_date BETWEEN "2022-03-01" AND "2022-03-31"
 ORDER BY 1, 2, 3;
 ```
 
+
+
+## 그룹별 조건에 맞는 식당 목록 출력하기
+
+```mysql
+SELECT p.member_name, r.review_text, DATE_FORMAT(r.review_date, '%Y-%m-%d') AS review_date
+FROM member_profile p JOIN rest_review r ON p.member_id=r.member_id
+WHERE p.member_id IN (SELECT * FROM (SELECT member_id FROM rest_review GROUP BY member_id ORDER BY COUNT(*) DESC LIMIT 1) AS sub)
+ORDER BY 3, 2;
+```
+
