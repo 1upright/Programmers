@@ -652,3 +652,13 @@ WHERE p.member_id IN (SELECT * FROM (SELECT member_id FROM rest_review GROUP BY 
 ORDER BY 3, 2;
 ```
 
+
+
+## 우유와 요거트가 담긴 장바구니
+
+```mysql
+SELECT cart_id FROM cart_products WHERE name='Milk' AND
+cart_id IN (SELECT cart_id FROM cart_products WHERE name='Yogurt')
+ORDER BY 1;
+```
+
