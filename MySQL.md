@@ -662,3 +662,14 @@ cart_id IN (SELECT cart_id FROM cart_products WHERE name='Yogurt')
 ORDER BY 1;
 ```
 
+
+
+## 조회수가 가장 많은 중고거래 게시판의 첨부파일 조회하기
+
+```mysql
+SELECT CONCAT("/home/grep/src/", board_id, "/", file_id, file_name, file_ext) file_path
+FROM used_goods_file
+WHERE board_id=(SELECT board_id FROM used_goods_board ORDER BY views DESC LIMIT 1)
+ORDER BY file_id DESC;
+```
+
