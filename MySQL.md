@@ -673,3 +673,16 @@ WHERE board_id=(SELECT board_id FROM used_goods_board ORDER BY views DESC LIMIT 
 ORDER BY file_id DESC;
 ```
 
+
+
+## 저자 별 카테고리 별 매출액 집계하기
+
+```mysql
+SELECT b.author_id, a.author_name, b.category, SUM(s.sales*b.price) total_sales
+FROM book b JOIN author a ON b.author_id=a.author_id
+JOIN book_sales s ON b.book_id=s.book_id
+WHERE DATE_FORMAT(s.sales_date,'%Y-%m') = '2022-01'
+GROUP BY 1, 3
+ORDER BY 1, 3 DESC;
+```
+
