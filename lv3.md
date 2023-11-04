@@ -1120,3 +1120,42 @@ def solution(sequence):
     return max(sums)-min(sums)
 ```
 
+
+
+## 광고 삽입
+
+```python
+def time_cal(time):
+    h, m, s = time.split(":")
+    return int(h)*3600+int(m)*60+int(s)
+
+def solution(play_time, adv_time, logs):
+    logs2 = [tuple(map(time_cal, log.split("-"))) for log in logs]
+    pt, at = time_cal(play_time), time_cal(adv_time)
+    arr = [0]*(pt+1)
+    for s, e in logs2:
+        arr[s] += 1
+        arr[e] -= 1
+    
+    for i in range(pt):
+        arr[i+1] += arr[i]
+    
+    pre_sum = [0]
+    cnt = 0
+    for x in arr:
+        cnt += x
+        pre_sum.append(cnt)
+    
+    max_val = answer = 0
+    for i in range(pt-at+1):
+        val = pre_sum[i+at]-pre_sum[i]
+        if val > max_val:
+            max_val = val
+            answer = i
+    
+    h, answer = divmod(answer, 3600)
+    m, answer = divmod(answer, 60)
+    s = answer
+    return str(h).zfill(2)+':'+str(m).zfill(2)+':'+str(s).zfill(2)
+```
+
