@@ -686,3 +686,21 @@ GROUP BY 1, 3
 ORDER BY 1, 3 DESC;
 ```
 
+
+
+## 입양 시각 구하기(2)
+
+```mysql
+WITH RECURSIVE cte AS (
+    SELECT 0 AS num
+    UNION ALL
+    SELECT num+1
+    FROM cte
+    WHERE num < 23
+)
+
+SELECT cte.num hour, IFNULL(o.cnt, 0) FROM cte
+LEFT JOIN (SELECT HOUR(datetime) date, COUNT(*) cnt FROM animal_outs GROUP BY date) o ON cte.num=o.date
+ORDER BY 1;
+```
+
