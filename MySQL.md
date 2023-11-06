@@ -704,3 +704,23 @@ LEFT JOIN (SELECT HOUR(datetime) date, COUNT(*) cnt FROM animal_outs GROUP BY da
 ORDER BY 1;
 ```
 
+
+
+## 특정 기간동안 대여 가능한 자동차들의 대여비용 구하기
+
+```mysql
+SELECT c.car_id, c.car_type, ROUND(c.daily_fee*(100-p.discount_rate)/100*30, 0) fee
+FROM car_rental_company_car AS c
+JOIN car_rental_company_discount_plan AS p
+ON c.car_type = p.car_type
+WHERE c.car_type IN ('세단', 'SUV')
+    AND p.duration_type = '30일 이상'
+    AND c.daily_fee*(100-p.discount_rate)/100*30 BETWEEN 500000 AND 2000000
+    AND c.car_id NOT IN (
+        SELECT car_id
+        FROM car_rental_company_rental_history
+        WHERE end_date >= '2022-11-01' AND start_date < '2022-12-01'
+)
+ORDER BY 3 DESC, 2, 1 DESC;
+```
+
