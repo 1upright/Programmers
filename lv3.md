@@ -1159,3 +1159,29 @@ def solution(play_time, adv_time, logs):
     return str(h).zfill(2)+':'+str(m).zfill(2)+':'+str(s).zfill(2)
 ```
 
+
+
+## 양과 늑대
+
+```python
+def solution(info, edges):
+    def dfs(sheep, wolf):
+        nonlocal answer
+        if sheep>wolf:
+            answer = max(answer, sheep)
+            for u, v in edges:
+                if visited[u] and not visited[v]:
+                    visited[v] = 1
+                    if info[v]:
+                        dfs(sheep, wolf+1)
+                    else:
+                        dfs(sheep+1, wolf)
+                    visited[v] = 0
+    
+    visited = [0]*len(info)
+    visited[0] = 1
+    answer = 0
+    dfs(1, 0)
+    return answer
+```
+
