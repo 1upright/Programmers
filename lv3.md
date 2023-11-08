@@ -1185,3 +1185,31 @@ def solution(info, edges):
     return answer
 ```
 
+
+
+## 외벽 점검
+
+```python
+def solution(n, weak, dist):
+    from itertools import permutations
+    
+    dist.sort()
+    m, l = len(weak), len(dist)
+    weak2 = weak + [w+n for w in weak]
+    for i in range(l):
+        for per in permutations(dist[l-i-1:]):
+            for j in range(m):
+                d = list(per)
+                w = weak2[j:j+m][::-1]
+                
+                while d and w:
+                    can = d.pop()+w.pop()
+                    while w and w[-1]<=can:
+                        w.pop()
+                
+                if not w:
+                    return i+1
+    
+    return -1
+```
+
