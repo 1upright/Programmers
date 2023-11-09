@@ -724,3 +724,20 @@ WHERE c.car_type IN ('세단', 'SUV')
 ORDER BY 3 DESC, 2, 1 DESC;
 ```
 
+
+
+## 자동차 대여 기록 별 대여 금액 구하기
+
+```mysql
+SELECT h.history_id, (CASE WHEN h.rental_diff<7 THEN ROUND(c.daily_fee*h.rental_diff, 0) ELSE ROUND(c.daily_fee*(1-p.discount_rate/100)*h.rental_diff, 0) END) fee
+FROM (SELECT history_id, car_id, DATEDIFF(end_date, start_date)+1 rental_diff,
+      (CASE WHEN DATEDIFF(end_date, start_date)+1 BETWEEN 7 AND 29 THEN '7일 이상'
+      WHEN DATEDIFF(end_date, start_date)+1 BETWEEN 30 AND 89 THEN '30일 이상'
+      WHEN DATEDIFF(end_date, start_date)+1 >= 90 THEN '90일 이상' END) duration_type
+     FROM car_rental_company_rental_history) h
+JOIN car_rental_company_car c ON h.car_id=c.car_id
+LEFT JOIN car_rental_company_discount_plan p ON c.car_type=p.car_type AND h.duration_type=p.duration_type
+WHERE c.car_type='트럭'
+ORDER BY 2 DESC, 1 DESC;
+```
+
