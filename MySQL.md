@@ -741,3 +741,16 @@ WHERE c.car_type='트럭'
 ORDER BY 2 DESC, 1 DESC;
 ```
 
+
+
+## 상품을 구매한 회원 비율 구하기
+
+```mysql
+SELECT YEAR(sales_date) year, MONTH(sales_date) month, COUNT(DISTINCT(user_id)) puchased_users,
+ROUND(COUNT(DISTINCT(user_id))/(SELECT COUNT(DISTINCT(user_id)) FROM user_info WHERE YEAR(joined)='2021'), 1) purchased_ration
+FROM online_sale
+WHERE user_id IN (SELECT DISTINCT(user_id) FROM user_info WHERE YEAR(joined)='2021')
+GROUP BY 1, 2
+ORDER BY 1 ,2;
+```
+
