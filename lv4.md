@@ -106,3 +106,45 @@ def solution(cookie):
     return answer
 ```
 
+
+
+## 자동완성
+
+```python
+## 시간 초과
+def solution(words):
+    from collections import defaultdict
+    dic = defaultdict(int)
+    for word in words:
+        for i in range(len(word)):
+            dic[word[:i+1]] += 1
+    
+    cnt = 0
+    for word in words:
+        for i in range(len(word)):
+            if dic[word[:i+1]]==1:
+                cnt += i+1
+                break
+        else:
+            cnt += len(word)
+    return cnt
+  
+## 정답
+def get_prefix_len(x, y):
+    for i in range(len(x)):
+        if not y.startswith(x[:i+1]):
+            return i+1
+    return len(x)
+
+def solution(words):
+    n = len(words)
+    words.sort()
+    words = [""]+words+[""]
+    cnt = 0
+    for i in range(1, n+1):
+        now = words[i]
+        prv, nxt = words[i-1], words[i+1]
+        cnt += max(get_prefix_len(now, prv), get_prefix_len(now, nxt))
+    return cnt
+```
+
