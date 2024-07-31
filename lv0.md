@@ -2378,3 +2378,15 @@ while money < 100:
 print(month)
 ```
 
+
+
+## 피타고라스의 정리
+
+```python
+a = int(input())
+c = int(input())
+
+b_square = c**2 - a**2
+print(b_square)
+```
+
