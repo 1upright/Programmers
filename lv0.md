@@ -2390,3 +2390,19 @@ b_square = c**2 - a**2
 print(b_square)
 ```
 
+
+
+## 나이 계산
+
+```python
+year = int(input())
+age_type = input()
+
+if age_type == "Korea":
+  answer = 2031 - year
+elif age_type == "Year":
+  answer = 2030 - year
+
+print(answer)
+```
+
