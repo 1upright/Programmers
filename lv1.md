@@ -1172,3 +1172,132 @@ def solution(park, routes):
     return [ni, nj]
 ```
 
+
+
+## 지폐 접기
+
+```python
+def solution(wallet, bill):
+    answer = 0
+    wallet.sort()
+    bill.sort()
+    
+    while bill[0]>wallet[0] or bill[1]>wallet[1]:
+        bill[1] = bill[1]//2
+        answer += 1
+        bill.sort()
+    
+    return answer
+```
+
+
+
+## 이웃한 칸
+
+```python
+def solution(board, h, w):
+    n = len(board)
+    target = board[h][w]
+    answer = 0
+    for di, dj in [(-1,0),(1,0),(0,-1),(0,1)]:
+        ni, nj = h+di, w+dj
+        if 0<=ni<n and 0<=nj<n and board[ni][nj] == target:
+            answer += 1
+    
+    return answer
+```
+
+
+
+## 데이터 분석
+
+```python
+def solution(data, ext, val_ext, sort_by):
+    dic = {"code":0, "date":1, "maximum":2, "remain":3}
+    new_data = [d for d in data if d[dic[ext]]<val_ext]
+    
+    return sorted(new_data, key=lambda x: x[dic[sort_by]])
+```
+
+
+
+## 붕대 감기
+
+```python
+def solution(bandage, health, attacks):
+    attacks.reverse()
+    next_attack, next_damage = attacks.pop()
+    now = health
+    band_cnt = 0
+    for t in range(attacks[0][0]+1):
+        if t == next_attack:
+            now -= next_damage
+            band_cnt = 0
+            if now <= 0:
+                return -1
+            if attacks:
+                next_attack, next_damage = attacks.pop()
+        
+        else:
+            if now<health:
+                if band_cnt == bandage[0]-1:
+                    now += bandage[1]+bandage[2]
+                    band_cnt = 0
+                else:
+                    now += bandage[1]
+                    band_cnt += 1
+            
+            if now>health:
+                now = health
+        
+    return now
+
+## 다른 사람 풀이
+def solution(bandage, health, attacks):
+    hp = health
+    start = 1
+    for i, j in attacks:
+        hp += ((i - start) // bandage[0]) * bandage[2] + (i - start) * bandage[1]
+        start = i + 1
+        if hp >= health:
+            hp = health
+        hp -= j
+        if hp <= 0:
+            return -1
+    return hp
+```
+
+
+
+## 동영상 재생기
+
+```python
+def solution(video_len, pos, op_start, op_end, commands):
+    vl_data = video_len.split(':')
+    vl = int(vl_data[0])*60+int(vl_data[1])
+    
+    p_data = pos.split(':')
+    p = int(p_data[0])*60+int(p_data[1])
+    
+    os_data = op_start.split(':')
+    os = int(os_data[0])*60+int(os_data[1])
+    
+    oe_data = op_end.split(':')
+    oe = int(oe_data[0])*60+int(oe_data[1])
+    
+    if os<=p<=oe:
+        p = oe
+    
+    for c in commands:
+        if c == "next":
+            p = min(vl, p+10)
+        elif c == "prev":
+            p = max(0, p-10)
+            
+        if os<=p<=oe:
+            p = oe
+
+    m, s = divmod(p, 60)
+    return str(m).zfill(2)+':'+str(s).zfill(2)
+```
+
