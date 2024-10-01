@@ -2448,3 +2448,15 @@ def solution(mode_type, humidity, val_set):
     return answer
 ```
 
+
+
+## 각도 합치기
+
+```python
+angle1 = int(input())
+angle2 = int(input())
+
+sum_angle = angle1 + angle2
+print(sum_angle%360)
+```
+
