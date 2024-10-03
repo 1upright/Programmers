@@ -1301,3 +1301,19 @@ def solution(video_len, pos, op_start, op_end, commands):
     return str(m).zfill(2)+':'+str(s).zfill(2)
 ```
 
+
+
+## 공원
+
+```python
+def solution(mats, park):
+    for mat in sorted(mats, reverse=True):
+        if mat<=len(park) and mat<=len(park[0]):
+            for i in range(len(park)-mat+1):
+                for j in range(len(park[0])-mat+1):
+                    if [arr[j:j+mat] for arr in park[i:i+mat]] == [['-1']*mat for _ in range(mat)]:
+                        return mat
+
+    return -1
+```
+
