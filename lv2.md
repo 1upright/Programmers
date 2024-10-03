@@ -2271,3 +2271,51 @@ def solution(land):
     return answer
 ```
 
+
+
+## 충돌위험 찾기
+
+```python
+from collections import Counter
+
+def solution(points, routes):
+    points_dic = {i+1:v for i, v in enumerate(points)}
+    robot_routes = []
+    for route in routes:
+        robot_route = []
+        i, j = points_dic[route[0]]
+        for idx in range(1, len(route)):
+            ti, tj = points_dic[route[idx]]
+            
+            while i != ti:
+                robot_route.append((i, j))
+                if i > ti:
+                    i -= 1
+                else:
+                    i += 1
+            
+            while j != tj:
+                robot_route.append((i, j))
+                if j > tj:
+                    j -= 1
+                else:
+                    j += 1
+        
+        robot_route.append((i, j))
+        robot_routes.append(robot_route)
+    
+    answer = cnt = 0
+    
+    while robot_routes.count([]) != len(robot_routes):
+        robot_positions = []
+        for robot_route in robot_routes:
+            if robot_route:
+                robot_positions.append(robot_route.pop(0))
+        
+        for v in Counter(robot_positions).values():
+            if v > 1:
+                answer += 1    
+    
+    return answer
+```
+
