@@ -2207,3 +2207,24 @@ def solution(m, n, startX, startY, balls):
     return result
 ```
 
+
+
+## 퍼즐 게임 챌린지
+
+```python
+def solution(diffs, times, limit):
+    s, e = 1, max(diffs)
+    while s<e:
+        x = (s+e)//2
+        cnt = diffs[0]*times[0]
+        for i in range(1, len(diffs)):
+            cnt += times[i]+(times[i]+times[i-1])*max(0, diffs[i]-x)
+        
+        if cnt <= limit:
+            e = x
+        else:
+            s = x+1
+    
+    return s
+```
+
