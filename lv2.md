@@ -2228,3 +2228,46 @@ def solution(diffs, times, limit):
     return s
 ```
 
+
+
+## 석유 시추
+
+```python
+def solution(land):
+    from collections import deque
+    n, m = len(land), len(land[0])
+    visited = [[0]*m for _ in range(n)]
+    group_dic = {0:0}
+    group_num = 1
+    
+    for i in range(n):
+        for j in range(m):
+            if land[i][j] and not visited[i][j]:
+                cnt = 1
+                q = deque([(i, j)])
+                visited[i][j] = group_num
+                while q:
+                    si, sj = q.popleft()
+                    for di, dj in [(-1,0),(1,0),(0,1),(0,-1)]:
+                        ni, nj = si+di, sj+dj
+                        if 0<=ni<n and 0<=nj<m and land[ni][nj] and not visited[ni][nj]:
+                            visited[ni][nj] = group_num
+                            cnt += 1
+                            q.append((ni, nj))
+                group_dic[group_num] = cnt
+                group_num += 1
+    
+    answer = 0
+    for j in range(m):
+        groups = set()
+        for i in range(n):
+            groups.add(visited[i][j])
+        
+        oil_cnt = 0
+        for num in list(groups):
+            oil_cnt += group_dic[num]
+        answer = max(answer, oil_cnt)
+        
+    return answer
+```
+
